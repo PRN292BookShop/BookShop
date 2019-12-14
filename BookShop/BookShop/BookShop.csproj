@@ -67,13 +67,77 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="image\bg-images\home-2-slider-1.jpg" />
+    <Content Include="image\bg-images\home-2-slider-2.jpg" />
+    <Content Include="image\bg-images\promo-banner-contained.jpg" />
+    <Content Include="Pustok - Book Store HTML Template_files\ajax-mail.js" />
+    <Content Include="Pustok - Book Store HTML Template_files\blog-grid-1.jpg" />
+    <Content Include="Pustok - Book Store HTML Template_files\blog-grid-2.jpg" />
+    <Content Include="Pustok - Book Store HTML Template_files\blog-grid-3.jpg" />
+    <Content Include="Pustok - Book Store HTML Template_files\brand-1.jpg" />
+    <Content Include="Pustok - Book Store HTML Template_files\brand-2.jpg" />
+    <Content Include="Pustok - Book Store HTML Template_files\brand-3.jpg" />
+    <Content Include="Pustok - Book Store HTML Template_files\brand-4.jpg" />
+    <Content Include="Pustok - Book Store HTML Template_files\brand-5.jpg" />
+    <Content Include="Pustok - Book Store HTML Template_files\brand-6.jpg" />
+    <Content Include="Pustok - Book Store HTML Template_files\cart-product-1.jpg" />
+    <Content Include="Pustok - Book Store HTML Template_files\custom.js" />
+    <Content Include="Pustok - Book Store HTML Template_files\logo--footer.png" />
+    <Content Include="Pustok - Book Store HTML Template_files\logo.png" />
+    <Content Include="Pustok - Book Store HTML Template_files\main.css" />
+    <Content Include="Pustok - Book Store HTML Template_files\maps\animate.css" />
+    <Content Include="Pustok - Book Store HTML Template_files\maps\bootstrap.min.css" />
+    <Content Include="Pustok - Book Store HTML Template_files\maps\font-awesome.css" />
+    <Content Include="Pustok - Book Store HTML Template_files\maps\ion-fonts.css" />
+    <Content Include="Pustok - Book Store HTML Template_files\maps\jquery-ui.css" />
+    <Content Include="Pustok - Book Store HTML Template_files\maps\jquery.fancybox.min.css" />
+    <Content Include="Pustok - Book Store HTML Template_files\maps\material-design-iconic-font.css" />
+    <Content Include="Pustok - Book Store HTML Template_files\maps\meanmenu.css" />
+    <Content Include="Pustok - Book Store HTML Template_files\maps\nice-select.css" />
+    <Content Include="Pustok - Book Store HTML Template_files\maps\plugins.css" />
+    <Content Include="Pustok - Book Store HTML Template_files\maps\slick.css" />
+    <Content Include="Pustok - Book Store HTML Template_files\payment.png" />
+    <Content Include="Pustok - Book Store HTML Template_files\plugins.css" />
+    <Content Include="Pustok - Book Store HTML Template_files\plugins.js" />
+    <Content Include="Pustok - Book Store HTML Template_files\product-1.jpg" />
+    <Content Include="Pustok - Book Store HTML Template_files\product-10.jpg" />
+    <Content Include="Pustok - Book Store HTML Template_files\product-11.jpg" />
+    <Content Include="Pustok - Book Store HTML Template_files\product-12.jpg" />
+    <Content Include="Pustok - Book Store HTML Template_files\product-13.jpg" />
+    <Content Include="Pustok - Book Store HTML Template_files\product-2.jpg" />
+    <Content Include="Pustok - Book Store HTML Template_files\product-3.jpg" />
+    <Content Include="Pustok - Book Store HTML Template_files\product-4.jpg" />
+    <Content Include="Pustok - Book Store HTML Template_files\product-5.jpg" />
+    <Content Include="Pustok - Book Store HTML Template_files\product-6.jpg" />
+    <Content Include="Pustok - Book Store HTML Template_files\product-7.jpg" />
+    <Content Include="Pustok - Book Store HTML Template_files\product-8.jpg" />
+    <Content Include="Pustok - Book Store HTML Template_files\product-9.jpg" />
+    <Content Include="Pustok - Book Store HTML Template_files\product-details-1.jpg" />
+    <Content Include="Pustok - Book Store HTML Template_files\product-details-2.jpg" />
+    <Content Include="Pustok - Book Store HTML Template_files\product-details-3.jpg" />
+    <Content Include="Pustok - Book Store HTML Template_files\product-details-4.jpg" />
+    <Content Include="Pustok - Book Store HTML Template_files\product-details-5.jpg" />
+    <Content Include="Pustok - Book Store HTML Template_files\promo-banner-small-with-text.jpg" />
+    <Content Include="Pustok - Book Store HTML Template_files\promo-banner-with-text-2.jpg" />
+    <Content Include="Pustok - Book Store HTML Template_files\promo-banner-with-text.jpg" />
     <Content Include="Web.config" />
+    <Content Include="Home.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Pustok - Book Store HTML Template_files\fonts\fa-brands-400.woff2" />
+    <Content Include="Pustok - Book Store HTML Template_files\fonts\fa-solid-900.woff2" />
+    <Content Include="Pustok - Book Store HTML Template_files\fonts\Ionicons.ttf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
