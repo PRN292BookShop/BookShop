@@ -120,8 +120,34 @@
     <Content Include="Pustok - Book Store HTML Template_files\promo-banner-small-with-text.jpg" />
     <Content Include="Pustok - Book Store HTML Template_files\promo-banner-with-text-2.jpg" />
     <Content Include="Pustok - Book Store HTML Template_files\promo-banner-with-text.jpg" />
+    <Content Include="Pustok - Detail _files\author-logo.png" />
+    <Content Include="Pustok - Detail _files\brand-1.jpg" />
+    <Content Include="Pustok - Detail _files\brand-2.jpg" />
+    <Content Include="Pustok - Detail _files\brand-3.jpg" />
+    <Content Include="Pustok - Detail _files\brand-4.jpg" />
+    <Content Include="Pustok - Detail _files\brand-5.jpg" />
+    <Content Include="Pustok - Detail _files\brand-6.jpg" />
+    <Content Include="Pustok - Detail _files\cart-product-1.jpg" />
+    <Content Include="Pustok - Detail _files\logo--footer.png" />
+    <Content Include="Pustok - Detail _files\logo.png" />
+    <Content Include="Pustok - Detail _files\payment.png" />
+    <Content Include="Pustok - Detail _files\product-1.jpg" />
+    <Content Include="Pustok - Detail _files\product-10.jpg" />
+    <Content Include="Pustok - Detail _files\product-2.jpg" />
+    <Content Include="Pustok - Detail _files\product-3.jpg" />
+    <Content Include="Pustok - Detail _files\product-4.jpg" />
+    <Content Include="Pustok - Detail _files\product-5.jpg" />
+    <Content Include="Pustok - Detail _files\product-6.jpg" />
+    <Content Include="Pustok - Detail _files\product-details-1.jpg" />
+    <Content Include="Pustok - Detail _files\product-details-2.jpg" />
+    <Content Include="Pustok - Detail _files\product-details-3.jpg" />
+    <Content Include="Pustok - Detail _files\product-details-4.jpg" />
+    <Content Include="Pustok - Detail _files\product-details-5.jpg" />
     <Content Include="Web.config" />
     <Content Include="Home.aspx" />
+    <Content Include="CheckoutPage.aspx" />
+    <Content Include="Cart.aspx" />
+    <Content Include="Detail.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -132,8 +158,33 @@
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CheckoutPage.aspx.cs">
+      <DependentUpon>CheckoutPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckoutPage.aspx.designer.cs">
+      <DependentUpon>CheckoutPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Detail.aspx.cs">
+      <DependentUpon>Detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Detail.aspx.designer.cs">
+      <DependentUpon>Detail.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="fonts\fa-brands-400.woff2" />
+    <Content Include="fonts\fa-regular-400.woff2" />
+    <Content Include="fonts\fa-solid-900.woff2" />
+    <Content Include="fonts\Ionicons.ttf" />
     <None Include="packages.config" />
     <Content Include="Pustok - Book Store HTML Template_files\fonts\fa-brands-400.woff2" />
     <Content Include="Pustok - Book Store HTML Template_files\fonts\fa-solid-900.woff2" />
