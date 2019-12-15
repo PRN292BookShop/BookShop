@@ -57,5 +57,25 @@ namespace BookShop.Service
             }
             return listBook;
         }
+
+        public Book SeeBookDetail(int ID)
+        {
+            conn.Open();
+            SqlCommand sql = new SqlCommand("SELECT BookTitle, BookAuthor, BookImage, BookPrice FROM tblBook WHERE BookID = " + ID + "", conn);
+            SqlDataReader reader = sql.ExecuteReader();
+            reader.Read();
+
+            string bookTitle, bookAuthor, bookImage;
+            long bookPrice;
+
+            bookPrice = long.Parse(reader["BookPrice"].ToString());
+            bookTitle = reader["BookTitle"].ToString();
+            bookAuthor = reader["BookAuthor"].ToString();
+            bookImage = reader["BookImage"].ToString();
+
+            Book book = new Book(ID, bookTitle, bookPrice, bookImage, bookAuthor);
+
+            return book;
+        }
     }
 }

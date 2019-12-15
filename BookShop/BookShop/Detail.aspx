@@ -1284,10 +1284,10 @@
 									</div>
 									<div class="slick-slide slick-current slick-active" data-slick-index="2"
 										aria-hidden="false"
-										style="width: 445px; position: relative; left: -890px; top: 0px; z-index: 999; opacity: 1;">
+										style="width: 345px; position: relative; left: -890px; top: 0px; z-index: 999; opacity: 1;">
 										<div>
 											<div class="single-slide" style="width: 100%; display: inline-block;">
-												<img src="./Pustok - Detail _files/product-details-3.jpg" alt="">
+												<img src="../image/book/<%= this.book.BookImage %>" height = "500px" alt="">
 											</div>
 										</div>
 									</div>
@@ -1313,137 +1313,7 @@
 							</div>
 						</div>
 						<!-- Product Details Slider Nav -->
-						<div class="mt--30 product-slider-nav sb-slick-slider arrow-type-two slick-initialized slick-slider"
-							data-slick-setting="{
-            &quot;infinite&quot;:true,
-              &quot;autoplay&quot;: true,
-              &quot;autoplaySpeed&quot;: 8000,
-              &quot;slidesToShow&quot;: 4,
-              &quot;arrows&quot;: true,
-              &quot;prevArrow&quot;:{&quot;buttonClass&quot;: &quot;slick-prev&quot;,&quot;iconClass&quot;:&quot;fa fa-chevron-left&quot;},
-              &quot;nextArrow&quot;:{&quot;buttonClass&quot;: &quot;slick-next&quot;,&quot;iconClass&quot;:&quot;fa fa-chevron-right&quot;},
-              &quot;asNavFor&quot;: &quot;.product-details-slider&quot;,
-              &quot;focusOnSelect&quot;: true
-              }"><button class="slick-prev slick-arrow" style=""><i class="fa fa-chevron-left"></i></button>
-							<div class="slick-list draggable">
-								<div class="slick-track"
-									style="opacity: 1; width: 1638px; transform: translate3d(-702px, 0px, 0px);">
-									<div class="slick-slide slick-cloned" data-slick-index="-4" aria-hidden="true"
-										style="width: 117px;" tabindex="-1">
-										<div>
-											<div class="single-slide" style="width: 100%; display: inline-block;">
-												<img src="./Pustok - Detail _files/product-details-2.jpg" alt="">
-											</div>
-										</div>
-									</div>
-									<div class="slick-slide slick-cloned" data-slick-index="-3" aria-hidden="true"
-										style="width: 117px;" tabindex="-1">
-										<div>
-											<div class="single-slide" style="width: 100%; display: inline-block;">
-												<img src="./Pustok - Detail _files/product-details-3.jpg" alt="">
-											</div>
-										</div>
-									</div>
-									<div class="slick-slide slick-cloned" data-slick-index="-2" aria-hidden="true"
-										style="width: 117px;" tabindex="-1">
-										<div>
-											<div class="single-slide" style="width: 100%; display: inline-block;">
-												<img src="./Pustok - Detail _files/product-details-4.jpg" alt="">
-											</div>
-										</div>
-									</div>
-									<div class="slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true"
-										style="width: 117px;" tabindex="-1">
-										<div>
-											<div class="single-slide" style="width: 100%; display: inline-block;">
-												<img src="./Pustok - Detail _files/product-details-5.jpg" alt="">
-											</div>
-										</div>
-									</div>
-									<div class="slick-slide" data-slick-index="0" aria-hidden="true" tabindex="-1"
-										style="width: 117px;">
-										<div>
-											<div class="single-slide" style="width: 100%; display: inline-block;">
-												<img src="./Pustok - Detail _files/product-details-1.jpg" alt="">
-											</div>
-										</div>
-									</div>
-									<div class="slick-slide" data-slick-index="1" aria-hidden="true" tabindex="-1"
-										style="width: 117px;">
-										<div>
-											<div class="single-slide" style="width: 100%; display: inline-block;">
-												<img src="./Pustok - Detail _files/product-details-2.jpg" alt="">
-											</div>
-										</div>
-									</div>
-									<div class="slick-slide slick-current slick-active" data-slick-index="2"
-										aria-hidden="false" style="width: 117px;">
-										<div>
-											<div class="single-slide" style="width: 100%; display: inline-block;">
-												<img src="./Pustok - Detail _files/product-details-3.jpg" alt="">
-											</div>
-										</div>
-									</div>
-									<div class="slick-slide slick-active" data-slick-index="3" aria-hidden="false"
-										style="width: 117px;">
-										<div>
-											<div class="single-slide" style="width: 100%; display: inline-block;">
-												<img src="./Pustok - Detail _files/product-details-4.jpg" alt="">
-											</div>
-										</div>
-									</div>
-									<div class="slick-slide slick-active" data-slick-index="4" aria-hidden="false"
-										style="width: 117px;">
-										<div>
-											<div class="single-slide" style="width: 100%; display: inline-block;">
-												<img src="./Pustok - Detail _files/product-details-5.jpg" alt="">
-											</div>
-										</div>
-									</div>
-									<div class="slick-slide slick-cloned slick-active" data-slick-index="5"
-										aria-hidden="false" style="width: 117px;" tabindex="-1">
-										<div>
-											<div class="single-slide" style="width: 100%; display: inline-block;">
-												<img src="./Pustok - Detail _files/product-details-1.jpg" alt="">
-											</div>
-										</div>
-									</div>
-									<div class="slick-slide slick-cloned" data-slick-index="6" aria-hidden="true"
-										style="width: 117px;" tabindex="-1">
-										<div>
-											<div class="single-slide" style="width: 100%; display: inline-block;">
-												<img src="./Pustok - Detail _files/product-details-2.jpg" alt="">
-											</div>
-										</div>
-									</div>
-									<div class="slick-slide slick-cloned" data-slick-index="7" aria-hidden="true"
-										style="width: 117px;" tabindex="-1">
-										<div>
-											<div class="single-slide" style="width: 100%; display: inline-block;">
-												<img src="./Pustok - Detail _files/product-details-3.jpg" alt="">
-											</div>
-										</div>
-									</div>
-									<div class="slick-slide slick-cloned" data-slick-index="8" aria-hidden="true"
-										style="width: 117px;" tabindex="-1">
-										<div>
-											<div class="single-slide" style="width: 100%; display: inline-block;">
-												<img src="./Pustok - Detail _files/product-details-4.jpg" alt="">
-											</div>
-										</div>
-									</div>
-									<div class="slick-slide slick-cloned" data-slick-index="9" aria-hidden="true"
-										style="width: 117px;" tabindex="-1">
-										<div>
-											<div class="single-slide" style="width: 100%; display: inline-block;">
-												<img src="./Pustok - Detail _files/product-details-5.jpg" alt="">
-											</div>
-										</div>
-									</div>
-								</div>
-							</div><button class="slick-next slick-arrow" style=""><i
-									class="fa fa-chevron-right"></i></button>
-						</div>
+						
 					</div>
 					<div class="col-lg-7">
 						<div class="product-details-info pl-lg--30 ">
@@ -1452,19 +1322,12 @@
 								<a
 									href="https://demo.hasthemes.com/pustok-preview/pustok/product-details.html#">Omega</a>
 							</p>
-							<h3 class="product-title">Beats EP Wired On-Ear Headphone-Black</h3>
+							<h3 class="product-title"><%= this.book.BookTitle %></h3>
 							<ul class="list-unstyled">
-								<li>Ex Tax: <span class="list-value"> £60.24</span></li>
-								<li>Brands: <a
-										href="https://demo.hasthemes.com/pustok-preview/pustok/product-details.html#"
-										class="list-value font-weight-bold"> Canon</a></li>
-								<li>Product Code: <span class="list-value"> model1</span></li>
-								<li>Reward Points: <span class="list-value"> 200</span></li>
-								<li>Availability: <span class="list-value"> In Stock</span></li>
+								<li>Author: <span class="list-value"> <%= this.book.BookAuthor %></span></li
 							</ul>
 							<div class="price-block">
-								<span class="price-new">£73.79</span>
-								<del class="price-old">£91.86</del>
+								<span class="price-new">£<%= this.book.BookPrice %></span>
 							</div>
 							<div class="rating-widget">
 								<div class="rating-block">
