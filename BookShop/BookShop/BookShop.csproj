@@ -67,10 +67,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddToCart.aspx" />
+    <Content Include="asserts\login.css" />
+    <Content Include="AuthPage\Dashboard.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="image\bg-images\home-2-slider-1.jpg" />
     <Content Include="image\bg-images\home-2-slider-2.jpg" />
     <Content Include="image\bg-images\promo-banner-contained.jpg" />
+    <Content Include="Login.aspx" />
     <Content Include="Pustok - Book Store HTML Template_files\ajax-mail.js" />
     <Content Include="Pustok - Book Store HTML Template_files\blog-grid-1.jpg" />
     <Content Include="Pustok - Book Store HTML Template_files\blog-grid-2.jpg" />
@@ -151,8 +155,23 @@
     <Content Include="Detail.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddToCart.aspx.cs">
+      <DependentUpon>AddToCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddToCart.aspx.designer.cs">
+      <DependentUpon>AddToCart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AuthPage\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AuthPage\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Entity\Account.cs" />
     <Compile Include="Entity\Book.cs" />
+    <Compile Include="Entity\Cart.cs" />
     <Compile Include="Entity\Category.cs" />
     <Compile Include="Entity\City.cs" />
     <Compile Include="Entity\District.cs" />
@@ -167,6 +186,13 @@
     </Compile>
     <Compile Include="Error.aspx.designer.cs">
       <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Home.aspx.cs">
@@ -215,6 +241,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
