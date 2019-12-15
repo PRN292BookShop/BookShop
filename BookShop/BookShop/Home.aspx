@@ -362,6 +362,7 @@
                                 href="https://demo.hasthemes.com/pustok-preview/pustok/index-2.html?fbclid=IwAR2V6wSh1esb586huEY7vL5dIhA42KcrP7fH-Trojvh1TjMtVWl3sl8sy6M#shop"
                                 role="tab" aria-controls="shop" aria-selected="true">
                                 Featured Products
+                                
                             </a>
                             <span class="arrow-icon"></span>
                         </li>
@@ -457,31 +458,41 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="slick-slide" data-slick-index="0" aria-hidden="true" role="tabpanel"
-                                            id="slick-slide20" tabindex="-1" aria-describedby="slick-slide-control20"
-                                            style="width: 223px;">
+                                        <%
+                                            for (int i = 0; i < this.listBook.Count; i++)
+                                            {
+                                                if (i % 2 == 0)
+                                                {
+                                                %>
+                                                    <div class="slick-slide" style="width: 223px;">
+                                                <%
+                                                }
+                                            %>
                                             <div>
                                                 <div class="single-slide" style="width: 100%; display: inline-block;">
                                                     <div class="product-card">
                                                         <div class="product-header">
-                                                            <a href="#" class="author" tabindex="-1">
-                                                                jpple
+                                                            <a href="Detail.aspx?ID=<%= listBook[i].BookID %>" class="author" tabindex="-1">
+                                                                <%= this.listBook[i].BookAuthor %>
                                                             </a>
-                                                            <h3>
-                                                                <a href="#" tabindex="-1">Rpple iPad with Retina Display
-                                                                    MD510LL/A
+                                                            <h3 style="height: 30px">
+                                                                <a href="Detail.aspx?ID=<%= listBook[i].BookID %>" tabindex="-1">
+                                                                    <%= this.listBook[i].BookTitle %>
                                                                 </a>
                                                             </h3>
                                                         </div>
                                                         <div class="product-card--body">
                                                             <div class="card-image">
-                                                                <img src="./Pustok - Book Store HTML Template_files/product-1.jpg"
-                                                                    alt="">
+                                                                <div style="height: 300px; padding: 15px 20px; display:flex; align-items: center">
+                                                                    <img src="./image/book/<%= this.listBook[i].BookImage %>" alt="">
+                                                                </div>
+                                                                
                                                                 <div class="hover-contents">
-                                                                    <a href="#"
+                                                                    <a href="Detail.aspx?ID=<%= listBook[i].BookID %>"
                                                                         class="hover-image" tabindex="-1">
-                                                                        <img src="./Pustok - Book Store HTML Template_files/product-1.jpg"
-                                                                            alt="">
+                                                                        <div style="height: 300px; padding: 15px 20px; display:flex; align-items: center">
+                                                                            <img src="./image/book/<%= this.listBook[i].BookImage %>" alt="">
+                                                                        </div>
                                                                     </a>
                                                                     <div class="hover-btns">
                                                                         <a href="#"
@@ -492,392 +503,21 @@
                                                                 </div>
                                                             </div>
                                                             <div class="price-block">
-                                                                <span class="price">£51.20</span>
-                                                                <del class="price-old">£51.20</del>
-                                                                <span class="price-discount">20%</span>
+                                                                <span class="price"><%= this.listBook[i].BookPrice %>$</span>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div>
-                                                <div class="single-slide" style="width: 100%; display: inline-block;">
-                                                    <div class="product-card">
-                                                        <div class="product-header">
-                                                            <a href="#" class="author" tabindex="-1">
-                                                                jpple
-                                                            </a>
-                                                            <h3>
-                                                                <a href="#" tabindex="-1">Rpple iPad with Retina Display
-                                                                    MD510LL/A
-                                                                </a>
-                                                            </h3>
+                                            <%
+                                                    if (i % 2 != 0)
+                                                    {
+                                                        %>
                                                         </div>
-                                                        <div class="product-card--body">
-                                                            <div class="card-image">
-                                                                <img src="./Pustok - Book Store HTML Template_files/product-1.jpg"
-                                                                    alt="">
-                                                                <div class="hover-contents">
-                                                                    <a href="#"
-                                                                        class="hover-image" tabindex="-1">
-                                                                        <img src="./Pustok - Book Store HTML Template_files/product-1.jpg"
-                                                                            alt="">
-                                                                    </a>
-                                                                    <div class="hover-btns">
-                                                                        <a href="#"
-                                                                            class="single-btn" tabindex="-1">
-                                                                            <i class="fas fa-shopping-basket"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="price-block">
-                                                                <span class="price">£51.20</span>
-                                                                <del class="price-old">£51.20</del>
-                                                                <span class="price-discount">20%</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="slick-slide" data-slick-index="0" aria-hidden="true" role="tabpanel"
-                                            id="slick-slide20" tabindex="-1" aria-describedby="slick-slide-control20"
-                                            style="width: 223px;">
-                                            <div>
-                                                <div class="single-slide" style="width: 100%; display: inline-block;">
-                                                    <div class="product-card">
-                                                        <div class="product-header">
-                                                            <a href="#" class="author" tabindex="-1">
-                                                                jpple
-                                                            </a>
-                                                            <h3>
-                                                                <a href="#" tabindex="-1">Rpple iPad with Retina Display
-                                                                    MD510LL/A
-                                                                </a>
-                                                            </h3>
-                                                        </div>
-                                                        <div class="product-card--body">
-                                                            <div class="card-image">
-                                                                <img src="./Pustok - Book Store HTML Template_files/product-1.jpg"
-                                                                    alt="">
-                                                                <div class="hover-contents">
-                                                                    <a href="#"
-                                                                        class="hover-image" tabindex="-1">
-                                                                        <img src="./Pustok - Book Store HTML Template_files/product-1.jpg"
-                                                                            alt="">
-                                                                    </a>
-                                                                    <div class="hover-btns">
-                                                                        <a href="#"
-                                                                            class="single-btn" tabindex="-1">
-                                                                            <i class="fas fa-shopping-basket"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="price-block">
-                                                                <span class="price">£51.20</span>
-                                                                <del class="price-old">£51.20</del>
-                                                                <span class="price-discount">20%</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="single-slide" style="width: 100%; display: inline-block;">
-                                                    <div class="product-card">
-                                                        <div class="product-header">
-                                                            <a href="#" class="author" tabindex="-1">
-                                                                jpple
-                                                            </a>
-                                                            <h3>
-                                                                <a href="#" tabindex="-1">Rpple iPad with Retina Display
-                                                                    MD510LL/A
-                                                                </a>
-                                                            </h3>
-                                                        </div>
-                                                        <div class="product-card--body">
-                                                            <div class="card-image">
-                                                                <img src="./Pustok - Book Store HTML Template_files/product-1.jpg"
-                                                                    alt="">
-                                                                <div class="hover-contents">
-                                                                    <a href="#"
-                                                                        class="hover-image" tabindex="-1">
-                                                                        <img src="./Pustok - Book Store HTML Template_files/product-1.jpg"
-                                                                            alt="">
-                                                                    </a>
-                                                                    <div class="hover-btns">
-                                                                        <a href="#"
-                                                                            class="single-btn" tabindex="-1">
-                                                                            <i class="fas fa-shopping-basket"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="price-block">
-                                                                <span class="price">£51.20</span>
-                                                                <del class="price-old">£51.20</del>
-                                                                <span class="price-discount">20%</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="slick-slide" data-slick-index="0" aria-hidden="true" role="tabpanel"
-                                            id="slick-slide20" tabindex="-1" aria-describedby="slick-slide-control20"
-                                            style="width: 223px;">
-                                            <div>
-                                                <div class="single-slide" style="width: 100%; display: inline-block;">
-                                                    <div class="product-card">
-                                                        <div class="product-header">
-                                                            <a href="#" class="author" tabindex="-1">
-                                                                jpple
-                                                            </a>
-                                                            <h3>
-                                                                <a href="#" tabindex="-1">Rpple iPad with Retina Display
-                                                                    MD510LL/A
-                                                                </a>
-                                                            </h3>
-                                                        </div>
-                                                        <div class="product-card--body">
-                                                            <div class="card-image">
-                                                                <img src="./Pustok - Book Store HTML Template_files/product-1.jpg"
-                                                                    alt="">
-                                                                <div class="hover-contents">
-                                                                    <a href="#"
-                                                                        class="hover-image" tabindex="-1">
-                                                                        <img src="./Pustok - Book Store HTML Template_files/product-1.jpg"
-                                                                            alt="">
-                                                                    </a>
-                                                                    <div class="hover-btns">
-                                                                        <a href="#"
-                                                                            class="single-btn" tabindex="-1">
-                                                                            <i class="fas fa-shopping-basket"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="price-block">
-                                                                <span class="price">£51.20</span>
-                                                                <del class="price-old">£51.20</del>
-                                                                <span class="price-discount">20%</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="single-slide" style="width: 100%; display: inline-block;">
-                                                    <div class="product-card">
-                                                        <div class="product-header">
-                                                            <a href="#" class="author" tabindex="-1">
-                                                                jpple
-                                                            </a>
-                                                            <h3>
-                                                                <a href="#" tabindex="-1">Rpple iPad with Retina Display
-                                                                    MD510LL/A
-                                                                </a>
-                                                            </h3>
-                                                        </div>
-                                                        <div class="product-card--body">
-                                                            <div class="card-image">
-                                                                <img src="./Pustok - Book Store HTML Template_files/product-1.jpg"
-                                                                    alt="">
-                                                                <div class="hover-contents">
-                                                                    <a href="#"
-                                                                        class="hover-image" tabindex="-1">
-                                                                        <img src="./Pustok - Book Store HTML Template_files/product-1.jpg"
-                                                                            alt="">
-                                                                    </a>
-                                                                    <div class="hover-btns">
-                                                                        <a href="#"
-                                                                            class="single-btn" tabindex="-1">
-                                                                            <i class="fas fa-shopping-basket"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="price-block">
-                                                                <span class="price">£51.20</span>
-                                                                <del class="price-old">£51.20</del>
-                                                                <span class="price-discount">20%</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="slick-slide" data-slick-index="0" aria-hidden="true" role="tabpanel"
-                                            id="slick-slide20" tabindex="-1" aria-describedby="slick-slide-control20"
-                                            style="width: 223px;">
-                                            <div>
-                                                <div class="single-slide" style="width: 100%; display: inline-block;">
-                                                    <div class="product-card">
-                                                        <div class="product-header">
-                                                            <a href="#" class="author" tabindex="-1">
-                                                                jpple
-                                                            </a>
-                                                            <h3>
-                                                                <a href="#" tabindex="-1">Rpple iPad with Retina Display
-                                                                    MD510LL/A
-                                                                </a>
-                                                            </h3>
-                                                        </div>
-                                                        <div class="product-card--body">
-                                                            <div class="card-image">
-                                                                <img src="./Pustok - Book Store HTML Template_files/product-1.jpg"
-                                                                    alt="">
-                                                                <div class="hover-contents">
-                                                                    <a href="#"
-                                                                        class="hover-image" tabindex="-1">
-                                                                        <img src="./Pustok - Book Store HTML Template_files/product-1.jpg"
-                                                                            alt="">
-                                                                    </a>
-                                                                    <div class="hover-btns">
-                                                                        <a href="#"
-                                                                            class="single-btn" tabindex="-1">
-                                                                            <i class="fas fa-shopping-basket"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="price-block">
-                                                                <span class="price">£51.20</span>
-                                                                <del class="price-old">£51.20</del>
-                                                                <span class="price-discount">20%</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="single-slide" style="width: 100%; display: inline-block;">
-                                                    <div class="product-card">
-                                                        <div class="product-header">
-                                                            <a href="#" class="author" tabindex="-1">
-                                                                jpple
-                                                            </a>
-                                                            <h3>
-                                                                <a href="#" tabindex="-1">Rpple iPad with Retina Display
-                                                                    MD510LL/A
-                                                                </a>
-                                                            </h3>
-                                                        </div>
-                                                        <div class="product-card--body">
-                                                            <div class="card-image">
-                                                                <img src="./Pustok - Book Store HTML Template_files/product-1.jpg"
-                                                                    alt="">
-                                                                <div class="hover-contents">
-                                                                    <a href="#"
-                                                                        class="hover-image" tabindex="-1">
-                                                                        <img src="./Pustok - Book Store HTML Template_files/product-1.jpg"
-                                                                            alt="">
-                                                                    </a>
-                                                                    <div class="hover-btns">
-                                                                        <a href="#"
-                                                                            class="single-btn" tabindex="-1">
-                                                                            <i class="fas fa-shopping-basket"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="price-block">
-                                                                <span class="price">£51.20</span>
-                                                                <del class="price-old">£51.20</del>
-                                                                <span class="price-discount">20%</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="slick-slide" data-slick-index="0" aria-hidden="true" role="tabpanel"
-                                            id="slick-slide20" tabindex="-1" aria-describedby="slick-slide-control20"
-                                            style="width: 223px;">
-                                            <div>
-                                                <div class="single-slide" style="width: 100%; display: inline-block;">
-                                                    <div class="product-card">
-                                                        <div class="product-header">
-                                                            <a href="#" class="author" tabindex="-1">
-                                                                jpple
-                                                            </a>
-                                                            <h3>
-                                                                <a href="#" tabindex="-1">Rpple iPad with Retina Display
-                                                                    MD510LL/A
-                                                                </a>
-                                                            </h3>
-                                                        </div>
-                                                        <div class="product-card--body">
-                                                            <div class="card-image">
-                                                                <img src="./Pustok - Book Store HTML Template_files/product-1.jpg"
-                                                                    alt="">
-                                                                <div class="hover-contents">
-                                                                    <a href="#"
-                                                                        class="hover-image" tabindex="-1">
-                                                                        <img src="./Pustok - Book Store HTML Template_files/product-1.jpg"
-                                                                            alt="">
-                                                                    </a>
-                                                                    <div class="hover-btns">
-                                                                        <a href="#"
-                                                                            class="single-btn" tabindex="-1">
-                                                                            <i class="fas fa-shopping-basket"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="price-block">
-                                                                <span class="price">£51.20</span>
-                                                                <del class="price-old">£51.20</del>
-                                                                <span class="price-discount">20%</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="single-slide" style="width: 100%; display: inline-block;">
-                                                    <div class="product-card">
-                                                        <div class="product-header">
-                                                            <a href="#" class="author" tabindex="-1">
-                                                                jpple
-                                                            </a>
-                                                            <h3>
-                                                                <a href="#" tabindex="-1">Rpple iPad with Retina Display
-                                                                    MD510LL/A
-                                                                </a>
-                                                            </h3>
-                                                        </div>
-                                                        <div class="product-card--body">
-                                                            <div class="card-image">
-                                                                <img src="./Pustok - Book Store HTML Template_files/product-1.jpg"
-                                                                    alt="">
-                                                                <div class="hover-contents">
-                                                                    <a href="#"
-                                                                        class="hover-image" tabindex="-1">
-                                                                        <img src="./Pustok - Book Store HTML Template_files/product-1.jpg"
-                                                                            alt="">
-                                                                    </a>
-                                                                    <div class="hover-btns">
-                                                                        <a href="#"
-                                                                            class="single-btn" tabindex="-1">
-                                                                            <i class="fas fa-shopping-basket"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="price-block">
-                                                                <span class="price">£51.20</span>
-                                                                <del class="price-old">£51.20</del>
-                                                                <span class="price-discount">20%</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                                        <%
+                                                    }
+                                                }
+                                        %>
                                 </div>
                             </div>
                         </div>
