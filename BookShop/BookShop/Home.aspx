@@ -59,10 +59,6 @@
                         <div class="col-lg-4">
                             <div class="main-navigation flex-lg-right">
                                 <div class="cart-widget">
-                                    <div class="login-block">
-                                        <a href="https://demo.hasthemes.com/pustok-preview/pustok/login-register.html"
-                                            class="font-weight-bold">Login</a>
-                                    </div>
                                     <div class="cart-block">
                                         <div class="cart-total">
                                             <span class="text-number">
@@ -495,7 +491,7 @@
                                                                         </div>
                                                                     </a>
                                                                     <div class="hover-btns">
-                                                                        <a href="#"
+                                                                        <a href="AddToCart.aspx?BookID=<%= listBook[i].BookID %>"
                                                                             class="single-btn" tabindex="-1">
                                                                             <i class="fas fa-shopping-basket"></i>
                                                                         </a>
