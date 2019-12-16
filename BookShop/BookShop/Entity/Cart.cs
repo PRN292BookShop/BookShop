@@ -66,5 +66,10 @@ namespace BookShop.Entity
         {
             return Carts.ContainsKey(id);
         }
+
+        public void RemoveBook(int id)
+        {
+            Carts.Remove(id);
+        }
     }
 }

@@ -90,7 +90,7 @@
                                                                     <a href="Detail.aspx?ID=<%= book.BookID %>"><%= book.BookTitle %></a>
                                                                 </h3>
                                                                 <p class="price"><span class="qty"> <%= cart.Carts[id] %> ×</span> <%= book.BookPrice %></p>
-                                                                <button class="cross-btn"><i class="fas fa-times"></i></button>
+                                                                <a href="RemoveFromCart.aspx?BookID=<%= book.BookID %>"><button class="cross-btn"><i class="fas fa-times"></i></button></a>
                                                             </div>
                                                         </div>                                                  
                                                     <%

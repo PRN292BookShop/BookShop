@@ -148,6 +148,7 @@
     <Content Include="Pustok - Detail _files\product-details-3.jpg" />
     <Content Include="Pustok - Detail _files\product-details-4.jpg" />
     <Content Include="Pustok - Detail _files\product-details-5.jpg" />
+    <Content Include="RemoveFromCart.aspx" />
     <Content Include="Web.config" />
     <Content Include="Home.aspx" />
     <Content Include="CheckoutPage.aspx" />
@@ -223,7 +224,17 @@
     <Compile Include="Detail.aspx.designer.cs">
       <DependentUpon>Detail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="RemoveFromCart.aspx.cs">
+      <DependentUpon>RemoveFromCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RemoveFromCart.aspx.designer.cs">
+      <DependentUpon>RemoveFromCart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Service\AccountService.cs" />
     <Compile Include="Service\BookService.cs" />
+    <Compile Include="Service\CategoryService.cs" />
+    <Compile Include="Service\RoleService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\fa-brands-400.woff2" />

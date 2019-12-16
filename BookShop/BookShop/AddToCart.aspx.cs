@@ -14,10 +14,10 @@ namespace BookShop
         {
             try
             {
-                int bookID = Int32.Parse(Request.QueryString["BookID"]);
+                int bookID = Int32.Parse(Request.Params["BookID"]);
                 int quantity;
 
-                if (!Int32.TryParse(Request.QueryString["Quantity"], out quantity)) quantity = 1;
+                if (!Int32.TryParse(Request.Params["Quantity"], out quantity)) quantity = 1;
 
                 if (Session["Cart"] == null)
                 {
@@ -25,7 +25,7 @@ namespace BookShop
                 }
 
                 Cart cart = (Cart) Session["Cart"];
-                if (cart.AddToCart(bookID, 1))
+                if (cart.AddToCart(bookID, quantity))
                 {
                     Response.Redirect("Home.aspx");
                 }
