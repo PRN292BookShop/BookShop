@@ -99,6 +99,7 @@ namespace BookShop.Service
 
             Book book = new Book(ID, bookTitle, bookPrice, bookImage, bookAuthor);
 
+            CloseConnection();
             return book;
         }
     }

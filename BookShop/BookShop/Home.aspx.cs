@@ -15,6 +15,8 @@ namespace BookShop
     {
 
         public List<Book> listBook = new List<Book>();
+        public Cart cart;
+        public Book book;
         
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -22,6 +24,7 @@ namespace BookShop
             try
             {
                 listBook = service.ListTop10Book();
+                cart = (Cart)Session["Cart"];
             }
             catch (Exception ex)
             {
@@ -29,6 +32,15 @@ namespace BookShop
                 Session["error_msg"] = errorMsg;
                 Server.Transfer("Error.aspx");
             }
+        }
+
+        public Book FindBookByID(int id)
+        {
+            Book b = (new BookService()).SeeBookDetail(id);
+
+            if (b == null) b = new Book();
+
+            return b;
         }
     }
 }
