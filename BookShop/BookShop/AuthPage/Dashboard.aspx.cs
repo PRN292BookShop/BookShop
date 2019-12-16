@@ -11,7 +11,7 @@ namespace BookShop.AuthPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Username"] != null)
+            if (Session["Username"] == null)
             {
                 Response.Redirect("/Home.aspx");
             } 
