@@ -100,7 +100,8 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li>
                                 <a href="">
-                                    <p>Account</p>
+                                 
+                                    <p><%= Session["Username"] %></p>
                                 </a>
                             </li>
                             <li>

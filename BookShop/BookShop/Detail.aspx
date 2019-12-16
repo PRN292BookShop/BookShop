@@ -4,16 +4,16 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>Pustok - Book Store HTML Template</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <!-- Use Minified Plugins Version For Fast Page Load -->
-    <link rel="stylesheet" type="text/css" media="screen" href="./Pustok - Book Store HTML Template_files/plugins.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="./Pustok - Book Store HTML Template_files/main.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./Pustok - Book Store HTML Template_files/plugins.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="./Pustok - Book Store HTML Template_files/main.css"/>
     <link rel="shortcut icon" type="image/x-icon"
-        href="https://demo.hasthemes.com/pustok-preview/pustok/image/favicon.ico">
+        href="https://demo.hasthemes.com/pustok-preview/pustok/image/favicon.ico"/>
 </head>
 <body>
     <div class="site-wrapper" id="top">
@@ -60,7 +60,7 @@
 													<a href="https://demo.hasthemes.com/pustok-preview/pustok/product-details.html"
 														class="image">
 														<img src="./Pustok - Book Store HTML Template_files/cart-product-1.jpg"
-															alt="">
+															alt=""/>
 													</a>
 													<div class="content">
 														<h3 class="title"><a
