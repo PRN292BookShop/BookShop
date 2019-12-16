@@ -9,7 +9,7 @@ using BookShop.Service;
 
 namespace BookShop
 {
-    public partial class WebForm4 : System.Web.UI.Page
+    public partial class WebForm1 : System.Web.UI.Page
     {
         public Book book;
         public string errorMsg = "";
