@@ -14,7 +14,9 @@ namespace BookShop.AuthPage
             if (Session["Username"] == null)
             {
                 Response.Redirect("/Home.aspx");
-            }
+            } 
+      
+            
         }
     }
 }
