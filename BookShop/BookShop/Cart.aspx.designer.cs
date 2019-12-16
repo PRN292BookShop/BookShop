@@ -10,6 +10,6 @@
 namespace BookShop {
     
     
-    public partial class WebForm3 {
+    public partial class CartPage {
     }
 }

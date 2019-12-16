@@ -9,7 +9,7 @@ using BookShop.Service;
 
 namespace BookShop
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class Detail : System.Web.UI.Page
     {
         public Book book;
         public string errorMsg = "";
@@ -23,7 +23,8 @@ namespace BookShop
             }
             catch (Exception ex)
             {
-                errorMsg = ex.Message + "\n" + ex.StackTrace;
+                string errorMsg = ex.Message + "\n" + ex.StackTrace;
+                Session["error_msg"] = errorMsg;
                 Server.Transfer("Error.aspx");
             }
         }

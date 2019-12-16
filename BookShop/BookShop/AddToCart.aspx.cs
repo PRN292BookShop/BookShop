@@ -8,7 +8,7 @@ using BookShop.Entity;
 
 namespace BookShop
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class AddToCartPage : System.Web.UI.Page
     {
         public String errorMsg;
         protected void Page_Load(object sender, EventArgs e)

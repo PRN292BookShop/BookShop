@@ -61,7 +61,7 @@ namespace BookShop.Service
         public Book SeeBookDetail(int ID)
         {
             conn.Open();
-            SqlCommand sql = new SqlCommand("SELECT BookDescription, BookDateEstablish, BookOrgEstablished, " +
+            SqlCommand sql = new SqlCommand("SELECT BookDescription, BookDateEstablished, BookOrgEstablished, " +
                 "BookDimensions, BookTitle, BookAuthor, BookImage, BookPrice, " +
                 "BookWeight, BookLength, BookCategoryID, BookQuantity, " +
                 "CreatedTime, CreatedAccount, LastModified, LastModifiedAccount, IsEnable " +
@@ -90,7 +90,7 @@ namespace BookShop.Service
             bookWeight = float.Parse(reader["bookWeight"].ToString());
             CreatedTime = DateTime.Parse(reader["CreatedTime"].ToString());
             LastModified = DateTime.Parse(reader["LastModified"].ToString());
-            bookDateEstablish = DateTime.Parse(reader["BookDateEstablish"].ToString());
+            bookDateEstablish = DateTime.Parse(reader["BookDateEstablished"].ToString());
             bookCategoryID = int.Parse(reader["BookCategoryID"].ToString());
             bookLenght = int.Parse(reader["BookLength"].ToString());
             bookQuantity = int.Parse(reader["BookQuantity"].ToString());

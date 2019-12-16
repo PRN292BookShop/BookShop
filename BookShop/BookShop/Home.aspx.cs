@@ -15,9 +15,7 @@ namespace BookShop
     {
 
         public List<Book> listBook = new List<Book>();
-
-        public string errorMsg = "";
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             BookService service = new BookService();
@@ -27,7 +25,8 @@ namespace BookShop
             }
             catch (Exception ex)
             {
-                errorMsg = ex.Message + "\n" + ex.StackTrace;
+                string errorMsg = ex.Message + "\n" + ex.StackTrace;
+                Session["error_msg"] = errorMsg;
                 Server.Transfer("Error.aspx");
             }
         }
