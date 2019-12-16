@@ -7,8 +7,19 @@ namespace BookShop.Entity
 {
     public class Category
     {
-        int CategoryID { get; set; }
-        string CategoryName { get; set; }
-        string CategoryDescription { get; set; }
+        public Category()
+        {
+        }
+
+        public Category(int categoryID, string categoryName, string categoryDescription)
+        {
+            CategoryID = categoryID;
+            CategoryName = categoryName;
+            CategoryDescription = categoryDescription;
+        }
+
+        public int CategoryID { get; set; }
+        public string CategoryName { get; set; }
+        public string CategoryDescription { get; set; }
     }
 }

@@ -10,10 +10,17 @@
 <body>
     <div class="login-page">
       <div class="form">
-        <form class="login-form">
-          <input type="text" placeholder="username"/>
-          <input type="password" placeholder="password"/>
-          <button>login</button>
+        <form class="login-form" runat="server">
+            <p>Welcome to Pustok</p>
+            <h1>Login Page</h1>
+            <asp:TextBox ID="txtUsername"  placeholder="Enter Your Username Here!!!" runat="server" ></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="txtUsername" runat="server" ErrorMessage="Please Enter Username !!!" ForeColor="Red"></asp:RequiredFieldValidator>
+
+            <asp:TextBox ID="txtPassword" TextMode="Password" placeholder="Enter Your Password Here!!!" runat="server" ></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="txtPassword" runat="server" ErrorMessage="Please Enter Password !!!" ForeColor="Red"></asp:RequiredFieldValidator>
+
+            <asp:Button ID="btnLogin" runat="server" Text="LOGIN" OnClick="btnLogin_Click" />
+            <asp:Label ID="Label1" runat="server" ></asp:Label>
         </form>
       </div>
     </div>

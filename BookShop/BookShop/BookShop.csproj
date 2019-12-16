@@ -72,6 +72,7 @@
     <Content Include="AuthPage\BookDetail.aspx" />
     <Content Include="AuthPage\BookManager.aspx" />
     <Content Include="AuthPage\Dashboard.aspx" />
+    <Content Include="CheckoutAction.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="image\bg-images\home-2-slider-1.jpg" />
     <Content Include="image\bg-images\home-2-slider-2.jpg" />
@@ -150,6 +151,8 @@
     <Content Include="Pustok - Detail _files\product-details-3.jpg" />
     <Content Include="Pustok - Detail _files\product-details-4.jpg" />
     <Content Include="Pustok - Detail _files\product-details-5.jpg" />
+    <Content Include="RemoveFromCart.aspx" />
+    <Content Include="UpdateCart.aspx" />
     <Content Include="Web.config" />
     <Content Include="Home.aspx" />
     <Content Include="CheckoutPage.aspx" />
@@ -185,13 +188,17 @@
     <Compile Include="AuthPage\Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CheckoutAction.aspx.cs">
+      <DependentUpon>CheckoutAction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckoutAction.aspx.designer.cs">
+      <DependentUpon>CheckoutAction.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Entity\Account.cs" />
     <Compile Include="Entity\Book.cs" />
     <Compile Include="Entity\Cart.cs" />
     <Compile Include="Entity\Category.cs" />
-    <Compile Include="Entity\City.cs" />
-    <Compile Include="Entity\District.cs" />
-    <Compile Include="Entity\Ward.cs" />
     <Compile Include="Entity\Order.cs" />
     <Compile Include="Entity\OrderDetail.cs" />
     <Compile Include="Entity\Role.cs" />
@@ -239,7 +246,25 @@
     <Compile Include="Detail.aspx.designer.cs">
       <DependentUpon>Detail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="RemoveFromCart.aspx.cs">
+      <DependentUpon>RemoveFromCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RemoveFromCart.aspx.designer.cs">
+      <DependentUpon>RemoveFromCart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Service\AccountService.cs" />
     <Compile Include="Service\BookService.cs" />
+    <Compile Include="Service\CategoryService.cs" />
+    <Compile Include="Service\OrderService.cs" />
+    <Compile Include="Service\RoleService.cs" />
+    <Compile Include="UpdateCart.aspx.cs">
+      <DependentUpon>UpdateCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdateCart.aspx.designer.cs">
+      <DependentUpon>UpdateCart.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\fa-brands-400.woff2" />
