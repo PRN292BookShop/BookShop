@@ -102,7 +102,7 @@
                                                 <div class="btn-block">
                                                     <a href="Cart.aspx"
                                                         class="btn">View Cart <i class="fas fa-chevron-right"></i></a>
-                                                    <a href="https://demo.hasthemes.com/pustok-preview/pustok/checkout.html"
+                                                    <a href="CheckoutPage.aspx"
                                                         class="btn btn--primary">Check Out <i
                                                             class="fas fa-chevron-right"></i></a>
                                                 </div>

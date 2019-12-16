@@ -21,7 +21,7 @@ namespace BookShop.Service
         {
             Account account = null;
             conn.Open();
-            SqlCommand command = new SqlCommand(@"SELECT Fullname, RoleID, IsEnable FROM tblAccount WHERE CategoryID = " + username, conn);
+            SqlCommand command = new SqlCommand(@"SELECT Fullname, RoleID, IsEnable FROM tblAccount WHERE Username = '" + username + "'", conn);
 
             SqlDataReader reader = command.ExecuteReader();
 

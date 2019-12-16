@@ -78,7 +78,7 @@
                                                 <div class="btn-block">
                                                     <a href="Cart.aspx"
                                                         class="btn">View Cart <i class="fas fa-chevron-right"></i></a>
-                                                    <a href="https://demo.hasthemes.com/pustok-preview/pustok/checkout.html"
+                                                    <a href="CheckoutPage.aspx"
                                                         class="btn btn--primary">Check Out <i
                                                             class="fas fa-chevron-right"></i></a>
                                                 </div>
@@ -136,94 +136,115 @@
 		</section>
 		<!-- Cart Page Start -->
 		<main class="cart-page-main-block inner-page-sec-padding-bottom">
-			<div class="cart_area cart-area-padding  ">
-				<div class="container">
-					<div class="page-section-title">
-						<h1>Shopping Cart</h1>
-					</div>
-					<div class="row">
-						<div class="col-12">
-							<form action="https://demo.hasthemes.com/pustok-preview/pustok/cart.html#" class="">
-								<!-- Cart Table -->
-								<div class="cart-table table-responsive mb--40">
-                                    <% if (cart != null && cart.Carts.Keys.Count > 0)
-                                       {
-                                            %>
-									<table class="table">
-										<!-- Head Row -->
-										<thead>
-											<tr>
-												<th class="pro-remove"></th>
-												<th class="pro-thumbnail">Image</th>
-												<th class="pro-title">Product</th>
-												<th class="pro-price">Price</th>
-												<th class="pro-quantity">Quantity</th>
-												<th class="pro-subtotal">Total</th>
-											</tr>
-										</thead>
-										<tbody>
-											<!-- Product Row -->
-                                            <%
-                                                foreach (int id in this.cart.Carts.Keys)
-                                                {
-                                                    book = this.FindBookByID(id);
-                                                    %>
-                                          <tr>
-												<td class="pro-remove"><a
-														href="RemoveFromCart.aspx?BookID=<%= id %>"><i
-															class="far fa-trash-alt"></i></a>
-												</td>
-												<td class="pro-thumbnail"><a
-														href="Detail.aspx?ID=<%= id %>"><img
-															src="./image/book/<%= book.BookImage %>"
-															alt="Product"></a></td>
-												<td class="pro-title"><a
-														href="Detail.aspx?ID=<%= id %>"><%= book.BookTitle %></a></td>
-												<td class="pro-price"><span><%= book.BookPrice %>$</span></td>
-												<td class="pro-quantity">
-													<div class="pro-qty">
-														<div class="count-input-block">
-															<input type="number" min="0" class="form-control text-center"
-																value="<%= this.cart.Carts[id] %>">
-														</div>
-													</div>
-												</td>
-												<td class="pro-subtotal"><span><%= book.BookPrice * this.cart.Carts[id] %>$</span></td>
-											</tr>
-                                            <%
-                                                }
-                                       }
+            <form action="UpdateCart.aspx" method="POST" class="">
+			    <div class="cart_area cart-area-padding  ">
+				    <div class="container">
+					    <div class="page-section-title">
+						    <h1>Shopping Cart</h1>
+					    </div>
+                        <% if (Session["list_err"] != null) {
+                                List<string> list = (List<string>)Session["list_err"];
+                                %>
+                        <div class="row my-3" style="color: red">
+                            <ul>
+                                <%
+                                    foreach (string info in list)
+                                    {
+                                        %>
+                                <li><%= info %></li>
+                                <%
+                                    }
+                                    %>
+                            </ul>
+                        </div>
+                        <%
+                                Session["list_err"] = null;
+                            }
+                           %>
+					    <div class="row">
+						    <div class="col-12">
+							
+								    <!-- Cart Table -->
+								    <div class="cart-table table-responsive mb--40">
+                                        <% if (cart != null && cart.Carts.Keys.Count > 0)
+                                           {
                                                 %>
+									    <table class="table">
+										    <!-- Head Row -->
+										    <thead>
+											    <tr>
+												    <th class="pro-remove"></th>
+												    <th class="pro-thumbnail">Image</th>
+												    <th class="pro-title">Product</th>
+												    <th class="pro-price">Price</th>
+												    <th class="pro-quantity">Quantity</th>
+												    <th class="pro-subtotal">Total</th>
+											    </tr>
+										    </thead>
+										    <tbody>
+											    <!-- Product Row -->
+                                                <%
+                                                    foreach (int id in this.cart.Carts.Keys)
+                                                    {
+                                                        book = this.FindBookByID(id);
+                                                        %>
+                                              <tr>
+												    <td class="pro-remove"><a
+														    href="RemoveFromCart.aspx?BookID=<%= id %>"><i
+															    class="far fa-trash-alt"></i></a>
+												    </td>
+												    <td class="pro-thumbnail"><a
+														    href="Detail.aspx?ID=<%= id %>"><img
+															    src="./image/book/<%= book.BookImage %>"
+															    alt="Product"></a></td>
+												    <td class="pro-title"><a
+														    href="Detail.aspx?ID=<%= id %>"><%= book.BookTitle %></a></td>
+												    <td class="pro-price"><span><%= book.BookPrice %>$</span></td>
+												    <td class="pro-quantity">
+													    <div class="pro-qty">
+														    <div class="count-input-block">
+															    <input type="number" min="1" class="form-control text-center"
+																    value="<%= this.cart.Carts[id] %>" name="<%= id %>">
+														    </div>
+													    </div>
+												    </td>
+												    <td class="pro-subtotal"><span><%= book.BookPrice * this.cart.Carts[id] %>$</span></td>
+											    </tr>
+                                                <%
+                                                    }
+                                           }
+                                                    %>
 											
-										</tbody>
-									</table>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="cart-section-2">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-6 col-12 mb--30 mb-lg--0"></div>
-						<!-- Cart Summary -->
-						<div class="col-lg-6 col-12 d-flex">
-							<div class="cart-summary">
-								<div class="cart-summary-wrap">
-									<h4><span>Cart Summary</span></h4>
-									<h2>Grand Total <span class="text-primary"><%= (this.cart != null) ? this.cart.TotalPrice : 0 %>$</span></h2>
-								</div>
-								<div class="cart-summary-button">
-									<a href="./Pustok - Check out.html"
-										class="checkout-btn c-btn btn--primary">Checkout</a>
-									<button class="update-btn c-btn btn-outlined">Update Cart</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+										    </tbody>
+									    </table>
+								    </div>
+							
+						    </div>
+					    </div>
+				    </div>
+			    </div>
+			    <div class="cart-section-2">
+				    <div class="container">
+					    <div class="row">
+						    <div class="col-lg-6 col-12 mb--30 mb-lg--0"></div>
+						    <!-- Cart Summary -->
+						    <div class="col-lg-6 col-12 d-flex">
+							    <div class="cart-summary">
+								    <div class="cart-summary-wrap">
+									    <h4><span>Cart Summary</span></h4>
+									    <h2>Grand Total <span class="text-primary"><%= (this.cart != null) ? this.cart.TotalPrice : 0 %>$</span></h2>
+								    </div>
+								    <div class="cart-summary-button">
+									    <a href="CheckoutPage.aspx"
+										    class="checkout-btn c-btn btn--primary">Checkout</a>
+									    <input type="submit" value="Update Cart" class="update-btn c-btn btn-outlined"/>
+								    </div>
+							    </div>
+						    </div>
+					    </div>
+				    </div>
+			    </div>
+            </form>
 		</main>
 		<!-- Cart Page End -->
 	</div>

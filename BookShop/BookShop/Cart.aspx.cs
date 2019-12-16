@@ -18,6 +18,7 @@ namespace BookShop
             try
             {
                 cart = (Cart)Session["Cart"];
+                if (cart == null) cart = new Cart();
             }
             catch (Exception ex)
             {

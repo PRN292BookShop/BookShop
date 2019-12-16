@@ -71,5 +71,10 @@ namespace BookShop.Entity
         {
             Carts.Remove(id);
         }
+
+        public void Update(int id, int quantity)
+        {
+            if (IsExisted(id)) Carts[id] = quantity;
+        }
     }
 }
