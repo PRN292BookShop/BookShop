@@ -8,6 +8,11 @@ namespace BookShop.Entity
 {
     public class Cart
     {
+        public Cart()
+        {
+            Carts = new Dictionary<int, int>();
+        }
+
         public Dictionary<int, int> Carts { get; set; }
         public long TotalPrice {
             get
@@ -27,6 +32,21 @@ namespace BookShop.Entity
             }
         }
 
+        public int TotalQuantity
+        {
+            get
+            {
+                int total = 0;
+
+                foreach (int id in Carts.Keys)
+                {
+                    total += Carts[id];
+                }
+
+                return total;
+            }
+        }
+
         public bool AddToCart(int bookID, int quantity)
         {
             bool check = false;
@@ -36,15 +56,20 @@ namespace BookShop.Entity
             }
             else
             {
-                Carts[bookID] = quantity;
-                check = true;
+                Carts[bookID] = quantity;                
             }
+            check = true;
             return check;
         }
 
         public bool IsExisted(int id)
         {
             return Carts.ContainsKey(id);
+        }
+
+        public void RemoveBook(int id)
+        {
+            Carts.Remove(id);
         }
     }
 }

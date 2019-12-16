@@ -46,7 +46,7 @@
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-3">
-                            <a href="https://demo.hasthemes.com/pustok-preview/pustok/index.html" class="site-brand">
+                            <a href="Home.aspx" class="site-brand">
                                 <img src="./Pustok - Book Store HTML Template_files/logo.png" alt="">
                             </a>
                         </div>
@@ -62,38 +62,45 @@
                                     <div class="cart-block">
                                         <div class="cart-total">
                                             <span class="text-number">
-                                                1
+                                                <%= cart != null ? cart.TotalQuantity : 0 %>
                                             </span>
                                             <span class="text-item">
                                                 Shopping Cart
                                             </span>
                                             <span class="price">
-                                                £0.00
+                                                <%= cart != null ? cart.TotalPrice : 0 %>
                                                 <i class="fas fa-chevron-down"></i>
                                             </span>
                                         </div>
                                         <div class="cart-dropdown-block">
                                             <div class=" single-cart-block ">
-                                                <div class="cart-product">
-                                                    <a href="https://demo.hasthemes.com/pustok-preview/pustok/product-details.html"
-                                                        class="image">
-                                                        <img src="./Pustok - Book Store HTML Template_files/cart-product-1.jpg"
-                                                            alt="">
-                                                    </a>
-                                                    <div class="content">
-                                                        <h3 class="title"><a
-                                                                href="https://demo.hasthemes.com/pustok-preview/pustok/product-details.html">Kodak
-                                                                PIXPRO
-                                                                Astro Zoom AZ421 16 MP</a>
-                                                        </h3>
-                                                        <p class="price"><span class="qty">1 ×</span> £87.34</p>
-                                                        <button class="cross-btn"><i class="fas fa-times"></i></button>
-                                                    </div>
-                                                </div>
+                                                <% 
+                                                    if (cart != null)
+                                                    foreach (int id in cart.Carts.Keys)
+                                                    {
+                                                        book = this.FindBookByID(id);
+                                                    %>
+                                                        <div class="cart-product">
+                                                            <a href="Detail.aspx?ID=<%= book.BookID %>"
+                                                                class="image">
+                                                                <img src="./image/book/<%= book.BookImage %>" alt="">
+                                                            </a>
+                                                            <div class="content">
+                                                                <h3 class="title">
+                                                                    <a href="Detail.aspx?ID=<%= book.BookID %>"><%= book.BookTitle %></a>
+                                                                </h3>
+                                                                <p class="price"><span class="qty"> <%= cart.Carts[id] %> ×</span> <%= book.BookPrice %></p>
+                                                                <a href="RemoveFromCart.aspx?BookID=<%= book.BookID %>"><button class="cross-btn"><i class="fas fa-times"></i></button></a>
+                                                            </div>
+                                                        </div>                                                  
+                                                    <%
+                                                    }
+                                                %>
+                                                
                                             </div>
                                             <div class=" single-cart-block ">
                                                 <div class="btn-block">
-                                                    <a href="https://demo.hasthemes.com/pustok-preview/pustok/cart.html"
+                                                    <a href="Cart.aspx"
                                                         class="btn">View Cart <i class="fas fa-chevron-right"></i></a>
                                                     <a href="https://demo.hasthemes.com/pustok-preview/pustok/checkout.html"
                                                         class="btn btn--primary">Check Out <i
@@ -127,7 +134,7 @@
                             <div class="main-navigation">
                                 <ul class="main-menu menu-right main-menu--white li-last-0">
                                     <li class="menu-item">
-                                        <a href="javascript:void(0)">Home</a> 
+                                        <a href="Home.aspx">Home</a> 
                                     </li>
                                 </ul>
                             </div>
