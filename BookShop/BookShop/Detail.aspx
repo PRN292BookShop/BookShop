@@ -1242,8 +1242,8 @@
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a
-									href="https://demo.hasthemes.com/pustok-preview/pustok/index.html">Home</a></li>
-							<li class="breadcrumb-item active">Cart</li>
+									>Home</a></li>
+							<li class="breadcrumb-item active"><%= this.book.BookTitle %></li>
 						</ol>
 					</nav>
 				</div>
@@ -1318,13 +1318,18 @@
 					<div class="col-lg-7">
 						<div class="product-details-info pl-lg--30 ">
 							<p class="tag-block">Tags: <a
-									href="https://demo.hasthemes.com/pustok-preview/pustok/product-details.html#">Movado</a>,
+									>Movado</a>,
 								<a
-									href="https://demo.hasthemes.com/pustok-preview/pustok/product-details.html#">Omega</a>
+									>Omega</a>
 							</p>
-							<h3 class="product-title"><%= this.book.BookTitle %></h3>
-							<ul class="list-unstyled">
-								<li>Author: <span class="list-value"> <%= this.book.BookAuthor %></span></li
+							<h1 class="product-title"><%= this.book.BookTitle %></h1>
+							<ul class="list-unstyled" style="font-size: 16px">
+								<li>Author: <span class="list-value" > <%= this.book.BookAuthor %></span></li><br />
+                                <li>Publisher: <span class="list-value"><b><%= this.book.BookOrgEstablished %></b></span></li> <br />
+                                <li>Dimensions: <span class="list-value"> <%= this.book.BookDimensions %></span></li><br />
+                                <li>Weight: <span class="list-value"> <%= this.book.BookWeight %> g</span></li><br />
+                                <li>Lenght: <span class="list-value"> <%= this.book.BookLength %> cm</span></li><br />
+                                <li>Quantity: <span class="list-value"> <%= this.book.BookQuantity %></span></li><br />
 							</ul>
 							<div class="price-block">
 								<span class="price-new">£<%= this.book.BookPrice %></span>
@@ -1337,19 +1342,9 @@
 									<span class="fas fa-star star_on"></span>
 									<span class="fas fa-star "></span>
 								</div>
-								<div class="review-widget">
-									<a href="https://demo.hasthemes.com/pustok-preview/pustok/product-details.html">(1
-										Reviews)</a> <span>|</span>
-									<a href="https://demo.hasthemes.com/pustok-preview/pustok/product-details.html">Write
-										a review</a>
-								</div>
+								
 							</div>
-							<article class="product-details-article">
-								<h4 class="sr-only">Product Summery</h4>
-								<p>Long printed dress with thin adjustable straps. V-neckline and wiring under the Dust
-									with ruffles at the bottom of the
-									dress.</p>
-							</article>
+		
 							<div class="add-to-cart-row">
 								<div class="count-input-block">
 									<span class="widget-label">Qty</span>
@@ -1379,33 +1374,12 @@
 								DESCRIPTION
 							</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" id="tab2" data-toggle="tab"
-								href="https://demo.hasthemes.com/pustok-preview/pustok/product-details.html#tab-2"
-								role="tab" aria-controls="tab-2" aria-selected="true">
-								REVIEWS (1)
-							</a>
-						</li>
 					</ul>
 					<div class="tab-content space-db--20" id="myTabContent">
 						<div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab1">
 							<article class="review-article">
 								<h1 class="sr-only">Tab Article</h1>
-								<p>Fashion has been creating well-designed collections since 2010. The brand offers
-									feminine designs delivering
-									stylish
-									separates and statement dresses which have since evolved into a full ready-to-wear
-									collection in which every
-									item is
-									a
-									vital part of a woman's wardrobe. The result? Cool, easy, chic looks with youthful
-									elegance and unmistakable
-									signature
-									style. All the beautiful pieces are made in Italy and manufactured with the greatest
-									attention. Now Fashion
-									extends
-									to
-									a range of accessories including shoes, hats, belts and more!</p>
+								<p style="font-size:23px"><%=this.book.BookDescription %></p>
 							</article>
 						</div>
 						<div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="tab2">
@@ -1504,310 +1478,7 @@
   </section>
 </div> -->
 			</div>
-			<!--=================================
-    RELATED PRODUCTS BOOKS
-===================================== -->
-			<section class="">
-				<div class="container">
-					<div class="section-title section-title--bordered">
-						<h2>RELATED PRODUCTS</h2>
-					</div>
-					<div class="product-slider sb-slick-slider slider-border-single-row slick-initialized slick-slider slick-dotted"
-						data-slick-setting="{
-                &quot;autoplay&quot;: true,
-                &quot;autoplaySpeed&quot;: 8000,
-                &quot;slidesToShow&quot;: 4,
-                &quot;dots&quot;:true
-            }" data-slick-responsive="[
-                {&quot;breakpoint&quot;:1200, &quot;settings&quot;: {&quot;slidesToShow&quot;: 4} },
-                {&quot;breakpoint&quot;:992, &quot;settings&quot;: {&quot;slidesToShow&quot;: 3} },
-                {&quot;breakpoint&quot;:768, &quot;settings&quot;: {&quot;slidesToShow&quot;: 2} },
-                {&quot;breakpoint&quot;:480, &quot;settings&quot;: {&quot;slidesToShow&quot;: 1} }
-            ]">
-						<div class="slick-list draggable">
-							<div class="slick-track"
-								style="opacity: 1; width: 1390px; transform: translate3d(-278px, 0px, 0px);">
-								<div class="slick-slide" data-slick-index="0" aria-hidden="true" role="tabpanel"
-									id="slick-slide20" tabindex="-1" aria-describedby="slick-slide-control20"
-									style="width: 278px;">
-									<div>
-										<div class="single-slide" style="width: 100%; display: inline-block;">
-											<div class="product-card">
-												<div class="product-header">
-													<a href="https://demo.hasthemes.com/pustok-preview/pustok/product-details.html"
-														class="author" tabindex="-1">
-														Lpple
-													</a>
-													<h3><a href="https://demo.hasthemes.com/pustok-preview/pustok/product-details.html"
-															tabindex="-1">Revolutionize Your BOOK With</a></h3>
-												</div>
-												<div class="product-card--body">
-													<div class="card-image">
-														<img src="./Pustok - Detail _files/product-10.jpg" alt="">
-														<div class="hover-contents">
-															<a href="https://demo.hasthemes.com/pustok-preview/pustok/product-details.html"
-																class="hover-image" tabindex="-1">
-																<img src="./Pustok - Detail _files/product-1.jpg"
-																	alt="">
-															</a>
-															<div class="hover-btns">
-																<a href="https://demo.hasthemes.com/pustok-preview/pustok/cart.html"
-																	class="single-btn" tabindex="-1">
-																	<i class="fas fa-shopping-basket"></i>
-																</a>
-																<a href="https://demo.hasthemes.com/pustok-preview/pustok/wishlist.html"
-																	class="single-btn" tabindex="-1">
-																	<i class="fas fa-heart"></i>
-																</a>
-																<a href="https://demo.hasthemes.com/pustok-preview/pustok/compare.html"
-																	class="single-btn" tabindex="-1">
-																	<i class="fas fa-random"></i>
-																</a>
-																<a href="https://demo.hasthemes.com/pustok-preview/pustok/product-details.html#"
-																	data-toggle="modal" data-target="#quickModal"
-																	class="single-btn" tabindex="-1">
-																	<i class="fas fa-eye"></i>
-																</a>
-															</div>
-														</div>
-													</div>
-													<div class="price-block">
-														<span class="price">£51.20</span>
-														<del class="price-old">£51.20</del>
-														<span class="price-discount">20%</span>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="slick-slide slick-current slick-active" data-slick-index="1"
-									aria-hidden="false" role="tabpanel" id="slick-slide21"
-									aria-describedby="slick-slide-control21" style="width: 278px;">
-									<div>
-										<div class="single-slide" style="width: 100%; display: inline-block;">
-											<div class="product-card">
-												<div class="product-header">
-													<a href="https://demo.hasthemes.com/pustok-preview/pustok/product-details.html"
-														class="author" tabindex="0">
-														Jpple
-													</a>
-													<h3><a href="https://demo.hasthemes.com/pustok-preview/pustok/product-details.html"
-															tabindex="0">Turn Your BOOK Into High Machine</a>
-													</h3>
-												</div>
-												<div class="product-card--body">
-													<div class="card-image">
-														<img src="./Pustok - Detail _files/product-2.jpg" alt="">
-														<div class="hover-contents">
-															<a href="https://demo.hasthemes.com/pustok-preview/pustok/product-details.html"
-																class="hover-image" tabindex="0">
-																<img src="./Pustok - Detail _files/product-1.jpg"
-																	alt="">
-															</a>
-															<div class="hover-btns">
-																<a href="https://demo.hasthemes.com/pustok-preview/pustok/cart.html"
-																	class="single-btn" tabindex="0">
-																	<i class="fas fa-shopping-basket"></i>
-																</a>
-																<a href="https://demo.hasthemes.com/pustok-preview/pustok/wishlist.html"
-																	class="single-btn" tabindex="0">
-																	<i class="fas fa-heart"></i>
-																</a>
-																<a href="https://demo.hasthemes.com/pustok-preview/pustok/compare.html"
-																	class="single-btn" tabindex="0">
-																	<i class="fas fa-random"></i>
-																</a>
-																<a href="https://demo.hasthemes.com/pustok-preview/pustok/product-details.html#"
-																	data-toggle="modal" data-target="#quickModal"
-																	class="single-btn" tabindex="0">
-																	<i class="fas fa-eye"></i>
-																</a>
-															</div>
-														</div>
-													</div>
-													<div class="price-block">
-														<span class="price">£51.20</span>
-														<del class="price-old">£51.20</del>
-														<span class="price-discount">20%</span>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="slick-slide slick-active" data-slick-index="2" aria-hidden="false"
-									role="tabpanel" id="slick-slide22" style="width: 278px;">
-									<div>
-										<div class="single-slide" style="width: 100%; display: inline-block;">
-											<div class="product-card">
-												<div class="product-header">
-													<a href="https://demo.hasthemes.com/pustok-preview/pustok/product-details.html"
-														class="author" tabindex="0">
-														Wpple
-													</a>
-													<h3><a href="https://demo.hasthemes.com/pustok-preview/pustok/product-details.html"
-															tabindex="0">3 Ways Create Better BOOK With</a></h3>
-												</div>
-												<div class="product-card--body">
-													<div class="card-image">
-														<img src="./Pustok - Detail _files/product-3.jpg" alt="">
-														<div class="hover-contents">
-															<a href="https://demo.hasthemes.com/pustok-preview/pustok/product-details.html"
-																class="hover-image" tabindex="0">
-																<img src="./Pustok - Detail _files/product-2.jpg"
-																	alt="">
-															</a>
-															<div class="hover-btns">
-																<a href="https://demo.hasthemes.com/pustok-preview/pustok/cart.html"
-																	class="single-btn" tabindex="0">
-																	<i class="fas fa-shopping-basket"></i>
-																</a>
-																<a href="https://demo.hasthemes.com/pustok-preview/pustok/wishlist.html"
-																	class="single-btn" tabindex="0">
-																	<i class="fas fa-heart"></i>
-																</a>
-																<a href="https://demo.hasthemes.com/pustok-preview/pustok/compare.html"
-																	class="single-btn" tabindex="0">
-																	<i class="fas fa-random"></i>
-																</a>
-																<a href="https://demo.hasthemes.com/pustok-preview/pustok/product-details.html#"
-																	data-toggle="modal" data-target="#quickModal"
-																	class="single-btn" tabindex="0">
-																	<i class="fas fa-eye"></i>
-																</a>
-															</div>
-														</div>
-													</div>
-													<div class="price-block">
-														<span class="price">£51.20</span>
-														<del class="price-old">£51.20</del>
-														<span class="price-discount">20%</span>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="slick-slide slick-active" data-slick-index="3" aria-hidden="false"
-									role="tabpanel" id="slick-slide23" style="width: 278px;">
-									<div>
-										<div class="single-slide" style="width: 100%; display: inline-block;">
-											<div class="product-card">
-												<div class="product-header">
-													<a href="https://demo.hasthemes.com/pustok-preview/pustok/product-details.html"
-														class="author" tabindex="0">
-														Epple
-													</a>
-													<h3><a href="https://demo.hasthemes.com/pustok-preview/pustok/product-details.html"
-															tabindex="0">What You Can Learn From Bill Gates</a>
-													</h3>
-												</div>
-												<div class="product-card--body">
-													<div class="card-image">
-														<img src="./Pustok - Detail _files/product-5.jpg" alt="">
-														<div class="hover-contents">
-															<a href="https://demo.hasthemes.com/pustok-preview/pustok/product-details.html"
-																class="hover-image" tabindex="0">
-																<img src="./Pustok - Detail _files/product-4.jpg"
-																	alt="">
-															</a>
-															<div class="hover-btns">
-																<a href="https://demo.hasthemes.com/pustok-preview/pustok/cart.html"
-																	class="single-btn" tabindex="0">
-																	<i class="fas fa-shopping-basket"></i>
-																</a>
-																<a href="https://demo.hasthemes.com/pustok-preview/pustok/wishlist.html"
-																	class="single-btn" tabindex="0">
-																	<i class="fas fa-heart"></i>
-																</a>
-																<a href="https://demo.hasthemes.com/pustok-preview/pustok/compare.html"
-																	class="single-btn" tabindex="0">
-																	<i class="fas fa-random"></i>
-																</a>
-																<a href="https://demo.hasthemes.com/pustok-preview/pustok/product-details.html#"
-																	data-toggle="modal" data-target="#quickModal"
-																	class="single-btn" tabindex="0">
-																	<i class="fas fa-eye"></i>
-																</a>
-															</div>
-														</div>
-													</div>
-													<div class="price-block">
-														<span class="price">£51.20</span>
-														<del class="price-old">£51.20</del>
-														<span class="price-discount">20%</span>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="slick-slide slick-active" data-slick-index="4" aria-hidden="false"
-									style="width: 278px;" role="tabpanel" id="slick-slide24">
-									<div>
-										<div class="single-slide" style="width: 100%; display: inline-block;">
-											<div class="product-card">
-												<div class="product-header">
-													<a href="https://demo.hasthemes.com/pustok-preview/pustok/product-details.html"
-														class="author" tabindex="0">
-														Hpple
-													</a>
-													<h3><a href="https://demo.hasthemes.com/pustok-preview/pustok/product-details.html"
-															tabindex="0">a Half Very Simple Things You To</a></h3>
-												</div>
-												<div class="product-card--body">
-													<div class="card-image">
-														<img src="./Pustok - Detail _files/product-6.jpg" alt="">
-														<div class="hover-contents">
-															<a href="https://demo.hasthemes.com/pustok-preview/pustok/product-details.html"
-																class="hover-image" tabindex="0">
-																<img src="./Pustok - Detail _files/product-4.jpg"
-																	alt="">
-															</a>
-															<div class="hover-btns">
-																<a href="https://demo.hasthemes.com/pustok-preview/pustok/cart.html"
-																	class="single-btn" tabindex="0">
-																	<i class="fas fa-shopping-basket"></i>
-																</a>
-																<a href="https://demo.hasthemes.com/pustok-preview/pustok/wishlist.html"
-																	class="single-btn" tabindex="0">
-																	<i class="fas fa-heart"></i>
-																</a>
-																<a href="https://demo.hasthemes.com/pustok-preview/pustok/compare.html"
-																	class="single-btn" tabindex="0">
-																	<i class="fas fa-random"></i>
-																</a>
-																<a href="https://demo.hasthemes.com/pustok-preview/pustok/product-details.html#"
-																	data-toggle="modal" data-target="#quickModal"
-																	class="single-btn" tabindex="0">
-																	<i class="fas fa-eye"></i>
-																</a>
-															</div>
-														</div>
-													</div>
-													<div class="price-block">
-														<span class="price">£51.20</span>
-														<del class="price-old">£51.20</del>
-														<span class="price-discount">20%</span>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<ul class="slick-dots" role="tablist" style="">
-							<li class="" role="presentation"><button type="button" role="tab" id="slick-slide-control20"
-									aria-controls="slick-slide20" aria-label="1 of 2" tabindex="-1">1</button></li>
-							<li role="presentation" class="slick-active"><button type="button" role="tab"
-									id="slick-slide-control21" aria-controls="slick-slide21" aria-label="2 of 2"
-									tabindex="0" aria-selected="true">2</button></li>
-						</ul>
-					</div>
-				</div>
-			</section>
+		
 			<!-- Modal -->
 			<div class="modal fade modal-quick-view" id="quickModal" tabindex="-1" role="dialog"
 				aria-labelledby="quickModal" aria-hidden="true">
@@ -2079,14 +1750,6 @@
 												<span class="fas fa-star star_on"></span>
 												<span class="fas fa-star star_on"></span>
 												<span class="fas fa-star "></span>
-											</div>
-											<div class="review-widget">
-												<a
-													href="https://demo.hasthemes.com/pustok-preview/pustok/product-details.html">(1
-													Reviews)</a> <span>|</span>
-												<a
-													href="https://demo.hasthemes.com/pustok-preview/pustok/product-details.html">Write
-													a review</a>
 											</div>
 										</div>
 										<article class="product-details-article">

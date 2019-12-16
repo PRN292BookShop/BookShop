@@ -97,7 +97,7 @@ namespace BookShop.Service
             IsEnable = bool.Parse(reader["IsEnable"].ToString());
 
 
-            Book book = new Book(ID, bookTitle, bookPrice, bookImage, bookAuthor);
+            Book book = new Book(ID,bookTitle,bookDescription,bookDateEstablish,bookOrgEstablish,bookDimension,bookWeight,bookLenght,bookPrice,bookImage,bookAuthor,bookQuantity,CreatedTime,LastModified,IsEnable);
 
             return book;
         }
