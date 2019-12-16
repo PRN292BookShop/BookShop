@@ -9,11 +9,9 @@ using BookShop.Service;
 
 namespace BookShop
 {
-    public partial class CheckoutPage : System.Web.UI.Page
+    public partial class CheckoutAction : System.Web.UI.Page
     {
         public Cart cart;
-        public Book book;
-
         public Order order = new Order();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -21,33 +19,33 @@ namespace BookShop
             try
             {
                 cart = (Cart)Session["Cart"];
-                if (cart == null) cart = new Cart();
+                if (cart == null) Response.Redirect("Home.aspx");
 
-                if (!CheckValidItem())
-                {
-                    Response.Redirect("Cart.aspx");
-                }
-                
+                if (!CheckValidItem()) Response.Redirect("Cart.aspx");
+
+                OrderService service = new OrderService();
+
                 order.OrderFullname = Request.Params["fullname"];
                 order.OrderPhone = Request.Params["phone"];
                 order.OrderAddress = Request.Params["address"];
                 order.OrderNote = Request.Params["note"];
-            }
+
+                if (service.AddOrder(order, cart))
+                {
+                    Session["Cart"] = null;
+                    Response.Redirect("Home.aspx");
+                }
+                else
+                {
+                    throw new Exception("Add failed");
+                }
+            } 
             catch (Exception ex)
             {
                 string errorMsg = ex.Message + "\n" + ex.StackTrace;
                 Session["error_msg"] = errorMsg;
                 Server.Transfer("Error.aspx");
             }
-        }
-
-        public Book FindBookByID(int id)
-        {
-            Book b = (new BookService()).SeeBookDetail(id);
-
-            if (b == null) b = new Book();
-
-            return b;
         }
 
         public bool CheckValidItem()

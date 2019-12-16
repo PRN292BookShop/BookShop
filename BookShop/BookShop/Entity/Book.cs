@@ -20,25 +20,6 @@ namespace BookShop.Entity
             BookAuthor = bookAuthor;
         }
 
-        public Book(int bookID, string bookTitle, string bookDescription, DateTime bookEstablished, string bookOrgEstablished, string bookDimensions, float bookWeight, int bookLength, long bookPrice, string bookImage, string bookAuthor, int bookQuantity, DateTime createdTime, DateTime lastModified, bool enabled)
-        {
-            BookID = bookID;
-            BookTitle = bookTitle;
-            BookDescription = bookDescription;
-            BookEstablished = bookEstablished;
-            BookOrgEstablished = bookOrgEstablished;
-            BookDimensions = bookDimensions;
-            BookWeight = bookWeight;
-            BookLength = bookLength;
-            BookPrice = bookPrice;
-            BookImage = bookImage;
-            BookAuthor = bookAuthor;
-            BookQuantity = bookQuantity;
-            CreatedTime = createdTime;
-            LastModified = lastModified;
-            Enabled = enabled;
-        }
-
         public Book(int bookID, string bookTitle, string bookDescription, DateTime bookEstablished, string bookOrgEstablished, string bookDimensions, float bookWeight, int bookLength, long bookPrice, string bookImage, string bookAuthor, int bookQuantity, DateTime createdTime, DateTime lastModified, bool enabled, Category bookCategory, Account createdAccount, Account lastModifiedAccount)
         {
             BookID = bookID;
@@ -59,6 +40,23 @@ namespace BookShop.Entity
             BookCategory = bookCategory;
             CreatedAccount = createdAccount;
             LastModifiedAccount = lastModifiedAccount;
+        }
+
+        public Book(int bookID, string bookTitle, string bookDescription, DateTime bookEstablished, string bookOrgEstablished, string bookDimensions, float bookWeight, int bookLength, long bookPrice, string bookImage, string bookAuthor, Category category, bool enabled)
+        {
+            BookID = bookID;
+            BookTitle = bookTitle;
+            BookDescription = bookDescription;
+            BookEstablished = bookEstablished;
+            BookOrgEstablished = bookOrgEstablished;
+            BookDimensions = bookDimensions;
+            BookWeight = bookWeight;
+            BookLength = bookLength;
+            BookPrice = bookPrice;
+            BookImage = bookImage;
+            BookAuthor = bookAuthor;
+            BookCategory = category;
+            Enabled = enabled;
         }
 
         public int BookID { get; set; }

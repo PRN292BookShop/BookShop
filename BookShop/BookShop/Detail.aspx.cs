@@ -11,15 +11,20 @@ namespace BookShop
 {
     public partial class Detail : System.Web.UI.Page
     {
-        public Book book;
+        public Book book, bookInCart;
         public string errorMsg = "";
+        public Cart cart;
+        public int BookID;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
-                int id = int.Parse(Request.QueryString["ID"]);
+                BookID = int.Parse(Request.QueryString["ID"]);
                 BookService service = new BookService();
-                book = service.SeeBookDetail(id);
+                book = service.SeeBookDetail(BookID);
+
+                cart = (Cart)Session["Cart"];
             }
             catch (Exception ex)
             {
@@ -27,6 +32,15 @@ namespace BookShop
                 Session["error_msg"] = errorMsg;
                 Server.Transfer("Error.aspx");
             }
+        }
+
+        public Book FindBookByID(int id)
+        {
+            Book b = (new BookService()).SeeBookDetail(id);
+
+            if (b == null) b = new Book();
+
+            return b;
         }
     }
 }

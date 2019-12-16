@@ -66,5 +66,15 @@ namespace BookShop.Entity
         {
             return Carts.ContainsKey(id);
         }
+
+        public void RemoveBook(int id)
+        {
+            Carts.Remove(id);
+        }
+
+        public void Update(int id, int quantity)
+        {
+            if (IsExisted(id)) Carts[id] = quantity;
+        }
     }
 }
