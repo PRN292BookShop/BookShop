@@ -1317,11 +1317,6 @@
 					</div>
 					<div class="col-lg-7">
 						<div class="product-details-info pl-lg--30 ">
-							<p class="tag-block">Tags: <a
-									>Movado</a>,
-								<a
-									>Omega</a>
-							</p>
 							<h1 class="product-title"><%= this.book.BookTitle %></h1>
 							<ul class="list-unstyled" style="font-size: 16px">
 								<li>Author: <span class="list-value" > <%= this.book.BookAuthor %></span></li><br />

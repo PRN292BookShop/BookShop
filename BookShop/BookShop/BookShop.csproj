@@ -69,6 +69,8 @@
   <ItemGroup>
     <Content Include="AddToCart.aspx" />
     <Content Include="asserts\login.css" />
+    <Content Include="AuthPage\BookDetail.aspx" />
+    <Content Include="AuthPage\BookManager.aspx" />
     <Content Include="AuthPage\Dashboard.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="image\bg-images\home-2-slider-1.jpg" />
@@ -161,6 +163,20 @@
     </Compile>
     <Compile Include="AddToCart.aspx.designer.cs">
       <DependentUpon>AddToCart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AuthPage\BookDetail.aspx.cs">
+      <DependentUpon>BookDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AuthPage\BookDetail.aspx.designer.cs">
+      <DependentUpon>BookDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AuthPage\BookManager.aspx.cs">
+      <DependentUpon>BookManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AuthPage\BookManager.aspx.designer.cs">
+      <DependentUpon>BookManager.aspx</DependentUpon>
     </Compile>
     <Compile Include="AuthPage\Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
