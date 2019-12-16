@@ -61,7 +61,12 @@ namespace BookShop.Service
         public Book SeeBookDetail(int ID)
         {
             conn.Open();
-            SqlCommand sql = new SqlCommand("SELECT BookTitle, BookAuthor, BookImage, BookPrice FROM tblBook WHERE BookID = " + ID + "", conn);
+            SqlCommand sql = new SqlCommand("SELECT BookDescription, BookDateEstablish, BookOrgEstablished, " +
+                "BookDimensions, BookTitle, BookAuthor, BookImage, BookPrice, " +
+                "BookWeight, BookLength, BookCategoryID, BookQuantity, " +
+                "CreatedTime, CreatedAccount, LastModified, LastModifiedAccount, IsEnable " +
+                "FROM tblBook WHERE BookID = " + ID + "", conn);
+
             SqlDataReader reader = sql.ExecuteReader();
             reader.Read();
 
