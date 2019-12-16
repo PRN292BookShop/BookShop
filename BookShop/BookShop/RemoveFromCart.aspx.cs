@@ -14,15 +14,14 @@ namespace BookShop
         {
             try
             {
-                int bookID = Int32.Parse(Request.QueryString["BookID"]);
+                int bookID = Int32.Parse(Request.Params["BookID"]);
 
                 if (Session["Cart"] != null)
                 {
                     Cart cart = (Cart)Session["Cart"];
                     cart.RemoveBook(bookID);
                 }
-
-                Response.Redirect("Home.aspx");
+                Response.Redirect(Request.UrlReferrer.AbsoluteUri);
             }
             catch (Exception ex)
             {

@@ -14,13 +14,15 @@ namespace BookShop
         public Book book, bookInCart;
         public string errorMsg = "";
         public Cart cart;
+        public int BookID;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
-                int id = int.Parse(Request.QueryString["ID"]);
+                BookID = int.Parse(Request.QueryString["ID"]);
                 BookService service = new BookService();
-                book = service.SeeBookDetail(id);
+                book = service.SeeBookDetail(BookID);
 
                 cart = (Cart)Session["Cart"];
             }

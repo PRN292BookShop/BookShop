@@ -27,7 +27,7 @@ namespace BookShop
                 Cart cart = (Cart) Session["Cart"];
                 if (cart.AddToCart(bookID, quantity))
                 {
-                    Response.Redirect("Home.aspx");
+                    Response.Redirect(Request.UrlReferrer.AbsoluteUri);
                 }
                 else
                 {

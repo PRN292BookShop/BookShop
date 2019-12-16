@@ -46,7 +46,7 @@
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-3">
-                            <a href="https://demo.hasthemes.com/pustok-preview/pustok/index.html" class="site-brand">
+                            <a href="Home.aspx" class="site-brand">
                                 <img src="./Pustok - Book Store HTML Template_files/logo.png" alt="">
                             </a>
                         </div>
@@ -100,7 +100,7 @@
                                             </div>
                                             <div class=" single-cart-block ">
                                                 <div class="btn-block">
-                                                    <a href="https://demo.hasthemes.com/pustok-preview/pustok/cart.html"
+                                                    <a href="Cart.aspx"
                                                         class="btn">View Cart <i class="fas fa-chevron-right"></i></a>
                                                     <a href="https://demo.hasthemes.com/pustok-preview/pustok/checkout.html"
                                                         class="btn btn--primary">Check Out <i
@@ -134,7 +134,7 @@
                             <div class="main-navigation">
                                 <ul class="main-menu menu-right main-menu--white li-last-0">
                                     <li class="menu-item">
-                                        <a href="javascript:void(0)">Home</a> 
+                                        <a href="Home.aspx">Home</a> 
                                     </li>
                                 </ul>
                             </div>
