@@ -10,7 +10,6 @@ namespace BookShop
 {
     public partial class AddToCartPage : System.Web.UI.Page
     {
-        public String errorMsg;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -28,7 +27,7 @@ namespace BookShop
                 Cart cart = (Cart) Session["Cart"];
                 if (cart.AddToCart(bookID, 1))
                 {
-
+                    Response.Redirect("Home.aspx");
                 }
                 else
                 {
@@ -37,7 +36,7 @@ namespace BookShop
             }
             catch (Exception ex)
             {
-                errorMsg = ex.Message + "\n" + ex.StackTrace;
+                Session["error_msg"] = ex.Message + "\n" + ex.StackTrace;
                 Server.Transfer("Error.aspx");
             }
         }
