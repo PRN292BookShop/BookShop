@@ -11,11 +11,8 @@ namespace BookShop
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            WebForm1 home;
-            home = (WebForm1)Context.Handler;
-
-            this.ERROR_MSG.Text = home.errorMsg;
-
+            this.ERROR_MSG.Text = Session["error_msg"].ToString();
+            Session["error_msg"] = null;
         }
     }
 }

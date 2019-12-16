@@ -27,10 +27,5 @@ namespace BookShop {
         /// <remarks>
         /// Auto-generated property.
         /// </remarks>
-        public new BookShop.WebForm1 PreviousPage {
-            get {
-                return ((BookShop.WebForm1)(base.PreviousPage));
-            }
-        }
     }
 }

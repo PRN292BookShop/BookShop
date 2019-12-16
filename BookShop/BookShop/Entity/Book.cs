@@ -20,6 +20,28 @@ namespace BookShop.Entity
             BookAuthor = bookAuthor;
         }
 
+        public Book(int bookID, string bookTitle, string bookDescription, DateTime bookEstablished, string bookOrgEstablished, string bookDimensions, float bookWeight, int bookLength, long bookPrice, string bookImage, string bookAuthor, int bookQuantity, DateTime createdTime, DateTime lastModified, bool enabled, Category bookCategory, Account createdAccount, Account lastModifiedAccount)
+        {
+            BookID = bookID;
+            BookTitle = bookTitle;
+            BookDescription = bookDescription;
+            BookEstablished = bookEstablished;
+            BookOrgEstablished = bookOrgEstablished;
+            BookDimensions = bookDimensions;
+            BookWeight = bookWeight;
+            BookLength = bookLength;
+            BookPrice = bookPrice;
+            BookImage = bookImage;
+            BookAuthor = bookAuthor;
+            BookQuantity = bookQuantity;
+            CreatedTime = createdTime;
+            LastModified = lastModified;
+            Enabled = enabled;
+            BookCategory = bookCategory;
+            CreatedAccount = createdAccount;
+            LastModifiedAccount = lastModifiedAccount;
+        }
+
         public int BookID { get; set; }
         public string BookTitle { get; set; }
         public string BookDescription { get; set; }

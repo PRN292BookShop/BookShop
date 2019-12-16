@@ -61,7 +61,7 @@ namespace BookShop.Service
         public Book SeeBookDetail(int ID)
         {
             conn.Open();
-            SqlCommand sql = new SqlCommand("SELECT BookDescription, BookDateEstablish, BookOrgEstablished, " +
+            SqlCommand sql = new SqlCommand("SELECT BookDescription, BookDateEstablished, BookOrgEstablished, " +
                 "BookDimensions, BookTitle, BookAuthor, BookImage, BookPrice, " +
                 "BookWeight, BookLength, BookCategoryID, BookQuantity, " +
                 "CreatedTime, CreatedAccount, LastModified, LastModifiedAccount, IsEnable " +
@@ -70,13 +70,32 @@ namespace BookShop.Service
             SqlDataReader reader = sql.ExecuteReader();
             reader.Read();
 
-            string bookTitle, bookAuthor, bookImage;
+            string bookTitle, bookAuthor, bookImage,
+                   bookOrgEstablish, bookDimension, CreatedAccount, LastModifiedAccount, bookDescription;
             long bookPrice;
+            float bookWeight;
+            DateTime CreatedTime, LastModified, bookDateEstablish;
+            int bookCategoryID, bookLenght, bookQuantity;
+            bool IsEnable;
 
             bookPrice = long.Parse(reader["BookPrice"].ToString());
             bookTitle = reader["BookTitle"].ToString();
             bookAuthor = reader["BookAuthor"].ToString();
             bookImage = reader["BookImage"].ToString();
+            bookOrgEstablish = reader["BookOrgEstablished"].ToString();
+            bookDescription = reader["BookDescription"].ToString();
+            bookDimension = reader["BookDimensions"].ToString();
+            CreatedAccount = reader["CreatedAccount"].ToString();
+            LastModifiedAccount = reader["LastModifiedAccount"].ToString();
+            bookWeight = float.Parse(reader["bookWeight"].ToString());
+            CreatedTime = DateTime.Parse(reader["CreatedTime"].ToString());
+            LastModified = DateTime.Parse(reader["LastModified"].ToString());
+            bookDateEstablish = DateTime.Parse(reader["BookDateEstablished"].ToString());
+            bookCategoryID = int.Parse(reader["BookCategoryID"].ToString());
+            bookLenght = int.Parse(reader["BookLength"].ToString());
+            bookQuantity = int.Parse(reader["BookQuantity"].ToString());
+            IsEnable = bool.Parse(reader["IsEnable"].ToString());
+
 
             Book book = new Book(ID, bookTitle, bookPrice, bookImage, bookAuthor);
 
