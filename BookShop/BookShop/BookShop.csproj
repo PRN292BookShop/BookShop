@@ -69,10 +69,53 @@
   <ItemGroup>
     <Content Include="AddToCart.aspx" />
     <Content Include="asserts\login.css" />
+    <Content Include="AuthPage\assets\css\animate.min.css" />
+    <Content Include="AuthPage\assets\css\bootstrap.min.css" />
+    <Content Include="AuthPage\assets\css\demo.css" />
+    <Content Include="AuthPage\assets\css\font-awesome.css" />
+    <Content Include="AuthPage\assets\css\font-ggapi.css" />
+    <Content Include="AuthPage\assets\css\light-bootstrap-dashboard.css" />
+    <Content Include="AuthPage\assets\css\pe-icon-7-stroke.css" />
+    <Content Include="AuthPage\assets\fonts\Pe-icon-7-stroke.svg" />
+    <Content Include="AuthPage\assets\img\default-avatar.png" />
+    <Content Include="AuthPage\assets\img\faces\face-0.jpg" />
+    <Content Include="AuthPage\assets\img\faces\face-1.jpg" />
+    <Content Include="AuthPage\assets\img\faces\face-2.jpg" />
+    <Content Include="AuthPage\assets\img\faces\face-3.jpg" />
+    <Content Include="AuthPage\assets\img\faces\face-4.jpg" />
+    <Content Include="AuthPage\assets\img\faces\face-5.jpg" />
+    <Content Include="AuthPage\assets\img\faces\face-6.jpg" />
+    <Content Include="AuthPage\assets\img\faces\face-7.jpg" />
+    <Content Include="AuthPage\assets\img\favicon.ico" />
+    <Content Include="AuthPage\assets\img\full-screen-image-3.jpg" />
+    <Content Include="AuthPage\assets\img\loading-bubbles.svg" />
+    <Content Include="AuthPage\assets\img\mask.png" />
+    <Content Include="AuthPage\assets\img\new_logo.png" />
+    <Content Include="AuthPage\assets\img\sidebar-1.jpg" />
+    <Content Include="AuthPage\assets\img\sidebar-2.jpg" />
+    <Content Include="AuthPage\assets\img\sidebar-3.jpg" />
+    <Content Include="AuthPage\assets\img\sidebar-4.jpg" />
+    <Content Include="AuthPage\assets\img\sidebar-5.jpg" />
+    <Content Include="AuthPage\assets\img\tim_80x80.png" />
+    <Content Include="AuthPage\assets\js\bootstrap-notify.js" />
+    <Content Include="AuthPage\assets\js\bootstrap-select.js" />
+    <Content Include="AuthPage\assets\js\bootstrap.min.js" />
+    <Content Include="AuthPage\assets\js\chartist.min.js" />
+    <Content Include="AuthPage\assets\js\demo.js" />
+    <Content Include="AuthPage\assets\js\jquery.3.2.1.min.js" />
+    <Content Include="AuthPage\assets\js\light-bootstrap-dashboard.js" />
     <Content Include="AuthPage\BookDetail.aspx" />
     <Content Include="AuthPage\BookInsert.aspx" />
     <Content Include="AuthPage\BookManager.aspx" />
+    <Content Include="AuthPage\CategoryInsert.aspx" />
+    <Content Include="AuthPage\CategoryManager.aspx" />
+    <Content Include="AuthPage\CategoryUpdate.aspx" />
     <Content Include="AuthPage\Dashboard.aspx" />
+    <Content Include="AuthPage\jquery\jquery-1.12.4.js" />
+    <Content Include="AuthPage\jquery\jquery-ui.js" />
+    <Content Include="AuthPage\jquery\jquery-ui.min.css" />
+    <Content Include="AuthPage\jquery\jquery-ui.structure.min.css" />
+    <Content Include="AuthPage\jquery\jquery-ui.theme.min.css" />
     <Content Include="CheckoutAction.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="image\bg-images\home-2-slider-1.jpg" />
@@ -189,6 +232,27 @@
     <Compile Include="AuthPage\BookManager.aspx.designer.cs">
       <DependentUpon>BookManager.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AuthPage\CategoryInsert.aspx.cs">
+      <DependentUpon>CategoryInsert.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AuthPage\CategoryInsert.aspx.designer.cs">
+      <DependentUpon>CategoryInsert.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AuthPage\CategoryManager.aspx.cs">
+      <DependentUpon>CategoryManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AuthPage\CategoryManager.aspx.designer.cs">
+      <DependentUpon>CategoryManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AuthPage\CategoryUpdate.aspx.cs">
+      <DependentUpon>CategoryUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AuthPage\CategoryUpdate.aspx.designer.cs">
+      <DependentUpon>CategoryUpdate.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AuthPage\Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -279,6 +343,39 @@
     <Content Include="fonts\fa-regular-400.woff2" />
     <Content Include="fonts\fa-solid-900.woff2" />
     <Content Include="fonts\Ionicons.ttf" />
+    <Content Include="AuthPage\assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="AuthPage\assets\fonts\Pe-icon-7-stroke.eot" />
+    <Content Include="AuthPage\assets\fonts\Pe-icon-7-stroke.ttf" />
+    <Content Include="AuthPage\assets\fonts\Pe-icon-7-stroke.woff" />
+    <Content Include="AuthPage\assets\sass\lbd\mixins\_buttons.scss" />
+    <Content Include="AuthPage\assets\sass\lbd\mixins\_cards.scss" />
+    <Content Include="AuthPage\assets\sass\lbd\mixins\_chartist.scss" />
+    <Content Include="AuthPage\assets\sass\lbd\mixins\_icons.scss" />
+    <Content Include="AuthPage\assets\sass\lbd\mixins\_inputs.scss" />
+    <Content Include="AuthPage\assets\sass\lbd\mixins\_labels.scss" />
+    <Content Include="AuthPage\assets\sass\lbd\mixins\_morphing-buttons.scss" />
+    <Content Include="AuthPage\assets\sass\lbd\mixins\_navbars.scss" />
+    <Content Include="AuthPage\assets\sass\lbd\mixins\_social-buttons.scss" />
+    <Content Include="AuthPage\assets\sass\lbd\mixins\_tabs.scss" />
+    <Content Include="AuthPage\assets\sass\lbd\mixins\_transparency.scss" />
+    <Content Include="AuthPage\assets\sass\lbd\mixins\_vendor-prefixes.scss" />
+    <Content Include="AuthPage\assets\sass\lbd\_alerts.scss" />
+    <Content Include="AuthPage\assets\sass\lbd\_buttons.scss" />
+    <Content Include="AuthPage\assets\sass\lbd\_cards.scss" />
+    <Content Include="AuthPage\assets\sass\lbd\_chartist.scss" />
+    <Content Include="AuthPage\assets\sass\lbd\_checkbox-radio-switch.scss" />
+    <Content Include="AuthPage\assets\sass\lbd\_dropdown.scss" />
+    <Content Include="AuthPage\assets\sass\lbd\_footers.scss" />
+    <Content Include="AuthPage\assets\sass\lbd\_inputs.scss" />
+    <Content Include="AuthPage\assets\sass\lbd\_misc.scss" />
+    <Content Include="AuthPage\assets\sass\lbd\_mixins.scss" />
+    <Content Include="AuthPage\assets\sass\lbd\_navbars.scss" />
+    <Content Include="AuthPage\assets\sass\lbd\_responsive.scss" />
+    <Content Include="AuthPage\assets\sass\lbd\_sidebar-and-main-panel.scss" />
+    <Content Include="AuthPage\assets\sass\lbd\_tables.scss" />
+    <Content Include="AuthPage\assets\sass\lbd\_typography.scss" />
+    <Content Include="AuthPage\assets\sass\lbd\_variables.scss" />
+    <Content Include="AuthPage\assets\sass\light-bootstrap-dashboard.scss" />
     <None Include="packages.config" />
     <Content Include="Pustok - Book Store HTML Template_files\fonts\fa-brands-400.woff2" />
     <Content Include="Pustok - Book Store HTML Template_files\fonts\fa-solid-900.woff2" />
