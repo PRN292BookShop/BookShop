@@ -86,5 +86,39 @@ namespace BookShop.Service
             
             return flag;
         }
+
+        public List<Order> GetAllOrders()
+        {
+            
+            conn.Open();
+            Order order;
+            SqlCommand command = new SqlCommand(@"SELECT OrderID, OrderFullname,OrderPhone,OrderAddress,OrderNote,OrderDate,OrderStatus,OrderLastModified,OrderAccountModified from tblOrder", conn);
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            List<Order> list = new List<Order>();
+            while (reader.Read())
+            {
+                int id = int.Parse(reader["OrderID"].ToString());
+                string fullName = reader["OrderFullname"].ToString();
+                string phone = reader["OrderPhone"].ToString();
+                string addrress = reader["OrderAddress"].ToString();
+                string note = reader["OrderNote"].ToString();
+                string acc = reader["OrderAccountModified"].ToString();
+                DateTime date = DateTime.Parse(reader["OrderDate"].ToString());
+                DateTime dateM = DateTime.Parse(reader["OrderLastModified"].ToString());
+                int status = int.Parse(reader["OrderStatus"].ToString());
+                
+                AccountService accS = new AccountService();
+                StatusService stS = new StatusService();
+                order = new Order(id,fullName,phone,addrress,note,accS.FindByUsername(acc),stS.FindByID(status),dateM,date);
+                list.Add(order);
+            
+            }
+            CloseConnection();
+            return list;
+        }
+
+        
     }
 }

@@ -11,7 +11,8 @@ namespace BookShop.Entity
         public string OrderFullname, OrderPhone, OrderAddress, OrderNote;
         public Account OrderAccountModified;
         public Status OrderStatus;
-
+        public DateTime OrderLastModified;
+        public DateTime OrderDate;
         public Order()
         {
         }
@@ -33,6 +34,12 @@ namespace BookShop.Entity
             OrderNote = orderNote;
             OrderAccountModified = orderAccountModified;
             OrderStatus = orderStatus;
+        }
+
+        public Order(int orderID, string orderFullname, string orderPhone, string orderAddress, string orderNote, Account orderAccountModified, Status orderStatus, DateTime orderLastModified, DateTime orderDate) : this(orderID, orderFullname, orderPhone, orderAddress, orderNote, orderAccountModified, orderStatus)
+        {
+            OrderLastModified = orderLastModified;
+            OrderDate = orderDate;
         }
     }
 }
