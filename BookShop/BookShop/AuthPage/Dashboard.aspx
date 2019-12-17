@@ -34,6 +34,7 @@
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 </head>
 <body>
+     <form runat="server">
     <div class="wrapper">
         <div class="sidebar" data-color="green" data-image="assets/img/sidebar-5.jpg">
 
@@ -106,7 +107,7 @@
                             </li>
                             <li>
                                 <a href="#">
-                                    <p>Log out</p>
+                                    <asp:Button ID="btnLogout" runat="server" Text="Log out" OnClick="btnLogout_Click" />
                                 </a>
                             </li>
                             <li class="separator hidden-lg"></li>
@@ -353,5 +354,6 @@
 
         </div>
     </div>
+         </form>
 </body>
 </html>
