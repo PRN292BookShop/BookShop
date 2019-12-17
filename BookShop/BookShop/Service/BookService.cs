@@ -156,5 +156,77 @@ namespace BookShop.Service
             CloseConnection();
             return book;
         }
+
+        public int InsertBook(Book book)
+        {
+            int id = -1;
+            try
+            {
+                conn.Open();
+                SqlCommand command = new SqlCommand(@"INSERT INTO " +
+                    "tblBook(BookTitle, BookDescription, BookDateEstablished, " +
+                    "BookOrgEstablished, BookDimesions, BookWeight, " +
+                    "BookLength, BookPrice, BookCategoryID, " +
+                    "BookAuthor, BookQuantity) " +
+                    "output INSERTED.BookID " +
+                    "VALUES(@title, @description, @dateEstablished, " +
+                    "@orgEstablished, @dimesions, @weight, " +
+                    "@length, @price, @categoryId, " +
+                    "@author, @quantity)", conn);
+
+                command.Parameters.Add("@title", System.Data.SqlDbType.NVarChar);
+                command.Parameters.Add("@description", System.Data.SqlDbType.NVarChar);
+                command.Parameters.Add("@dateEstablished", System.Data.SqlDbType.Date);
+                command.Parameters.Add("@orgEstablished", System.Data.SqlDbType.VarChar);
+                command.Parameters.Add("@dimesions", System.Data.SqlDbType.VarChar);
+                command.Parameters.Add("@weight", System.Data.SqlDbType.Float);
+                command.Parameters.Add("@length", System.Data.SqlDbType.Int);
+                command.Parameters.Add("@price", System.Data.SqlDbType.BigInt);
+                command.Parameters.Add("@categoryId", System.Data.SqlDbType.Int);
+                command.Parameters.Add("@author", System.Data.SqlDbType.NVarChar);
+                command.Parameters.Add("@quantity", System.Data.SqlDbType.Int);
+
+                command.Parameters["@title"].Value = book.BookTitle;
+                command.Parameters["@description"].Value = book.BookDescription;
+                command.Parameters["@dateEstablished"].Value = book.BookEstablished;
+                command.Parameters["@orgEstablished"].Value = book.BookOrgEstablished;
+                command.Parameters["@dimesions"].Value = book.BookDimensions;
+                command.Parameters["@weight"].Value = book.BookWeight;
+                command.Parameters["@length"].Value = book.BookLength;
+                command.Parameters["@price"].Value = book.BookPrice;
+                command.Parameters["@categoryId"].Value = book.BookCategory;
+                command.Parameters["@author"].Value = book.BookAuthor;
+                command.Parameters["@quantity"].Value = book.BookQuantity;
+
+                id = (int)command.ExecuteScalar();
+            }
+            finally
+            {
+                CloseConnection();
+            }
+                        
+            return id;
+        }
+
+        public void UpdateImage(int id, string image)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand command = new SqlCommand(@"UPDATE tblBook SET BookImage = @image WHERE BookID = @id", conn);
+
+                command.Parameters.Add("@image", System.Data.SqlDbType.VarChar);
+                command.Parameters.Add("@id", System.Data.SqlDbType.Int);
+
+                command.Parameters["@image"].Value = image;
+                command.Parameters["@id"].Value = id;
+
+                command.ExecuteNonQuery();
+            }
+            finally
+            {
+                CloseConnection();
+            }                        
+        }
     }
 }
