@@ -80,6 +80,12 @@
                             <p>Manage Order</p>
                         </a>
                     </li>
+                    <li>
+                        <a href="typography.html">
+                            <i class="pe-7s-box1"></i>
+                            <p>Manage Category</p>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>

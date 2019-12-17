@@ -18,7 +18,7 @@ namespace BookShop.AuthPage
             CategoryService sv = new CategoryService();
             try
             {
-                listCategory = sv.GetCategory();
+                listCategory = sv.GetAllCategory();
             }
             catch(Exception ex)
             {

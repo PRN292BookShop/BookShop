@@ -17,6 +17,74 @@ namespace BookShop.Service
             if (conn != null) conn.Close();
         }
 
+        public List<Book> ListAllBook()
+        {
+            List<Book> listBook = null;
+            try
+            {
+                conn.Open();
+
+                SqlCommand sql = new SqlCommand("SELECT BookID,BookDescription, BookDateEstablished, BookOrgEstablished, " +
+                "BookDimensions, BookTitle, BookAuthor, BookImage, BookPrice, " +
+                "BookWeight, BookLength, BookCategoryID, BookQuantity, " +
+                "CreatedTime, CreatedAccount, LastModified, LastModifiedAccount, IsEnable " +
+                "FROM tblBook  ", conn);
+
+                SqlDataReader reader = sql.ExecuteReader();
+
+                string bookTitle, bookAuthor, bookImage,
+                   bookOrgEstablish, bookDimension, CreatedAccount, LastModifiedAccount, bookDescription;
+                long bookPrice;
+                float bookWeight;
+                DateTime CreatedTime, LastModified, bookDateEstablish;
+                int bookCategoryID, bookLenght, bookQuantity,bookID;
+                bool IsEnable;
+
+                listBook = new List<Book>();
+
+                while (reader.Read())
+                {
+                    bookID = int.Parse(reader["BookID"].ToString());
+                    bookPrice = long.Parse(reader["BookPrice"].ToString());
+                    bookTitle = reader["BookTitle"].ToString();
+                    bookAuthor = reader["BookAuthor"].ToString();
+                    bookImage = reader["BookImage"].ToString();
+                    bookOrgEstablish = reader["BookOrgEstablished"].ToString();
+                    bookDescription = reader["BookDescription"].ToString();
+                    bookDimension = reader["BookDimensions"].ToString();
+                    CreatedAccount = reader["CreatedAccount"].ToString();
+                    LastModifiedAccount = reader["LastModifiedAccount"].ToString();
+                    bookWeight = float.Parse(reader["bookWeight"].ToString());
+                    CreatedTime = DateTime.Parse(reader["CreatedTime"].ToString());
+                    LastModified = DateTime.Parse(reader["LastModified"].ToString());
+                    bookDateEstablish = DateTime.Parse(reader["BookDateEstablished"].ToString());
+                    bookCategoryID = int.Parse(reader["BookCategoryID"].ToString());
+                    bookLenght = int.Parse(reader["BookLength"].ToString());
+                    bookQuantity = int.Parse(reader["BookQuantity"].ToString());
+                    IsEnable = bool.Parse(reader["IsEnable"].ToString());
+                    CategoryService categoryService = new CategoryService();
+                    AccountService accountService = new AccountService();
+
+                    Book book = new Book(bookID, bookTitle, bookDescription,
+                bookDateEstablish, bookOrgEstablish, bookDimension,
+                bookWeight, bookLenght, bookPrice,
+                bookImage, bookAuthor, bookQuantity,
+                CreatedTime, LastModified, IsEnable,
+                categoryService.FindByID(bookCategoryID),
+                accountService.FindByUsername(CreatedAccount), accountService.FindByUsername(LastModifiedAccount));
+                    listBook.Add(book);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                CloseConnection();
+            }
+            return listBook;
+        }
         public List<Book> ListTop10Book()
         {
             List<Book> listBook = null;

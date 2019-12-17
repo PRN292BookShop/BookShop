@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BookManager.aspx.cs" Inherits="BookShop.AuthPage.BookManager" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CategoryInsert.aspx.cs" Inherits="BookShop.AuthPage.CategoryInsert" %>
 
 <!DOCTYPE html>
 
@@ -120,88 +120,41 @@
                 </div>
             </nav>
 
-
             <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="header row">
-                                <h4 class="title  col-md-6" >List all Book</h4>
-                                <div class="form-group" ">
-                                        <div class="form-group col-md-6 ">
-                                           <button class="btn btn-success btn-fill pull-right" >Add new</button>
-                                        </div>
+                <div class="container-fluid">
+                        <div class="col-md-12">
+                            <div class="card" style="height:400px">
+                                <div class="header">
+                                    <h4 class="title"><b>Insert Category</b></h4>
                                 </div>
-                            </div>
-                            <div class="content table-responsive table-full-width">
-                                <table class="table table-hover table-striped">
-                                    <thead>
-                                        <th>No</th>
-                                        <th>Book Image</th>
-                                        <th>ID</th>
-                                    	<th>Title</th>
-                                        <th>Price</th>
-                                        <th>Author</th>
-                                        <th>Quantity</th>
-                                        <th>Created Time</th>
-                                        <th>Last Modified</th>
-                                        <th>Status</th>
-                                        <th>Edit</th>
-                                        <th>Delete</th>
-                                    </thead>
-                                    <tbody>
-                                        <%
-                                            for (int i = 0; i < list.Count; i++)
-                                            {
-                                        %>
-                                        <tr>
-                                            <td><%= i+1 %></td>
-                                        	<td><img src="../image/book/<%= this.list[i].BookImage %>" width="30px" height="45px" /></td>
-                                        	<td><%= list[i].BookID %></td>
-                                        	<td><%= list[i].BookTitle %></td>
-                                        	<td><%= list[i].BookPrice %></td>
-                                        	<td><%= list[i].BookAuthor %></td>
-                                            <td><%= list[i].BookQuantity %></td>
-                                        	<td><%= list[i].CreatedTime %></td>
-                                        	<td><%= list[i].LastModified %></td>
-                                            <td><% 
-                                                    if (list[i].Enabled == true)
-                                                    {
-                                                %>
-                                                <span class="badge alert-info" style="color:white">Enable</span>
-                                                <% 
-                                                    }
-                                                    else
-                                                    {
-                                                %>
-                                                <span class="badge alert-danger" style="color:white">Disable</span>
-                                                <%
-                                                    }
-                                                %>
-                                            </td>
-                                            <td>
-                                                <button type="submit" class="btn btn-outline-dark">
-                                                    <i class="fa fa-edit"></i>
-                                                </button> 
-                                            </td>
-                                            <td>
-                                                <button type="submit" class="btn btn-outline-dark">
-                                                    <i class="fa fa-remove"></i>
-                                                </button>  
-                                            </td>
-                                        </tr>
-                                        <%
-                                            }
-                                        %>
-                                    </tbody>
-                                </table>
+                                <form>
+                                    <div class="form-group">
+                                        <div class="form-group col-md-6">
+                                          <label>ID*</label>
+                                          <input type="text" class="form-control" />
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                          <label>Name*</label>
+                                          <input type="text" class="form-control" />
+                                        </div> 
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-group col-md-12">
+                                          <label>Description</label>
+                                          <textarea class="form-control" cols="50" rows="5" ></textarea>
+                                        </div>
+                                    </div>
+                                   <div class="form-group">
+                                        <div class="form-group col-md-6 ">
+                                           <button class="btn btn-success btn-fill pull-right" >Insert</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
-                    </div>
-                </div>
             </div>
+
                 
 
 
@@ -221,4 +174,3 @@
     </div>
 </body>
 </html>
-
