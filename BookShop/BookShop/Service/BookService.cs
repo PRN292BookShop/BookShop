@@ -165,7 +165,7 @@ namespace BookShop.Service
                 conn.Open();
                 SqlCommand command = new SqlCommand(@"INSERT INTO " +
                     "tblBook(BookTitle, BookDescription, BookDateEstablished, " +
-                    "BookOrgEstablished, BookDimesions, BookWeight, " +
+                    "BookOrgEstablished, BookDimensions, BookWeight, " +
                     "BookLength, BookPrice, BookCategoryID, " +
                     "BookAuthor, BookQuantity) " +
                     "output INSERTED.BookID " +
@@ -194,7 +194,7 @@ namespace BookShop.Service
                 command.Parameters["@weight"].Value = book.BookWeight;
                 command.Parameters["@length"].Value = book.BookLength;
                 command.Parameters["@price"].Value = book.BookPrice;
-                command.Parameters["@categoryId"].Value = book.BookCategory;
+                command.Parameters["@categoryId"].Value = book.BookCategory.CategoryID;
                 command.Parameters["@author"].Value = book.BookAuthor;
                 command.Parameters["@quantity"].Value = book.BookQuantity;
 
