@@ -11,6 +11,12 @@ namespace BookShop.Entity
         {
         }
 
+        public Category(int categoryID, string categoryName)
+        {
+            CategoryID = categoryID;
+            CategoryName = categoryName;
+        }
+
         public Category(int categoryID, string categoryName, string categoryDescription)
         {
             CategoryID = categoryID;
