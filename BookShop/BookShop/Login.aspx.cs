@@ -13,7 +13,10 @@ namespace BookShop
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["Username"] != null)
+            {
+                Response.Redirect("~/AuthPage/Dashboard.aspx");
+            }
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
