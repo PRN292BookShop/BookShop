@@ -119,7 +119,29 @@
             <div class="header-bottom bg-primary">
                 <div class="container">
                     <div class="row align-items-center">
-                        <div class="col-lg-6">
+                        <div class="col-lg-3">
+                            <nav class="category-nav white-nav  ">
+                                <div>
+                                    <a href="javascript:void(0)" class="category-trigger"><i
+                                            class="fa fa-bars"></i>Browse categories</a>
+                                    <ul class="category-menu">
+                                        <% 
+                                            for (int i = 0; i < listMenuCategory.Count; i++)
+                                            {
+                                                menuCategory = listMenuCategory[i];
+                                                %>
+                                        <li class="cat-item">
+                                            <a href="#"><%= menuCategory.CategoryName %></a>
+                                        </li>
+                                        <%
+                                            }
+                                            %>
+                                        
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                        <div class="col-lg-3">
 							<div class="header-phone color-white">
 								<div class="icon">
 									<i class="fas fa-headphones-alt"></i>
@@ -693,5 +715,9 @@
         </div>
 
     </footer>
+    
+    <script src="./Pustok - Book Store HTML Template_files/plugins.js"></script>
+    <script src="./Pustok - Book Store HTML Template_files/ajax-mail.js"></script>
+    <script src="./Pustok - Book Store HTML Template_files/custom.js"></script>
 </body>
 </html>

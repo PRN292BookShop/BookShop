@@ -36,7 +36,7 @@ namespace BookShop.Service
             return category;
         }
 
-        public List<Category> GetCategory()
+        public List<Category> GetAllCategory()
         {
             conn.Open();
             List<Category> list;

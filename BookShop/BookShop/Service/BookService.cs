@@ -167,12 +167,12 @@ namespace BookShop.Service
                     "tblBook(BookTitle, BookDescription, BookDateEstablished, " +
                     "BookOrgEstablished, BookDimensions, BookWeight, " +
                     "BookLength, BookPrice, BookCategoryID, " +
-                    "BookAuthor, BookQuantity) " +
+                    "BookAuthor, BookQuantity, CreatedAccount) " +
                     "output INSERTED.BookID " +
                     "VALUES(@title, @description, @dateEstablished, " +
                     "@orgEstablished, @dimesions, @weight, " +
                     "@length, @price, @categoryId, " +
-                    "@author, @quantity)", conn);
+                    "@author, @quantity, @accountCreate)", conn);
 
                 command.Parameters.Add("@title", System.Data.SqlDbType.NVarChar);
                 command.Parameters.Add("@description", System.Data.SqlDbType.NVarChar);
@@ -185,6 +185,7 @@ namespace BookShop.Service
                 command.Parameters.Add("@categoryId", System.Data.SqlDbType.Int);
                 command.Parameters.Add("@author", System.Data.SqlDbType.NVarChar);
                 command.Parameters.Add("@quantity", System.Data.SqlDbType.Int);
+                command.Parameters.Add("@accountCreate", System.Data.SqlDbType.VarChar);
 
                 command.Parameters["@title"].Value = book.BookTitle;
                 command.Parameters["@description"].Value = book.BookDescription;
@@ -197,6 +198,7 @@ namespace BookShop.Service
                 command.Parameters["@categoryId"].Value = book.BookCategory.CategoryID;
                 command.Parameters["@author"].Value = book.BookAuthor;
                 command.Parameters["@quantity"].Value = book.BookQuantity;
+                command.Parameters["@accountCreate"].Value = book.CreatedAccount.Username;
 
                 id = (int)command.ExecuteScalar();
             }

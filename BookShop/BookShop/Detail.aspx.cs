@@ -15,11 +15,14 @@ namespace BookShop
         public string errorMsg = "";
         public Cart cart;
         public int BookID;
+        public List<Category> listMenuCategory = new List<Category>();
+        public Category menuCategory;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
+                listMenuCategory = (new CategoryService()).GetAllCategory();
                 BookID = int.Parse(Request.QueryString["ID"]);
                 BookService service = new BookService();
                 book = service.SeeBookDetail(BookID);

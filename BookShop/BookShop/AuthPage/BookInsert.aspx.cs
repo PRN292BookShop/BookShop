@@ -20,7 +20,7 @@ namespace BookShop.AuthPage
             CategoryService sv = new CategoryService();
             try
             {
-                listCategory = sv.GetCategory();
+                listCategory = sv.GetAllCategory();
                 List<ListItem> listItem = new List<ListItem>();
 
                 foreach (Category category in listCategory)
@@ -145,6 +145,9 @@ namespace BookShop.AuthPage
             Category category = new Category();
             category.CategoryID = categoryID;
 
+            Account accountCreate = new Account();
+            accountCreate.Username = (string)Session["Username"];
+
             long price;
             if (!long.TryParse(txtPrice.Text, out price) || price <= 0)
             {
@@ -166,6 +169,7 @@ namespace BookShop.AuthPage
                 book.BookWeight = weight;
                 book.BookLength = length;
                 book.BookDescription = description;
+                book.CreatedAccount = accountCreate;
 
                 BookService bookService = new BookService();
 
