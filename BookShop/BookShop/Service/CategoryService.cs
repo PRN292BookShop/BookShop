@@ -55,5 +55,32 @@ namespace BookShop.Service
             CloseConnection();
             return list;
         }
+        public bool InsertNewCategory(Category category)
+        {
+            bool flag = false;
+            conn.Open();
+            if (conn != null) {
+                try
+                {
+                    SqlCommand command = new SqlCommand(@"Insert into tblCategory(CategoryName,CategoryDescription) Values(@name,@des)",conn);
+                    
+                    command.Parameters.Add("@name", System.Data.SqlDbType.NVarChar);
+                    command.Parameters.Add("@des",System.Data.SqlDbType.NVarChar);
+
+                    
+                    command.Parameters["@name"].Value = category.CategoryName;
+                    command.Parameters["@des"].Value = category.CategoryDescription;
+
+                    flag =command.ExecuteNonQuery()>0;
+                    
+                }
+                
+                finally
+                {
+                    CloseConnection();
+                }
+            }
+            return flag;
+        }
     }
 }
