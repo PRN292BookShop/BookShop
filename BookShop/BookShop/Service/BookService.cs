@@ -92,8 +92,10 @@ namespace BookShop.Service
             {
                 conn.Open();
 
-                SqlCommand command = new SqlCommand(@"SELECT TOP 10 BookID, BookTitle, BookAuthor, BookImage, BookPrice FROM tblBook", conn);
+                SqlCommand command = new SqlCommand(@"SELECT TOP 10 BookID, BookTitle, BookAuthor, BookImage, BookPrice FROM tblBook WHERE IsEnable = @isEnable ORDER BY BookID DESC", conn);
 
+                command.Parameters.Add("@isEnable", System.Data.SqlDbType.Bit);
+                command.Parameters["@isEnable"].Value = true;
                 SqlDataReader reader = command.ExecuteReader();
 
                 string bookTitle, bookAuthor, bookImage;
@@ -225,6 +227,53 @@ namespace BookShop.Service
             return book;
         }
 
+        public List<Book> FindBookByCategory(int categoryID)
+        {
+            List<Book> listBook = null;
+            try
+            {
+                conn.Open();
+
+                SqlCommand command = new SqlCommand(@"SELECT TOP 10 BookID, BookTitle, BookAuthor, BookImage, BookPrice FROM tblBook WHERE IsEnable = @isEnable AND BookCategoryID = @categoryID ORDER BY BookID DESC", conn);
+
+                command.Parameters.Add("@isEnable", System.Data.SqlDbType.Bit);
+                command.Parameters.Add("@categoryID", System.Data.SqlDbType.Int);
+
+                command.Parameters["@isEnable"].Value = true;
+                command.Parameters["@categoryID"].Value = categoryID;
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                string bookTitle, bookAuthor, bookImage;
+                long bookPrice;
+                int bookID;
+
+                Book book = null;
+                listBook = new List<Book>();
+
+                while (reader.Read())
+                {
+                    bookID = Int32.Parse(reader["BookID"].ToString());
+                    bookPrice = long.Parse(reader["BookPrice"].ToString());
+                    bookTitle = reader["BookTitle"].ToString();
+                    bookAuthor = reader["BookAuthor"].ToString();
+                    bookImage = reader["BookImage"].ToString();
+
+                    book = new Book(bookID, bookTitle, bookPrice, bookImage, bookAuthor);
+                    listBook.Add(book);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                CloseConnection();
+            }
+            return listBook;
+        }
+
         public int InsertBook(Book book)
         {
             int id = -1;
@@ -297,6 +346,29 @@ namespace BookShop.Service
             {
                 CloseConnection();
             }                        
+        }
+
+        public bool DeleteBook(int id)
+        {
+            bool flag = false;
+            try
+            {
+                conn.Open();
+
+                SqlCommand command = new SqlCommand(@"UPDATE tblBook SET IsEnable = @isEnable WHERE BookID = @bookID", conn);
+                command.Parameters.Add("@isEnable", System.Data.SqlDbType.Bit);
+                command.Parameters.Add("@bookID", System.Data.SqlDbType.Int);
+
+                command.Parameters["@isEnable"].Value = false;
+                command.Parameters["@bookID"].Value = id;
+
+                command.ExecuteNonQuery();
+            }
+            finally
+            {
+                CloseConnection();
+            }
+            return flag;
         }
     }
 }

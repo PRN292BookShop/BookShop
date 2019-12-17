@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BookInsert.aspx.cs" Inherits="BookShop.AuthPage.BookInsert" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BookInsert.aspx.cs" Inherits="BookShop.AuthPage.BookInsert" EnableViewState="true" %>
 
 <!DOCTYPE html>
 
@@ -226,7 +226,7 @@
             <script src="./jquery/jquery-ui.js"></script>
             <script>
                 $(document).ready(function () {
-                    $('.date-picker').datepicker({ dateFormat: 'dd-mm-yy' });
+                    $('.date-picker').datepicker();
                     $('.txtQuantity').attr('type', 'number');
                     $('.txtQuantity').attr('min', '1');
 

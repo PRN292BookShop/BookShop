@@ -1,23 +1,22 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Cart.aspx.cs" Inherits="BookShop.CartPage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ListBookByCategoryPage.aspx.cs" Inherits="BookShop.ListBookByCategoryPage" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Pustok - Book Store HTML Template</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- Use Minified Plugins Version For Fast Page Load -->
-	<link rel="stylesheet" type="text/css" media="screen" href="./Pustok - Book Store HTML Template_files/plugins.css">
-	<link rel="stylesheet" type="text/css" media="screen" href="./Pustok - Book Store HTML Template_files/main.css">
-	<link rel="shortcut icon" type="image/x-icon"
-		href="https://demo.hasthemes.com/pustok-preview/pustok/image/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>Pustok - Book Store HTML Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- Use Minified Plugins Version For Fast Page Load -->
+    <link rel="stylesheet" type="text/css" media="screen" href="./Pustok - Book Store HTML Template_files/plugins.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="./Pustok - Book Store HTML Template_files/main.css"/>
+    <link rel="shortcut icon" type="image/x-icon"
+        href="https://demo.hasthemes.com/pustok-preview/pustok/image/favicon.ico"/>
 </head>
 <body>
-    <div class="site-wrapper" id="top">
-		<div class="site-header header-2 mb--20 d-none d-lg-block">
+    <div class="site-header header-2 mb--20 d-none d-lg-block">
             <div class="header-middle pt--10 pb--10">
                 <div class="container">
                     <div class="row align-items-center">
@@ -54,19 +53,19 @@
                                                     if (cart != null)
                                                     foreach (int id in cart.Carts.Keys)
                                                     {
-                                                        book = this.FindBookByID(id);
+                                                        bookInCart = this.FindBookByID(id);
                                                     %>
                                                         <div class="cart-product">
-                                                            <a href="Detail.aspx?ID=<%= book.BookID %>"
+                                                            <a href="Detail.aspx?ID=<%= bookInCart.BookID %>"
                                                                 class="image">
-                                                                <img src="./image/book/<%= book.BookImage %>" alt="">
+                                                                <img src="./image/book/<%= bookInCart.BookImage %>" alt="">
                                                             </a>
                                                             <div class="content">
                                                                 <h3 class="title">
-                                                                    <a href="Detail.aspx?ID=<%= book.BookID %>"><%= book.BookTitle %></a>
+                                                                    <a href="Detail.aspx?ID=<%= bookInCart.BookID %>"><%= bookInCart.BookTitle %></a>
                                                                 </h3>
-                                                                <p class="price"><span class="qty"> <%= cart.Carts[id] %> ×</span> <%= book.BookPrice %></p>
-                                                                <a href="RemoveFromCart.aspx?BookID=<%= book.BookID %>"><button class="cross-btn"><i class="fas fa-times"></i></button></a>
+                                                                <p class="price"><span class="qty"> <%= cart.Carts[id] %> ×</span> <%= bookInCart.BookPrice %></p>
+                                                                <a href="RemoveFromCart.aspx?BookID=<%= bookInCart.BookID %>"><button class="cross-btn"><i class="fas fa-times"></i></button></a>
                                                             </div>
                                                         </div>                                                  
                                                     <%
@@ -141,139 +140,91 @@
                 </div>
             </div>
         </div>
-		
 		<section class="breadcrumb-section">
 			<h2 class="sr-only">Site Breadcrumb</h2>
 			<div class="container">
 				<div class="breadcrumb-contents">
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
-							<li class="breadcrumb-item"><a
-									href="Home.aspx">Home</a></li>
-							<li class="breadcrumb-item active">Cart</li>
+							<li class="breadcrumb-item"><a href="Home.aspx"
+									>Home</a></li>
+                            <li class="breadcrumb-item"><%= category.CategoryName %></li>
 						</ol>
 					</nav>
 				</div>
 			</div>
 		</section>
-		<!-- Cart Page Start -->
-		<main class="cart-page-main-block inner-page-sec-padding-bottom">
-            <form action="UpdateCart.aspx" method="POST" class="">
-			    <div class="cart_area cart-area-padding  ">
-				    <div class="container">
-					    <div class="page-section-title">
-						    <h1>Shopping Cart</h1>
-					    </div>
-                        <% if (Session["list_err"] != null) {
-                                List<string> list = (List<string>)Session["list_err"];
-                                %>
-                        <div class="row my-3" style="color: red">
-                            <ul>
-                                <%
-                                    foreach (string info in list)
-                                    {
-                                        %>
-                                <li><%= info %></li>
-                                <%
-                                    }
-                                    %>
-                            </ul>
+    <main>
+        <div class="row" style="justify-content: center">
+            <h2><%= category.CategoryName %></h2>
+        </div>
+        <div class="row" style="justify-content: center;">
+            <div class="col-12" style="padding: 0 20vw; text-align:center">
+                <p><%= category.CategoryDescription %></p>
+            </div>
+        </div>
+
+        <% 
+            for (int i = 0; i < this.listBook.Count; i++)
+            {
+                if (i % 4 == 0)
+                {
+                    %>
+        <div class="row mt-5" style="padding: 0 15vw; justify-content: center">
+        <%
+                }
+                %>
+            <div class="col-3">
+                <div class="product-card">
+                    <div class="product-header">
+                        <a href="Detail.aspx?ID=<%= listBook[i].BookID %>" class="author" tabindex="-1">
+                            <%= this.listBook[i].BookAuthor %>
+                        </a>
+                        <h3 style="height: 30px">
+                            <a href="Detail.aspx?ID=<%= listBook[i].BookID %>" tabindex="-1">
+                                <%= this.listBook[i].BookTitle %>
+                            </a>
+                        </h3>
+                    </div>
+                    <div class="product-card--body">
+                        <div class="card-image">
+                            <div style="height: 300px; padding: 15px 20px; display: flex; align-items: center">
+                                <img src="./image/book/<%= this.listBook[i].BookImage %>" alt="">
+                            </div>
+
+                            <div class="hover-contents">
+                                <a href="Detail.aspx?ID=<%= listBook[i].BookID %>"
+                                    class="hover-image" tabindex="-1">
+                                    <div style="height: 300px; padding: 15px 20px; display: flex; align-items: center">
+                                        <img src="./image/book/<%= this.listBook[i].BookImage %>" alt="">
+                                    </div>
+                                </a>
+                                <div class="hover-btns">
+                                    <a href="AddToCart.aspx?BookID=<%= listBook[i].BookID %>"
+                                        class="single-btn" tabindex="-1">
+                                        <i class="fas fa-shopping-basket"></i>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                        <%
-                                Session["list_err"] = null;
-                            }
-                           %>
-					    <div class="row">
-						    <div class="col-12">
-							
-								    <!-- Cart Table -->
-								    <div class="cart-table table-responsive mb--40">
-                                        <% if (cart != null && cart.Carts.Keys.Count > 0)
-                                           {
-                                                %>
-									    <table class="table">
-										    <!-- Head Row -->
-										    <thead>
-											    <tr>
-												    <th class="pro-remove"></th>
-												    <th class="pro-thumbnail">Image</th>
-												    <th class="pro-title">Product</th>
-												    <th class="pro-price">Price</th>
-												    <th class="pro-quantity">Quantity</th>
-												    <th class="pro-subtotal">Total</th>
-											    </tr>
-										    </thead>
-										    <tbody>
-											    <!-- Product Row -->
-                                                <%
-                                                    foreach (int id in this.cart.Carts.Keys)
-                                                    {
-                                                        book = this.FindBookByID(id);
-                                                        %>
-                                              <tr>
-												    <td class="pro-remove"><a
-														    href="RemoveFromCart.aspx?BookID=<%= id %>"><i
-															    class="far fa-trash-alt"></i></a>
-												    </td>
-												    <td class="pro-thumbnail"><a
-														    href="Detail.aspx?ID=<%= id %>"><img
-															    src="./image/book/<%= book.BookImage %>"
-															    alt="Product"></a></td>
-												    <td class="pro-title"><a
-														    href="Detail.aspx?ID=<%= id %>"><%= book.BookTitle %></a></td>
-												    <td class="pro-price"><span><%= book.BookPrice %>$</span></td>
-												    <td class="pro-quantity">
-													    <div class="pro-qty">
-														    <div class="count-input-block">
-															    <input type="number" min="1" class="form-control text-center"
-																    value="<%= this.cart.Carts[id] %>" name="<%= id %>">
-														    </div>
-													    </div>
-												    </td>
-												    <td class="pro-subtotal"><span><%= book.BookPrice * this.cart.Carts[id] %>$</span></td>
-											    </tr>
-                                                <%
-                                                    }
-                                           }
-                                                    %>
-											
-										    </tbody>
-									    </table>
-								    </div>
-							
-						    </div>
-					    </div>
-				    </div>
-			    </div>
-			    <div class="cart-section-2">
-				    <div class="container">
-					    <div class="row">
-						    <div class="col-lg-6 col-12 mb--30 mb-lg--0"></div>
-						    <!-- Cart Summary -->
-						    <div class="col-lg-6 col-12 d-flex">
-							    <div class="cart-summary">
-								    <div class="cart-summary-wrap">
-									    <h4><span>Cart Summary</span></h4>
-									    <h2>Grand Total <span class="text-primary"><%= (this.cart != null) ? this.cart.TotalPrice : 0 %>$</span></h2>
-								    </div>
-								    <div class="cart-summary-button">
-									    <a href="CheckoutPage.aspx"
-										    class="checkout-btn c-btn btn--primary">Checkout</a>
-									    <input type="submit" value="Update Cart" class="update-btn c-btn btn-outlined"/>
-								    </div>
-							    </div>
-						    </div>
-					    </div>
-				    </div>
-			    </div>
-            </form>
-		</main>
-		<!-- Cart Page End -->
-	</div>
-	<!--=================================
-  Brands Slider
-===================================== -->
-	<section class="section-margin">
+                        <div class="price-block">
+                            <span class="price"><%= this.listBook[i].BookPrice %>$</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <%
+                if (i % 4 == 3 || i == this.listBook.Count - 1)
+                {
+                    %>
+        </div>
+        <%
+                }
+            }
+            %>
+        
+    </main>
+    <section class="section-margin">
 		<h2 class="sr-only">Brand Slider</h2>
 		<div class="container">
 			<div class="brand-slider sb-slick-slider border-top border-bottom slick-initialized slick-slider"
@@ -295,7 +246,7 @@
 							style="width: 185px;">
 							<div>
 								<div class="single-slide" style="width: 100%; display: inline-block;">
-									<img src="./Pustok - Book Store HTML Template_files/brand-1.jpg" alt="">
+									<img src="./Pustok - Detail _files/brand-1.jpg" alt="">
 								</div>
 							</div>
 						</div>
@@ -303,7 +254,7 @@
 							style="width: 185px;">
 							<div>
 								<div class="single-slide" style="width: 100%; display: inline-block;">
-									<img src="./Pustok - Book Store HTML Template_files/brand-2.jpg" alt="">
+									<img src="./Pustok - Detail _files/brand-2.jpg" alt="">
 								</div>
 							</div>
 						</div>
@@ -311,7 +262,7 @@
 							style="width: 185px;">
 							<div>
 								<div class="single-slide" style="width: 100%; display: inline-block;">
-									<img src="./Pustok - Book Store HTML Template_files/brand-3.jpg" alt="">
+									<img src="./Pustok - Detail _files/brand-3.jpg" alt="">
 								</div>
 							</div>
 						</div>
@@ -319,7 +270,7 @@
 							style="width: 185px;">
 							<div>
 								<div class="single-slide" style="width: 100%; display: inline-block;">
-									<img src="./Pustok - Book Store HTML Template_files/brand-4.jpg" alt="">
+									<img src="./Pustok - Detail _files/brand-4.jpg" alt="">
 								</div>
 							</div>
 						</div>
@@ -327,7 +278,7 @@
 							style="width: 185px;">
 							<div>
 								<div class="single-slide" style="width: 100%; display: inline-block;">
-									<img src="./Pustok - Book Store HTML Template_files/brand-5.jpg" alt="">
+									<img src="./Pustok - Detail _files/brand-5.jpg" alt="">
 								</div>
 							</div>
 						</div>
@@ -335,7 +286,7 @@
 							style="width: 185px;">
 							<div>
 								<div class="single-slide" style="width: 100%; display: inline-block;">
-									<img src="./Pustok - Book Store HTML Template_files/brand-6.jpg" alt="">
+									<img src="./Pustok - Detail _files/brand-6.jpg" alt="">
 								</div>
 							</div>
 						</div>
@@ -343,7 +294,7 @@
 							style="width: 185px;">
 							<div>
 								<div class="single-slide" style="width: 100%; display: inline-block;">
-									<img src="./Pustok - Book Store HTML Template_files/brand-1.jpg" alt="">
+									<img src="./Pustok - Detail _files/brand-1.jpg" alt="">
 								</div>
 							</div>
 						</div>
@@ -351,7 +302,7 @@
 							style="width: 185px;">
 							<div>
 								<div class="single-slide" style="width: 100%; display: inline-block;">
-									<img src="./Pustok - Book Store HTML Template_files/brand-2.jpg" alt="">
+									<img src="./Pustok - Detail _files/brand-2.jpg" alt="">
 								</div>
 							</div>
 						</div>
@@ -429,7 +380,10 @@
         </div>
 
     </footer>
-    <script src="./Pustok - Book Store HTML Template_files/plugins.js"></script>
+	<!-- Use Minified Plugins Version For Fast Page Load -->
+
+
+	<script src="./Pustok - Book Store HTML Template_files/plugins.js"></script>
     <script src="./Pustok - Book Store HTML Template_files/ajax-mail.js"></script>
     <script src="./Pustok - Book Store HTML Template_files/custom.js"></script>
 </body>

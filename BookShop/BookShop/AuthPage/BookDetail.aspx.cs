@@ -13,6 +13,7 @@ namespace BookShop.AuthPage
         public List<Category> listCategory = new List<Category>();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Username"] == null) Response.Redirect("/Login.aspx");
             CategoryService sv = new CategoryService();
             try
             {

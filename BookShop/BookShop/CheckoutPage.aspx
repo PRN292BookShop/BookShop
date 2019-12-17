@@ -97,7 +97,29 @@
             <div class="header-bottom bg-primary">
                 <div class="container">
                     <div class="row align-items-center">
-                        <div class="col-lg-6">
+                        <div class="col-lg-3">
+                            <nav class="category-nav white-nav  ">
+                                <div>
+                                    <a href="javascript:void(0)" class="category-trigger"><i
+                                            class="fa fa-bars"></i>Browse categories</a>
+                                    <ul class="category-menu">
+                                        <% 
+                                            for (int i = 0; i < listMenuCategory.Count; i++)
+                                            {
+                                                menuCategory = listMenuCategory[i];
+                                                %>
+                                        <li class="cat-item">
+                                            <a href="#"><%= menuCategory.CategoryName %></a>
+                                        </li>
+                                        <%
+                                            }
+                                            %>
+                                        
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                        <div class="col-lg-3">
 							<div class="header-phone color-white">
 								<div class="icon">
 									<i class="fas fa-headphones-alt"></i>
@@ -157,7 +179,7 @@
 											    </div>
 											    <div class="col-12">
 												    <label>Phone Number</label>
-												    <input type="text" name="phone" placeholder="Phone Number" value="<%= this.order.OrderPhone %>" required>
+												    <input type="text" id="phoneNo" onblur="checkPhone()" name="phone" placeholder="Phone Number" value="<%= this.order.OrderPhone %>" required>
 											    </div>
 											    <div class="col-12">
 												    <label>Address</label>
@@ -366,5 +388,23 @@
         </div>
 
     </footer>
+    <script src="./AuthPage/jquery/jquery-1.12.4.js"></script>
+    <script src="./Pustok - Book Store HTML Template_files/plugins.js"></script>
+    <script src="./Pustok - Book Store HTML Template_files/ajax-mail.js"></script>
+    <script src="./Pustok - Book Store HTML Template_files/custom.js"></script>
+
+    <script>
+        function checkPhone() {
+            console.log('a');
+            let phone = document.getElementById('phoneNo');
+            if (!phone.value.match(/^\d{10}$/)) {
+                phone.setCustomValidity("Phone Number is in wrong format!");
+                return false;
+            } else {
+                phone.setCustomValidity('');
+                return true;
+            }
+        }
+    </script>
 </body>
 </html>

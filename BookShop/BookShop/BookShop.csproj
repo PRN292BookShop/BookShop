@@ -104,6 +104,7 @@
     <Content Include="AuthPage\assets\js\demo.js" />
     <Content Include="AuthPage\assets\js\jquery.3.2.1.min.js" />
     <Content Include="AuthPage\assets\js\light-bootstrap-dashboard.js" />
+    <Content Include="AuthPage\BookDeleteAction.aspx" />
     <Content Include="AuthPage\BookDetail.aspx" />
     <Content Include="AuthPage\BookInsert.aspx" />
     <Content Include="AuthPage\BookManager.aspx" />
@@ -121,6 +122,7 @@
     <Content Include="image\bg-images\home-2-slider-1.jpg" />
     <Content Include="image\bg-images\home-2-slider-2.jpg" />
     <Content Include="image\bg-images\promo-banner-contained.jpg" />
+    <Content Include="ListBookByCategoryPage.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Pustok - Book Store HTML Template_files\ajax-mail.js" />
     <Content Include="Pustok - Book Store HTML Template_files\blog-grid-1.jpg" />
@@ -211,6 +213,13 @@
     <Compile Include="AddToCart.aspx.designer.cs">
       <DependentUpon>AddToCart.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AuthPage\BookDeleteAction.aspx.cs">
+      <DependentUpon>BookDeleteAction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AuthPage\BookDeleteAction.aspx.designer.cs">
+      <DependentUpon>BookDeleteAction.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AuthPage\BookDetail.aspx.cs">
       <DependentUpon>BookDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -281,6 +290,13 @@
     </Compile>
     <Compile Include="Error.aspx.designer.cs">
       <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListBookByCategoryPage.aspx.cs">
+      <DependentUpon>ListBookByCategoryPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListBookByCategoryPage.aspx.designer.cs">
+      <DependentUpon>ListBookByCategoryPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

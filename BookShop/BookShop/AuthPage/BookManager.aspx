@@ -130,7 +130,7 @@
                                 <h4 class="title  col-md-6" >List all Book</h4>
                                 <div class="form-group" ">
                                         <div class="form-group col-md-6 ">
-                                           <button class="btn btn-success btn-fill pull-right" >Add new</button>
+                                            <a href="BookInsert.aspx" class="btn btn-success btn-fill pull-right">Add new</a>
                                         </div>
                                 </div>
                             </div>
@@ -144,8 +144,6 @@
                                         <th>Price</th>
                                         <th>Author</th>
                                         <th>Quantity</th>
-                                        <th>Created Time</th>
-                                        <th>Last Modified</th>
                                         <th>Status</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
@@ -163,8 +161,6 @@
                                         	<td><%= list[i].BookPrice %></td>
                                         	<td><%= list[i].BookAuthor %></td>
                                             <td><%= list[i].BookQuantity %></td>
-                                        	<td><%= list[i].CreatedTime %></td>
-                                        	<td><%= list[i].LastModified %></td>
                                             <td><% 
                                                     if (list[i].Enabled == true)
                                                     {
@@ -181,14 +177,10 @@
                                                 %>
                                             </td>
                                             <td>
-                                                <button type="submit" class="btn btn-outline-dark">
-                                                    <i class="fa fa-edit"></i>
-                                                </button> 
+                                                <a href="BookDetail.aspx?ID=<%= list[i].BookID %>" class="btn btn-outline-dark"><i class="fa fa-edit"></i></a>
                                             </td>
-                                            <td>
-                                                <button type="submit" class="btn btn-outline-dark">
-                                                    <i class="fa fa-remove"></i>
-                                                </button>  
+                                            <td> 
+                                                <a href="BookDeleteAction.aspx?ID=<%= list[i].BookID %>" class="btn btn-outline-dark"><i class="fa fa-remove"></i></a>                                                
                                             </td>
                                         </tr>
                                         <%

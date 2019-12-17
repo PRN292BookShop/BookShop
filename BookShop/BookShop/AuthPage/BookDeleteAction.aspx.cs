@@ -4,20 +4,23 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BookShop.Entity;
 using BookShop.Service;
+
 namespace BookShop.AuthPage
 {
-    public partial class BookManager : System.Web.UI.Page
+    public partial class BookDeleteAction : System.Web.UI.Page
     {
-        public List<Book> list;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Username"] == null) Response.Redirect("/Login.aspx");
             try
             {
-                BookService sv = new BookService();
-                list = sv.ListAllBook();
+                int id = Int32.Parse(Request.Params["ID"]);
+                BookService service = new BookService();
+
+                service.DeleteBook(id);
+
+                Response.Redirect("BookManager.aspx");
             }
             catch (Exception ex)
             {

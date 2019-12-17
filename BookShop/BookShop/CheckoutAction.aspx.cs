@@ -39,7 +39,7 @@ namespace BookShop
                 {
                     throw new Exception("Add failed");
                 }
-            } 
+            }
             catch (Exception ex)
             {
                 string errorMsg = ex.Message + "\n" + ex.StackTrace;

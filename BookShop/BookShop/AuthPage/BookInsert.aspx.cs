@@ -16,21 +16,18 @@ namespace BookShop.AuthPage
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Username"] == null) Response.Redirect("/Login.aspx");
+
             fileImage.AllowMultiple = false;
             CategoryService sv = new CategoryService();
             try
             {
                 listCategory = sv.GetAllCategory();
-                List<ListItem> listItem = new List<ListItem>();
-
-                foreach (Category category in listCategory)
+                
+                if (!IsPostBack)
                 {
-                    listItem.Add(new ListItem(category.CategoryName, category.CategoryID + ""));
+                    SetCategoryItem();
                 }
-                slCategory.DataTextField = "Text";
-                slCategory.DataValueField = "Value";
-                slCategory.DataSource = listItem;
-                slCategory.DataBind();
             }
             catch(Exception ex)
             {
@@ -40,7 +37,19 @@ namespace BookShop.AuthPage
             }
         }
 
+        public void SetCategoryItem()
+        {
+            List<ListItem> listItem = new List<ListItem>();
 
+            foreach (Category category in listCategory)
+            {
+                listItem.Add(new ListItem(category.CategoryName, category.CategoryID + ""));
+            }
+            slCategory.DataTextField = "Text";
+            slCategory.DataValueField = "Value";
+            slCategory.DataSource = listItem;
+            slCategory.DataBind();
+        }
 
         protected void btnInsert_click(object sender, EventArgs e)
         {
@@ -78,7 +87,7 @@ namespace BookShop.AuthPage
             DateTime dateEstablished;
             if (!DateTime.TryParse(txtDateEstablished.Text, out dateEstablished))
             {
-                errorMsg.Text += "Date Established is not valid! ";
+                errorMsg.Text += "Date Established is not valid! " + txtDateEstablished.Text;
                 isValid = false;
             }
             else
