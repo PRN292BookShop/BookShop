@@ -15,8 +15,10 @@ namespace BookShop
     {
 
         public List<Book> listBook = new List<Book>();
+        public List<Category> listMenuCategory = new List<Category>();
         public Cart cart;
         public Book book;
+        public Category menuCategory;
         
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,6 +26,7 @@ namespace BookShop
             try
             {
                 listBook = service.ListTop10Book();
+                listMenuCategory = (new CategoryService()).GetAllCategory();
                 cart = (Cart)Session["Cart"];
             }
             catch (Exception ex)

@@ -127,7 +127,7 @@
             <div class="content">
                 <div class="container-fluid">
                         <div class="col-md-12">
-                            <div class="card" style="height:650px;">
+                            <div class="card" style="height:700px;">
                                 <div class="header">
                                     <h4 class="title"><b>Add Book</b></h4>
                                     <p style="font-size: 13px; color: red">
@@ -159,18 +159,8 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                           <label>Category Name*</label>
-                                          <select class="form-control">
-                                              <% 
-                                                  for (int i = 0; i < this.listCategory.Count; i++)
-                                                  {
-                                                      
-                                              %>
-                                                          
-                                                <option value="<%= listCategory[i].CategoryID %>" > <%= listCategory[i].CategoryName %></option>
-                                              <%
-                                                  }
-                                              %>
-                                          </select>
+                                            <asp:DropDownList CssClass="form-control" ID="slCategory" runat="server">
+                                            </asp:DropDownList>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -180,15 +170,15 @@
                                         </div>
                                         <div class="form-group col-md-3">
                                           <label>Price*</label>
-                                          <asp:TextBox ID="TextBox1" CssClass="form-control" runat="server"></asp:TextBox>
+                                          <asp:TextBox ID="txtPrice" CssClass="form-control" runat="server"></asp:TextBox>
                                         </div>
                                         <div class="form-group col-md-2">
                                           <label>Weight*</label>
-                                          <asp:TextBox ID="TextBox4" CssClass="form-control" runat="server"></asp:TextBox>
+                                          <asp:TextBox ID="txtWeight" CssClass="form-control" runat="server"></asp:TextBox>
                                         </div>
                                         <div class="form-group col-md-2">
                                           <label>Length*</label>
-                                          <asp:TextBox ID="TextBox5" CssClass="form-control txtLength" runat="server"></asp:TextBox>
+                                          <asp:TextBox ID="txtLength" CssClass="form-control txtLength" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
                                     
@@ -205,12 +195,12 @@
                                               TextMode="MultiLine" Columns="50" Rows="5" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
-                                    <%--<div class="form-group">
+                                    <div class="form-group">
                                         <div class="form-group col-md-6">
                                             <asp:Button ID="btnInsert" CssClass="btn btn-success btn-fill pull-right" 
                                                 runat="server" OnClick="btnInsert_click" Text="Insert" />
                                         </div>
-                                    </div>--%>
+                                    </div>
                                     
                                 </form>
                             </div>
