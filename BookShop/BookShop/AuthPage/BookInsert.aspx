@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BookDetail.aspx.cs" Inherits="BookShop.AuthPage.BookDetail" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BookInsert.aspx.cs" Inherits="BookShop.AuthPage.BookInsert" %>
 
 <!DOCTYPE html>
 
@@ -26,6 +26,10 @@
 
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="./assets/css/demo.css" rel="stylesheet" />
+
+    <link href="./jquery/jquery-ui.min.css" rel="stylesheet" />
+    <link href="./jquery/jquery-ui.structure.min.css" rel="stylesheet" />
+    <link href="./jquery/jquery-ui.theme.min.css" rel="stylesheet" />
 
 
     <!--     Fonts and icons     -->
@@ -123,122 +127,81 @@
             <div class="content">
                 <div class="container-fluid">
                         <div class="col-md-12">
-                            <div class="card" style="height:950px">
+                            <div class="card" style="height:700px;">
                                 <div class="header">
-                                    <h4 class="title"><b>Update Book</b></h4>
+                                    <h4 class="title"><b>Add Book</b></h4>
+                                    <p style="font-size: 13px; color: red">
+                                        <asp:Label ID="errorMsg" runat="server" Text=""></asp:Label></p>
                                 </div>
-                                <form>
+                                <form runat="server">
                                     <div class="form-group">
-                                        <div class="form-group col-md-3">
-                                          <label>ID*</label>
-                                          <input type="text" class="form-control" disabled="true"/>
-                                        </div>
-                                        <div class="form-group col-md-3">
+                                        <div class="form-group col-md-5">
                                           <label>Title*</label>
-                                          <input type="text" class="form-control" />
+                                          <asp:TextBox ID="txtTitle" CssClass="form-control" runat="server"></asp:TextBox>
                                         </div> 
                                         <div class="form-group col-md-3">
                                           <label>Author*</label>
-                                          <input type="text" class="form-control"/>
+                                          <asp:TextBox ID="txtAuthor" CssClass="form-control" runat="server"></asp:TextBox>
                                         </div>
                                         <div class="form-group col-md-3">
                                           <label>Publisher*</label>
-                                          <input type="text" class="form-control" />
+                                          <asp:TextBox ID="txtPublisher" CssClass="form-control" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                       <div class="form-group col-md-4">
+                                       <div class="form-group col-md-3">
                                           <label>Quantity*</label>
-                                          <input type="text" class="form-control" />
+                                          <asp:TextBox ID="txtQuantity" CssClass="form-control txtQuantity" runat="server"></asp:TextBox>
                                         </div>
                                         <div class="form-group col-md-4">
                                           <label>Date Estalished*</label>
-                                          <input type="date" class="form-control" />
+                                          <asp:TextBox ID="txtDateEstablished" CssClass="form-control date-picker" runat="server"></asp:TextBox>
                                         </div>
                                         <div class="form-group col-md-4">
                                           <label>Category Name*</label>
-                                          <select class="form-control">
-                                              <% 
-                                                  for (int i = 0; i < this.listCategory.Count; i++)
-                                                  {
-                                                      
-                                              %>
-                                                          
-                                                <option value="<%= listCategory[i].CategoryID %>" > <%= listCategory[i].CategoryName %></option>
-                                              <%
-                                                  }
-                                              %>
-                                          </select>
+                                            <asp:DropDownList CssClass="form-control" ID="slCategory" runat="server">
+                                            </asp:DropDownList>
                                         </div>
-                                     </div>
-                                        <div class="form-group">
+                                    </div>
+                                    <div class="form-group">
                                         <div class="form-group col-md-4">
-                                          <label>Dimension*</label>
-                                          <input type="text" class="form-control" />
+                                          <label>Dimension</label>
+                                          <asp:TextBox ID="txtDimension" CssClass="form-control" runat="server"></asp:TextBox>
                                         </div>
-                                            <div class="form-group col-md-4">
+                                        <div class="form-group col-md-3">
                                           <label>Price*</label>
-                                          <input type="text" class="form-control" />
+                                          <asp:TextBox ID="txtPrice" CssClass="form-control" runat="server"></asp:TextBox>
                                         </div>
                                         <div class="form-group col-md-2">
                                           <label>Weight*</label>
-                                          <input type="text" class="form-control" />
+                                          <asp:TextBox ID="txtWeight" CssClass="form-control" runat="server"></asp:TextBox>
                                         </div>
                                         <div class="form-group col-md-2">
-                                          <label>Height*</label>
-                                          <input type="text" class="form-control" />
+                                          <label>Length*</label>
+                                          <asp:TextBox ID="txtLength" CssClass="form-control txtLength" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
+                                    
                                     <div class="form-group">
-                                        <div class="form-group col-md-6">
-                                          <label>Create time</label>
-                                          <input type="datetime-local" class="form-control" readonly="true"/>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                          <label>Created by Account</label>
-                                          <input type="text" class="form-control" readonly="true"/>
-                                        </div>
-                                    </div>
-                                    <br />
-                                    <div class="form-group">
-                                        <div class="form-group col-md-6">
-                                          <label>Last Modified</label>
-                                          <input type="datetime-local" class="form-control" readonly="true"/>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                          <label>Last Modified by Account</label>
-                                          <input type="text" class="form-control" readonly="true"/>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="form-group col-md-4">
-                                          <label>Status</label>
-                                          <select class="form-control">
-                                            <option selected>Enable</option>
-                                            <option> Disable</option>
-                                          </select>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="form-group">
-                                    <div class="form-group col-md-12">
+                                        <div class="form-group col-md-11">
                                           <label>IMG</label>
-                                          <input type="file" class="form-control" />
+                                          <asp:FileUpload ID="fileImage" CssClass="form-control" runat="server" />
                                         </div>
-
                                     </div>
                                     <div class="form-group">
-                                        <div class="form-group col-md-12">
+                                        <div class="form-group col-md-11">
                                           <label>Description</label>
-                                          <textarea class="form-control" cols="50" rows="5" ></textarea>
+                                          <asp:TextBox ID="txtDescription" CssClass="form-control"
+                                              TextMode="MultiLine" Columns="50" Rows="5" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="form-group col-md-6 ">
-                                           <button class="btn btn-success btn-fill pull-right" >Update</button>
+                                        <div class="form-group col-md-6">
+                                            <asp:Button ID="btnInsert" CssClass="btn btn-success btn-fill pull-right" 
+                                                runat="server" OnClick="btnInsert_click" Text="Insert" />
                                         </div>
                                     </div>
-                                   
+                                    
                                 </form>
                             </div>
                         </div>
@@ -259,7 +222,18 @@
                     </p>
                 </div>
             </footer>
+            <script src="./jquery/jquery-1.12.4.js"></script>
+            <script src="./jquery/jquery-ui.js"></script>
+            <script>
+                $(document).ready(function () {
+                    $('.date-picker').datepicker({ dateFormat: 'dd-mm-yy' });
+                    $('.txtQuantity').attr('type', 'number');
+                    $('.txtQuantity').attr('min', '1');
 
+                    $('.txtLength').attr('type', 'number');
+                    $('.txtLength').attr('min', '1');
+                });
+            </script>
         </div>
     </div>
 </body>

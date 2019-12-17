@@ -70,6 +70,7 @@
     <Content Include="AddToCart.aspx" />
     <Content Include="asserts\login.css" />
     <Content Include="AuthPage\BookDetail.aspx" />
+    <Content Include="AuthPage\BookInsert.aspx" />
     <Content Include="AuthPage\BookManager.aspx" />
     <Content Include="AuthPage\Dashboard.aspx" />
     <Content Include="CheckoutAction.aspx" />
@@ -173,6 +174,13 @@
     </Compile>
     <Compile Include="AuthPage\BookDetail.aspx.designer.cs">
       <DependentUpon>BookDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AuthPage\BookInsert.aspx.cs">
+      <DependentUpon>BookInsert.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AuthPage\BookInsert.aspx.designer.cs">
+      <DependentUpon>BookInsert.aspx</DependentUpon>
     </Compile>
     <Compile Include="AuthPage\BookManager.aspx.cs">
       <DependentUpon>BookManager.aspx</DependentUpon>

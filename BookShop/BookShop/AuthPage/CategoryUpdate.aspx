@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BookDetail.aspx.cs" Inherits="BookShop.AuthPage.BookDetail" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CategoryUpdate.aspx.cs" Inherits="BookShop.AuthPage.CategoryUpdate" %>
 
 <!DOCTYPE html>
 
@@ -123,109 +123,20 @@
             <div class="content">
                 <div class="container-fluid">
                         <div class="col-md-12">
-                            <div class="card" style="height:950px">
+                            <div class="card" style="height:400px">
                                 <div class="header">
-                                    <h4 class="title"><b>Update Book</b></h4>
+                                    <h4 class="title"><b>Update Category</b></h4>
                                 </div>
                                 <form>
                                     <div class="form-group">
-                                        <div class="form-group col-md-3">
+                                        <div class="form-group col-md-6">
                                           <label>ID*</label>
                                           <input type="text" class="form-control" disabled="true"/>
                                         </div>
-                                        <div class="form-group col-md-3">
-                                          <label>Title*</label>
+                                        <div class="form-group col-md-6">
+                                          <label>Name*</label>
                                           <input type="text" class="form-control" />
                                         </div> 
-                                        <div class="form-group col-md-3">
-                                          <label>Author*</label>
-                                          <input type="text" class="form-control"/>
-                                        </div>
-                                        <div class="form-group col-md-3">
-                                          <label>Publisher*</label>
-                                          <input type="text" class="form-control" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                       <div class="form-group col-md-4">
-                                          <label>Quantity*</label>
-                                          <input type="text" class="form-control" />
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                          <label>Date Estalished*</label>
-                                          <input type="date" class="form-control" />
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                          <label>Category Name*</label>
-                                          <select class="form-control">
-                                              <% 
-                                                  for (int i = 0; i < this.listCategory.Count; i++)
-                                                  {
-                                                      
-                                              %>
-                                                          
-                                                <option value="<%= listCategory[i].CategoryID %>" > <%= listCategory[i].CategoryName %></option>
-                                              <%
-                                                  }
-                                              %>
-                                          </select>
-                                        </div>
-                                     </div>
-                                        <div class="form-group">
-                                        <div class="form-group col-md-4">
-                                          <label>Dimension*</label>
-                                          <input type="text" class="form-control" />
-                                        </div>
-                                            <div class="form-group col-md-4">
-                                          <label>Price*</label>
-                                          <input type="text" class="form-control" />
-                                        </div>
-                                        <div class="form-group col-md-2">
-                                          <label>Weight*</label>
-                                          <input type="text" class="form-control" />
-                                        </div>
-                                        <div class="form-group col-md-2">
-                                          <label>Height*</label>
-                                          <input type="text" class="form-control" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="form-group col-md-6">
-                                          <label>Create time</label>
-                                          <input type="datetime-local" class="form-control" readonly="true"/>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                          <label>Created by Account</label>
-                                          <input type="text" class="form-control" readonly="true"/>
-                                        </div>
-                                    </div>
-                                    <br />
-                                    <div class="form-group">
-                                        <div class="form-group col-md-6">
-                                          <label>Last Modified</label>
-                                          <input type="datetime-local" class="form-control" readonly="true"/>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                          <label>Last Modified by Account</label>
-                                          <input type="text" class="form-control" readonly="true"/>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="form-group col-md-4">
-                                          <label>Status</label>
-                                          <select class="form-control">
-                                            <option selected>Enable</option>
-                                            <option> Disable</option>
-                                          </select>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="form-group">
-                                    <div class="form-group col-md-12">
-                                          <label>IMG</label>
-                                          <input type="file" class="form-control" />
-                                        </div>
-
                                     </div>
                                     <div class="form-group">
                                         <div class="form-group col-md-12">
@@ -233,12 +144,11 @@
                                           <textarea class="form-control" cols="50" rows="5" ></textarea>
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                   <div class="form-group">
                                         <div class="form-group col-md-6 ">
                                            <button class="btn btn-success btn-fill pull-right" >Update</button>
                                         </div>
                                     </div>
-                                   
                                 </form>
                             </div>
                         </div>

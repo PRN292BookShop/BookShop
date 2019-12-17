@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BookManager.aspx.cs" Inherits="BookShop.AuthPage.BookManager" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CategoryManager.aspx.cs" Inherits="BookShop.AuthPage.CategoryManager" %>
 
 <!DOCTYPE html>
 
@@ -127,7 +127,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header row">
-                                <h4 class="title  col-md-6" >List all Book</h4>
+                                <h4 class="title  col-md-6" >List all Category</h4>
                                 <div class="form-group" ">
                                         <div class="form-group col-md-6 ">
                                            <button class="btn btn-success btn-fill pull-right" >Add new</button>
@@ -138,48 +138,18 @@
                                 <table class="table table-hover table-striped">
                                     <thead>
                                         <th>No</th>
-                                        <th>Book Image</th>
                                         <th>ID</th>
-                                    	<th>Title</th>
-                                        <th>Price</th>
-                                        <th>Author</th>
-                                        <th>Quantity</th>
-                                        <th>Created Time</th>
-                                        <th>Last Modified</th>
-                                        <th>Status</th>
+                                        <th>Name</th>
+                                        <th>Description</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
                                     </thead>
                                     <tbody>
-                                        <%
-                                            for (int i = 0; i < list.Count; i++)
-                                            {
-                                        %>
                                         <tr>
-                                            <td><%= i+1 %></td>
-                                        	<td><img src="../image/book/<%= this.list[i].BookImage %>" width="30px" height="45px" /></td>
-                                        	<td><%= list[i].BookID %></td>
-                                        	<td><%= list[i].BookTitle %></td>
-                                        	<td><%= list[i].BookPrice %></td>
-                                        	<td><%= list[i].BookAuthor %></td>
-                                            <td><%= list[i].BookQuantity %></td>
-                                        	<td><%= list[i].CreatedTime %></td>
-                                        	<td><%= list[i].LastModified %></td>
-                                            <td><% 
-                                                    if (list[i].Enabled == true)
-                                                    {
-                                                %>
-                                                <span class="badge alert-info" style="color:white">Enable</span>
-                                                <% 
-                                                    }
-                                                    else
-                                                    {
-                                                %>
-                                                <span class="badge alert-danger" style="color:white">Disable</span>
-                                                <%
-                                                    }
-                                                %>
-                                            </td>
+                                            <td>A</td>
+                                        	<td>A</td>
+                                        	<td>Dakota Rice</td>
+                                            <td>A</td>
                                             <td>
                                                 <button type="submit" class="btn btn-outline-dark">
                                                     <i class="fa fa-edit"></i>
@@ -191,9 +161,22 @@
                                                 </button>  
                                             </td>
                                         </tr>
-                                        <%
-                                            }
-                                        %>
+                                        <tr>
+                                            <td>B</td>
+                                        	<td>B</td>
+                                        	<td>Dakota Rice</td>
+                                            <td>A</td>
+                                            <td>
+                                                <button type="submit" class="btn btn-outline-dark">
+                                                    <i class="fa fa-edit"></i>
+                                                </button> 
+                                            </td>
+                                            <td>
+                                                <button type="submit" class="btn btn-outline-dark">
+                                                    <i class="fa fa-remove"></i>
+                                                </button>  
+                                            </td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -221,4 +204,3 @@
     </div>
 </body>
 </html>
-

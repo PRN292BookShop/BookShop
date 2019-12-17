@@ -14,14 +14,26 @@ namespace BookShop
         public Cart cart;
         public Book book;
 
+        public List<Category> listMenuCategory = new List<Category>();
+        public Category menuCategory;
+
         public Order order = new Order();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
+                listMenuCategory = (new CategoryService()).GetAllCategory();
                 cart = (Cart)Session["Cart"];
-                if (cart == null) cart = new Cart();
+                if (cart == null || cart.Carts.Keys.Count == 0)
+                {
+                    if (Request.UrlReferrer == null || Request.UrlReferrer.AbsoluteUri.Contains("Cart.aspx") 
+                        || Request.UrlReferrer.AbsoluteUri.Contains("CheckoutPage.aspx"))
+                    {
+                        Response.Redirect("Home.aspx");
+                    }
+                    Response.Redirect(Request.UrlReferrer.AbsoluteUri);
+                }
 
                 if (!CheckValidItem())
                 {
