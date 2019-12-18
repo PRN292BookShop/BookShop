@@ -14,6 +14,27 @@
 	<link rel="stylesheet" type="text/css" media="screen" href="./Pustok - Book Store HTML Template_files/main.css">
 	<link rel="shortcut icon" type="image/x-icon"
 		href="https://demo.hasthemes.com/pustok-preview/pustok/image/favicon.ico">
+
+    <style>
+        .btn-book-shop {
+            position: absolute;
+            width: 100px !important;
+            top: 0;
+            right: 0;
+            background: #62ab00 !important;
+            border: 0 !important;
+            line-height: 52px;
+            box-shadow: none !important;
+            margin: 0;
+            font-size: 15px !important;
+            font-weight: 700 !important;
+            padding: 0 25px !important;
+            color: #fff !important;
+            border-radius: 0;
+            border-top-right-radius: 3px !important;
+            border-bottom-right-radius: 3px !important;
+        }
+    </style>
 </head>
 <body>
     <div class="site-wrapper" id="top">
@@ -27,10 +48,12 @@
                             </a>
                         </div>
                         <div class="col-lg-5">
+                            <form method="post" runat="server">
                             <div class="header-search-block">
-                                <input type="text" placeholder="Search entire store here">
-                                <button>Search</button>
+                                <asp:TextBox ID="txtSearch" placeholder="Search entire store here" runat="server"></asp:TextBox>
+                                <asp:Button ID="btnSearch" CssClass="btn-book-shop" OnClick="btnSearch_Click" runat="server" Text="Search" />
                             </div>
+                            </form>
                         </div>
                         <div class="col-lg-4">
                             <div class="main-navigation flex-lg-right">
@@ -107,7 +130,7 @@
                                                 menuCategory = listMenuCategory[i];
                                                 %>
                                         <li class="cat-item">
-                                            <a href="#"><%= menuCategory.CategoryName %></a>
+                                            <a href="ListBookByCategoryPage.aspx?CategoryID=<%= menuCategory.CategoryID %>"><%= menuCategory.CategoryName %></a>
                                         </li>
                                         <%
                                             }

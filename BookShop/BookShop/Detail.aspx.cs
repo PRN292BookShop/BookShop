@@ -45,5 +45,11 @@ namespace BookShop
 
             return b;
         }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            string search = txtSearch.Text;
+            Response.Redirect("SearchBookResultPage.aspx?Search=" + search);
+        }
     }
 }

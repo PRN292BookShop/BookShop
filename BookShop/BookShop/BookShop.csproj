@@ -198,6 +198,7 @@
     <Content Include="Pustok - Detail _files\product-details-4.jpg" />
     <Content Include="Pustok - Detail _files\product-details-5.jpg" />
     <Content Include="RemoveFromCart.aspx" />
+    <Content Include="SearchBookResultPage.aspx" />
     <Content Include="UpdateCart.aspx" />
     <Content Include="Web.config" />
     <Content Include="Home.aspx" />
@@ -340,6 +341,13 @@
     </Compile>
     <Compile Include="RemoveFromCart.aspx.designer.cs">
       <DependentUpon>RemoveFromCart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchBookResultPage.aspx.cs">
+      <DependentUpon>SearchBookResultPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchBookResultPage.aspx.designer.cs">
+      <DependentUpon>SearchBookResultPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Service\AccountService.cs" />
     <Compile Include="Service\BookService.cs" />

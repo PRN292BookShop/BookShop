@@ -10,7 +10,7 @@
 namespace BookShop {
     
     
-    public partial class Detail {
+    public partial class SearchBookResultPage {
         
         /// <summary>
         /// txtSearch control.

@@ -4,30 +4,30 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data.SqlClient;
-using System.Configuration;
-using BookShop.Entity;
 using BookShop.Service;
+using BookShop.Entity;
 
 namespace BookShop
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class SearchBookResultPage : System.Web.UI.Page
     {
-
-        public List<Book> listBook = new List<Book>();
-        public List<Category> listMenuCategory = new List<Category>();
         public Cart cart;
-        public Book book;
+        public Book bookInCart;
+
+        public List<Category> listMenuCategory = new List<Category>();
         public Category menuCategory;
-        
+
+        public List<Book> listBook;
         protected void Page_Load(object sender, EventArgs e)
         {
-            BookService service = new BookService();
             try
             {
-                listBook = service.ListTop10Book();
                 listMenuCategory = (new CategoryService()).GetAllCategory();
                 cart = (Cart)Session["Cart"];
+
+                string search = Request.Params["Search"].Trim();
+
+                listBook = (new BookService()).SearchBookByTitle(search);
             }
             catch (Exception ex)
             {
