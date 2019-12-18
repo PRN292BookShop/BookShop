@@ -132,7 +132,7 @@
                             <%--<form runat="server" id="insert">--%>
                                 <div class="form-group">
                                     
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-12">
                                         <label>Name*</label>
                                         <asp:TextBox runat="server" ID="NameCategory" type="text" CssClass="form-control" />
                                     </div>
@@ -144,7 +144,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <div class="form-group col-md-2 ">
+                                    <div class="form-group col-md-6 ">
                                        <%-- <asp:Button runat="server" ID="InsertCategory" Text="Insert" class="btn btn-success btn-fill pull-right" OnClick="InsertCategory_Click"/>--%>
                                    <asp:Button  runat="server" TextMode="MultiLine" Text="Insert" ID="InsertCategory" OnClick="InsertCategory_Click" CssClass="btn btn-success btn-fill pull-right"/>
                                     </div>
