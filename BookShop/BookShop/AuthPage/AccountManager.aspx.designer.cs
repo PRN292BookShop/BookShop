@@ -10,7 +10,7 @@
 namespace BookShop.AuthPage {
     
     
-    public partial class CategoryManager {
+    public partial class UserManager {
         
         /// <summary>
         /// btnLogout control.

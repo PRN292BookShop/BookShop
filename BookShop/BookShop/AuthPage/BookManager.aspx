@@ -34,6 +34,7 @@
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 </head>
 <body>
+    <<form runat="server">
     <div class="wrapper">
         <div class="sidebar" data-color="green" data-image="assets/img/sidebar-5.jpg">
 
@@ -53,31 +54,31 @@
 
                 <ul class="nav">
                     <li>
-                        <a href="dashboard.html">
+                        <a href="Dashboard.aspx">
                             <i class="pe-7s-graph"></i>
                             <p>Dashboard</p>
                         </a>
                     </li>
-                    <li>
-                        <a href="user.html">
+                    <li >
+                        <a href="AccountManager.aspx">
                             <i class="pe-7s-user"></i>
                             <p>Manage Users</p>
                         </a>
                     </li>
                     <li class="active">
-                        <a href="table.html">
+                        <a href="BookManager.aspx">
                             <i class="pe-7s-note2"></i>
                             <p>Manage Book</p>
                         </a>
                     </li>
                     <li>
-                        <a href="typography.html">
+                        <a href="OrderManager.aspx">
                             <i class="pe-7s-news-paper"></i>
                             <p>Manage Order</p>
                         </a>
                     </li>
                     <li>
-                        <a href="typography.html">
+                        <a href="CategoryManager.aspx">
                             <i class="pe-7s-box1"></i>
                             <p>Manage Category</p>
                         </a>
@@ -106,12 +107,12 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li>
                                 <a href="">
-                                    <p>Account</p>
+                                    <p style="margin-top:23px"><%= Session["Username"] %></p>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <p>Log out</p>
+                                    <asp:Button ID="btnLogout" CssClass="btn btn-info"   runat="server"  OnClick="btnLogout_Click" Text="Log out"/>
                                 </a>
                             </li>
                             <li class="separator hidden-lg"></li>
@@ -211,6 +212,7 @@
 
         </div>
     </div>
+        </form>
 </body>
 </html>
 

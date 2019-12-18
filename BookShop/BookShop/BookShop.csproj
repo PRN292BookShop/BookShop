@@ -116,6 +116,8 @@
     <Content Include="AuthPage\jquery\jquery-ui.min.css" />
     <Content Include="AuthPage\jquery\jquery-ui.structure.min.css" />
     <Content Include="AuthPage\jquery\jquery-ui.theme.min.css" />
+    <Content Include="AuthPage\AccountManager.aspx" />
+    <Content Include="AuthPage\OrderManager.aspx" />
     <Content Include="CheckoutAction.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="image\bg-images\home-2-slider-1.jpg" />
@@ -269,6 +271,20 @@
     <Compile Include="AuthPage\Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AuthPage\AccountManager.aspx.cs">
+      <DependentUpon>AccountManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AuthPage\AccountManager.aspx.designer.cs">
+      <DependentUpon>AccountManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AuthPage\OrderManager.aspx.cs">
+      <DependentUpon>OrderManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AuthPage\OrderManager.aspx.designer.cs">
+      <DependentUpon>OrderManager.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CheckoutAction.aspx.cs">
       <DependentUpon>CheckoutAction.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -351,6 +367,7 @@
     <Compile Include="Service\AccountService.cs" />
     <Compile Include="Service\BookService.cs" />
     <Compile Include="Service\CategoryService.cs" />
+    <Compile Include="Service\StatusService.cs" />
     <Compile Include="Service\OrderService.cs" />
     <Compile Include="Service\RoleService.cs" />
     <Compile Include="UpdateCart.aspx.cs">

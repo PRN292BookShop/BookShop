@@ -13,5 +13,11 @@ namespace BookShop.AuthPage
         {
             if (Session["Username"] == null) Response.Redirect("/Login.aspx");
         }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session.Remove("Username");
+            Response.Redirect("~/Login.aspx");
+        }
     }
 }

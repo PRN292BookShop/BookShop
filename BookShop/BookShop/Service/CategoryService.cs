@@ -41,19 +41,47 @@ namespace BookShop.Service
             conn.Open();
             List<Category> list;
             Category category = null;
-            SqlCommand command = new SqlCommand(@"SELECT CategoryName, CategoryID FROM tblCategory " , conn);
+            SqlCommand command = new SqlCommand(@"SELECT CategoryName, CategoryID , CategoryDescription FROM tblCategory ", conn);
 
             SqlDataReader reader = command.ExecuteReader();
             list = new List<Category>();
             while(reader.Read())
             {
                 string categoryName = reader["CategoryName"].ToString();
+                string descrip = reader["CategoryDescription"].ToString();
                 int categoryID = int.Parse(reader["CategoryID"].ToString());
-                category = new Category(categoryID,categoryName);
+                category = new Category(categoryID,categoryName,descrip);
                 list.Add(category);
             }
             CloseConnection();
             return list;
+        }
+        public bool InsertNewCategory(Category category)
+        {
+            bool flag = false;
+            conn.Open();
+            if (conn != null) {
+                try
+                {
+                    SqlCommand command = new SqlCommand(@"Insert into tblCategory(CategoryName,CategoryDescription) Values(@name,@des)",conn);
+                    
+                    command.Parameters.Add("@name", System.Data.SqlDbType.NVarChar);
+                    command.Parameters.Add("@des",System.Data.SqlDbType.NVarChar);
+
+                    
+                    command.Parameters["@name"].Value = category.CategoryName;
+                    command.Parameters["@des"].Value = category.CategoryDescription;
+
+                    flag =command.ExecuteNonQuery()>0;
+                    
+                }
+                
+                finally
+                {
+                    CloseConnection();
+                }
+            }
+            return flag;
         }
     }
 }

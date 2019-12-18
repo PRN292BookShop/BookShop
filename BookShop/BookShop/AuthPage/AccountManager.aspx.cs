@@ -8,23 +8,21 @@ using BookShop.Entity;
 using BookShop.Service;
 namespace BookShop.AuthPage
 {
-    public partial class CategoryManager : System.Web.UI.Page
+    public partial class UserManager : System.Web.UI.Page
     {
-
-        public List<Category> list;
+        public List<Account> list ;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Username"] == null) Response.Redirect("/Login.aspx");
             try
             {
-                CategoryService sr = new CategoryService();
-                list = sr.GetAllCategory();
+                AccountService sv = new AccountService();
+                list = sv.GetAllAccount();
             }
             catch (Exception ex)
             {
                 string errorMsg = ex.Message + "\n" + ex.StackTrace;
                 Session["error_msg"] = errorMsg;
-                Server.Transfer("/Error.aspx");
+                Server.Transfer("Error.aspx");
             }
         }
 

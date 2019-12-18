@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CategoryManager.aspx.cs" Inherits="BookShop.AuthPage.CategoryManager" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OrderManager.aspx.cs" Inherits="BookShop.AuthPage.OrderManager" %>
 
 <!DOCTYPE html>
 
@@ -34,7 +34,7 @@
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 </head>
 <body>
-    <form runat="server">
+   <form runat="server">
     <div class="wrapper">
         <div class="sidebar" data-color="green" data-image="assets/img/sidebar-5.jpg">
 
@@ -59,7 +59,7 @@
                             <p>Dashboard</p>
                         </a>
                     </li>
-                    <li >
+                    <li>
                         <a href="AccountManager.aspx">
                             <i class="pe-7s-user"></i>
                             <p>Manage Users</p>
@@ -71,13 +71,13 @@
                             <p>Manage Book</p>
                         </a>
                     </li>
-                    <li >
+                    <li class="active">
                         <a href="OrderManager.aspx">
                             <i class="pe-7s-news-paper"></i>
                             <p>Manage Order</p>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="CategoryManager.aspx">
                             <i class="pe-7s-box1"></i>
                             <p>Manage Category</p>
@@ -127,50 +127,73 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
-                            <div class="header row">
-                                <h4 class="title  col-md-6" >List all Category</h4>
-                                <div class="form-group" ">
-                                        <div class="form-group col-md-6 ">
-                                           <button class="btn btn-success btn-fill pull-right" >Add new</button>
-                                        </div>
-                                </div>
-                            </div>
+                            <div class="header ">
+                                <h4 class="title  col-md-6" >List all Order</h4>
+                                
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
                                     <thead>
                                         <th>No</th>
                                         <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Description</th>
+                                        <th>FullName</th>
+                                        <th>Phone</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
                                         <th>Edit</th>
-                                        <th>Delete</th>
                                     </thead>
                                     <tbody>
-                                        <% 
-                                            for (int i = 0; i < list.Count; i++)
+  
+                                        <%
+                                            for (int i = 0; i < this.list.Count; i++)
                                             {
                                         %>
                                         <tr>
                                             <td><%= i + 1 %></td>
-                                        	<td><%= list[i].CategoryID %></td>
-                                        	<td><%= list[i].CategoryName %></td>
-                                            <td><%= list[i].CategoryDescription %></td>
+                                        	<td><%= list[i].OrderID %></td>
+                                        	<td><%= list[i].OrderFullname %></td>
+                                            <td><%= list[i].OrderPhone %></td>
+                                            <td><%= list[i].OrderDate %></td>
+                                            <td><% 
+                                                    if (list[i].OrderStatus.StatusID == 2)
+                                                    {
+                                                %>
+                                                <span class="badge alert-info" style="color:white">Done</span>
+                                                <% 
+                                                    }
+                                                    else if(list[i].OrderStatus.StatusID == 1)
+                                                    {
+                                                %>
+                                                <span class="badge" style="color:white">Doing</span>
+                                                <% 
+                                                    }
+                                                    else if(list[i].OrderStatus.StatusID == 0)
+                                                    {
+                                                %>
+                                                <span class="badge alert-warning" >Waiting</span>
+                                                <% 
+                                                    }
+                                                    else
+                                                    {
+                                                %>
+                                                    <span class="badge alert-danger" style="color:white">Cancel</span>
+                                                <%
+                                                    }
+                                                %>
+                                            </td>
                                             <td>
                                                 <button type="submit" class="btn btn-outline-dark">
                                                     <i class="fa fa-edit"></i>
                                                 </button> 
                                             </td>
-                                            <td>
-                                                <button type="submit" class="btn btn-outline-dark">
-                                                    <i class="fa fa-remove"></i>
-                                                </button>  
-                                            </td>
+  
                                         </tr>
                                         <%
                                             }
                                         %>
                                     </tbody>
                                 </table>
+                            </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -194,6 +217,6 @@
 
         </div>
     </div>
-        </form>
+       </form>
 </body>
 </html>

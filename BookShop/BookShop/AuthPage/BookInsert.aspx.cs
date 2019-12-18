@@ -37,10 +37,15 @@ namespace BookShop.AuthPage
             }
         }
 
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session.Remove("Username");
+            Response.Redirect("~/Login.aspx");
+        }
+
         public void SetCategoryItem()
         {
             List<ListItem> listItem = new List<ListItem>();
-
             foreach (Category category in listCategory)
             {
                 listItem.Add(new ListItem(category.CategoryName, category.CategoryID + ""));

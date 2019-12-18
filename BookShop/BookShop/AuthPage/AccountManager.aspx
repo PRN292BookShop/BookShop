@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CategoryManager.aspx.cs" Inherits="BookShop.AuthPage.CategoryManager" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AccountManager.aspx.cs" Inherits="BookShop.AuthPage.UserManager" %>
 
 <!DOCTYPE html>
 
@@ -53,13 +53,13 @@
                 </div>
 
                 <ul class="nav">
-                    <li>
+                    <li >
                         <a href="Dashboard.aspx">
                             <i class="pe-7s-graph"></i>
                             <p>Dashboard</p>
                         </a>
                     </li>
-                    <li >
+                    <li class="active">
                         <a href="AccountManager.aspx">
                             <i class="pe-7s-user"></i>
                             <p>Manage Users</p>
@@ -71,13 +71,13 @@
                             <p>Manage Book</p>
                         </a>
                     </li>
-                    <li >
+                    <li>
                         <a href="OrderManager.aspx">
                             <i class="pe-7s-news-paper"></i>
                             <p>Manage Order</p>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="CategoryManager.aspx">
                             <i class="pe-7s-box1"></i>
                             <p>Manage Category</p>
@@ -127,34 +127,44 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
-                            <div class="header row">
+                            <div class="header ">
                                 <h4 class="title  col-md-6" >List all Category</h4>
-                                <div class="form-group" ">
-                                        <div class="form-group col-md-6 ">
-                                           <button class="btn btn-success btn-fill pull-right" >Add new</button>
-                                        </div>
-                                </div>
-                            </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
                                     <thead>
                                         <th>No</th>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Description</th>
+                                        <th>UserName</th>
+                                        <th>FullName</th>
+                                        <th>Role</th>
+                                        <th>Enable</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
                                     </thead>
                                     <tbody>
-                                        <% 
-                                            for (int i = 0; i < list.Count; i++)
+                                        <%
+                                            for (int i = 0; i < this.list.Count; i++)
                                             {
                                         %>
                                         <tr>
                                             <td><%= i + 1 %></td>
-                                        	<td><%= list[i].CategoryID %></td>
-                                        	<td><%= list[i].CategoryName %></td>
-                                            <td><%= list[i].CategoryDescription %></td>
+                                        	<td><%= list[i].Fullname %></td>
+                                        	<td><%= list[i].Username %></td>
+                                            <td><%= list[i].Role.RoleName %></td>
+                                            <td><% 
+                                                    if (list[i].Enable == true)
+                                                    {
+                                                %>
+                                                <span class="badge alert-info" style="color:white">Enable</span>
+                                                <% 
+                                                    }
+                                                    else
+                                                    {
+                                                %>
+                                                <span class="badge alert-danger" style="color:white">Disable</span>
+                                                <%
+                                                    }
+                                                %>
+                                            </td>
                                             <td>
                                                 <button type="submit" class="btn btn-outline-dark">
                                                     <i class="fa fa-edit"></i>
@@ -171,6 +181,8 @@
                                         %>
                                     </tbody>
                                 </table>
+                                </div>
+                            </div>
                             </div>
                         </div>
                     </div>
