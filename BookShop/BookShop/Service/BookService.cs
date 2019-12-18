@@ -176,7 +176,7 @@ namespace BookShop.Service
 
         public Book FindBookBy(int ID)
         {
-            conn.Open();
+            if (conn != null || conn.State == System.Data.ConnectionState.Closed) conn.Open();
             SqlCommand sql = new SqlCommand("SELECT BookDescription, BookDateEstablished, BookOrgEstablished, " +
                 "BookDimensions, BookTitle, BookAuthor, BookImage, BookPrice, " +
                 "BookWeight, BookLength, BookCategoryID, BookQuantity, " +

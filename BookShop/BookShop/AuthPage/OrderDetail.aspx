@@ -127,63 +127,64 @@
                             <div class="card" style="height:550px">
                                 <div class="header">
                                     <h4 class="title"><b>Order Detail</b></h4>
-                                
-                                <form>
+                                    <p style="font-size: 13px; color: red">
+                                        <asp:Label ID="errorMsg" runat="server" Text=""></asp:Label></p>
+
                                     <div class="form-group">
                                         <div class="form-group col-md-3">
                                           <label>ID</label>
-                                          <input type="text" class="form-control" disabled="true"/>
+                                            <asp:TextBox ID="txtID" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
                                         </div>
                                         <div class="form-group col-md-3">
                                           <label>FullName</label>
-                                          <input type="text" class="form-control" />
+                                          <input type="text" value="<%= order.OrderFullname %>" class="form-control" disabled="true" />
                                         </div> 
                                         <div class="form-group col-md-3">
                                           <label>Phone</label>
-                                          <input type="text" class="form-control" />
+                                          <input type="text" value="<%= order.OrderPhone %>" class="form-control" disabled="true" />
                                         </div>
                                         <div class="form-group col-md-3">
                                           <label>Date</label>
-                                          <input type="datetime-local" class="form-control" />
+                                          <input type="text" value="<%= order.OrderDate %>" class="form-control" disabled="true" />
                                         </div> 
                                     </div>
                                     <div class="form-group">
                                         <div class="form-group col-md-12">
                                           <label>Address</label>
-                                          <input type="text" class="form-control" />
+                                          <input type="text" value="<%= order.OrderAddress %>" class="form-control" disabled="true" />
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="form-group col-md-12">
                                           <label>Note</label>
-                                          <textarea class="form-control" cols="50" rows="5" ></textarea>
+                                          <textarea disabled="true" class="form-control" cols="50" rows="5" ><%= order.OrderNote %></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="form-group col-md-6">
                                           <label>Account Modified</label>
-                                          <input type="text" class="form-control" disabled="true"/>
+                                            <asp:TextBox ID="txtAccModified" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
                                         </div>
                                         <div class="form-group col-md-6">
                                           <label>Last Modified</label>
-                                          <input type="datetime-local" class="form-control" disabled="true"/>
+                                            <asp:TextBox ID="txtLastModified" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
                                         </div> 
                                     </div>
                                    <div class="form-group">
                                         <div class="form-group col-md-6">
                                           <label>Status</label>
-                                          <select class="form-control" id="exampleFormControlSelect1">
-                                              <option selected>Doing</option>
-                                              <option>Done</option>
-                                              <option>Waiting</option>
-                                              <option>Cancel</option>
-                                          </select>
+                                            
+                                            <asp:DropDownList CssClass="form-control" ID="lsStatus" runat="server">
+                                                <asp:ListItem Text="Canceled" Value="-1" />
+                                                <asp:ListItem Text="Waiting" Value="0"/>
+                                                <asp:ListItem Text="Doing" Value="1"/>
+                                                <asp:ListItem Text="Done" Value="2"/>
+                                            </asp:DropDownList>
                                         </div> 
                                         <div class="form-group col-md-2" style="padding-top:24px;">
-                                           <button class="btn btn-success btn-fill pull-right" >Update</button>
+                                            <asp:Button ID="btnUpdate" CssClass="btn btn-success btn-fill pull-right" OnClick="btnUpdate_Click" runat="server" Text="Update" />
                                         </div>
                                     </div>
-                                </form>
                             </div>
                             </div>
                         </div>
@@ -195,31 +196,39 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header ">
-                                <h4 class="title  col-md-6" >List products</h4>
+                                <h4 class="title  col-md-6" >List products</h4>                                
                                 
-                            <div class="content table-responsive table-full-width">
+                            <div class="content table-responsive table-full-width mt-3">
                                 <table class="table table-hover table-striped">
                                     <thead>
-                                        <th>Book Image</th>
                                         <th>ID</th>
+                                        <th>Book Image</th>                                        
                                     	<th>Title</th>
                                         <th>Quantity</th>
                                         <th>Price</th>
                                     </thead>
                                     <tbody>
+                                        <%
+                                            for (int i = 0; i < this.listDetail.Count; i++)
+                                            {
+                                                %>
                                         <tr>
-                                            <td>A</td>
-                                            <td>A</td>
-                                            <td>A</td>
-                                            <td>A</td>
-                                            <td>A</td>
+                                            <td><%= listDetail[i].Book.BookID %></td>
+                                            <td><img width="100" src="../image/book/<%= listDetail[i].Book.BookImage %>" /></td>                                            
+                                            <td><%= listDetail[i].Book.BookTitle %></td>
+                                            <td><%= listDetail[i].DetailQuantity %></td>
+                                            <td><%= listDetail[i].BookPrice %>$</td>
                                         </tr>
+                                        <%
+                                            }
+                                            %>
+                                        
                                         <tr>
                                             <td></td>
                                             <td></td>
                                             <td></td>
                                             <td>Total:</td>
-                                            <td>100000$</td>
+                                            <td><%= this.CalTotal() %>$</td>
                                         </tr>
                                     </tbody>
                                 </table>

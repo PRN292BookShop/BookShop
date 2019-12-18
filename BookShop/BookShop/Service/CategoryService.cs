@@ -83,5 +83,49 @@ namespace BookShop.Service
             }
             return flag;
         }
+
+        public bool Update(Category category)
+        {
+            bool flag = false;
+            try
+            {
+                conn.Open();
+
+                SqlCommand command = new SqlCommand(@"UPDATE tblCategory SET CategoryName = @name, CategoryDescription = @des WHERE CategoryID = @id", conn);
+
+                command.Parameters.Add("@name", System.Data.SqlDbType.NVarChar);
+                command.Parameters.Add("@des", System.Data.SqlDbType.NVarChar);
+                command.Parameters.Add("@id", System.Data.SqlDbType.Int);
+
+                command.Parameters["@name"].Value = category.CategoryName;
+                command.Parameters["@des"].Value = category.CategoryDescription;
+                command.Parameters["@id"].Value = category.CategoryID;
+
+                flag = command.ExecuteNonQuery() > 0;
+            }
+            finally
+            {
+                CloseConnection();
+            }
+            return flag;
+        }
+
+        public bool Delete(int id)
+        {
+            bool flag = false;
+            try
+            {
+                conn.Open();
+
+                SqlCommand command = new SqlCommand(@"DELETE FROM tblCategory WHERE CategoryID = " + id, conn);
+
+                flag = command.ExecuteNonQuery() > 0;
+            }
+            finally
+            {
+                CloseConnection();
+            }
+            return flag;
+        }
     }
 }

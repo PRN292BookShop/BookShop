@@ -20,7 +20,7 @@ namespace BookShop.Service
         public Account FindByUsername(string username)
         {
             Account account = null;
-            conn.Open();
+            if (conn != null || conn.State == System.Data.ConnectionState.Closed) conn.Open();
             SqlCommand command = new SqlCommand(@"SELECT Fullname, RoleID, IsEnable FROM tblAccount WHERE Username = '" + username + "'", conn);
 
             SqlDataReader reader = command.ExecuteReader();

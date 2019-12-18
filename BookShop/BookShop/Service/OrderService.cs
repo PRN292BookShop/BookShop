@@ -120,6 +120,188 @@ namespace BookShop.Service
             return list;
         }
 
-        
+        public Order FindByID(int id)
+        {
+            Order order = null;
+            try
+            {
+                if (conn != null || conn.State == System.Data.ConnectionState.Closed) conn.Open();
+
+                SqlCommand command = new SqlCommand(@"SELECT OrderFullname, OrderPhone, " +
+                    "OrderAddress, OrderNote, OrderDate, " +
+                    "OrderStatus, OrderLastModified, " +
+                    "OrderAccountModified " +
+                    "FROM tblOrder WHERE OrderID = " + id, conn);
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    string fullname = reader["OrderFullname"].ToString();
+                    string phone = reader["OrderPhone"].ToString();
+                    string address = reader["OrderAddress"].ToString();
+                    string note = reader["OrderNote"].ToString();
+                    DateTime orderDate;
+                    DateTime.TryParse(reader["OrderDate"].ToString(), out orderDate);
+                    Status status = (new StatusService()).FindByID(Int32.Parse(reader["OrderStatus"].ToString()));
+                    DateTime lastModified;
+                    DateTime.TryParse(reader["OrderLastModified"].ToString(), out lastModified);
+                    Account accModified = (new AccountService()).FindByUsername(reader["OrderAccountModified"].ToString());
+
+                    order = new Order(id, fullname, phone, address, note, accModified, status);
+                    order.OrderDate = orderDate;
+                    order.OrderLastModified = lastModified;
+                }
+            }
+            finally
+            {
+                CloseConnection();
+            }
+            return order;
+        }
+
+        public List<OrderDetail> FindDetailByOrderID(int id)
+        {
+            List<OrderDetail> list;
+            try
+            {
+                SqlConnection conn2 = new SqlConnection(ConfigurationManager.ConnectionStrings["conn"].ConnectionString);
+                conn2.Open();
+
+                SqlCommand command = new SqlCommand(@"SELECT BookID, BookPrice, " +
+                    "DetailQuantity FROM tblOrderDetail WHERE OrderID = " + id, conn2);
+
+                SqlDataReader reader = command.ExecuteReader();
+                int bookID;
+                Book book;
+                long bookPrice;
+                int quantity;
+
+                Order order = new Order();
+                order.OrderID = id;
+
+                BookService bookService = new BookService();
+                OrderDetail detail;
+
+                list = new List<OrderDetail>();
+
+                while (reader.Read())
+                {
+                    bookID = Int32.Parse(reader["BookID"].ToString());
+                    book = bookService.FindBookBy(bookID);
+                    bookPrice = long.Parse(reader["BookPrice"].ToString());
+                    quantity = Int32.Parse(reader["DetailQuantity"].ToString());
+
+                    detail = new OrderDetail(book, bookPrice, quantity, order);
+                    list.Add(detail);
+                }
+            }
+            finally
+            {
+                CloseConnection();
+            }
+            return list;
+        }
+
+        public bool ChangeStatus(int id, int status, string usernameModified)
+        {
+            bool flag = false;
+            try
+            {             
+                Order order = this.FindByID(id);
+                List<OrderDetail> listDetail = this.FindDetailByOrderID(id);
+
+                if (conn != null || conn.State == System.Data.ConnectionState.Closed) conn.Open();
+                SqlTransaction transaction = conn.BeginTransaction();
+
+                SqlCommand command = new SqlCommand("UPDATE tblOrder SET OrderStatus = @status, OrderAccountModified = @username WHERE OrderID = @id", conn);
+                command.Transaction = transaction;
+
+                command.Parameters.Add("@status", System.Data.SqlDbType.Int);
+                command.Parameters.Add("@id", System.Data.SqlDbType.Int);
+                command.Parameters.Add("@username", System.Data.SqlDbType.VarChar);
+
+                command.Parameters["@status"].Value = status;
+                command.Parameters["@id"].Value = id;
+                command.Parameters["@username"].Value = usernameModified;
+
+                flag = command.ExecuteNonQuery() > 0;
+
+                if (flag)
+                {
+                    if (order.OrderStatus.StatusID != -1 && status == -1)
+                    {
+                        command = new SqlCommand("UPDATE tblBook SET BookQuantity = @quantity WHERE BookID = @id", conn);
+                        command.Transaction = transaction;
+
+                        command.Parameters.Add("@quantity", System.Data.SqlDbType.Int);
+                        command.Parameters.Add("@id", System.Data.SqlDbType.Int);
+                        int quantity;
+
+                        foreach (OrderDetail detail in listDetail)
+                        {
+                            if (flag)
+                            {
+                                quantity = detail.Book.BookQuantity + detail.DetailQuantity;
+                                command.Parameters["@quantity"].Value = quantity;
+                                command.Parameters["@id"].Value = detail.Book.BookID;
+
+                                flag = command.ExecuteNonQuery() > 0;
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+                    }
+
+                    if (order.OrderStatus.StatusID == -1 && status != -1)
+                    {
+                        command = new SqlCommand("UPDATE tblBook SET BookQuantity = @quantity WHERE BookID = @id", conn);
+                        command.Transaction = transaction;
+
+                        command.Parameters.Add("@quantity", System.Data.SqlDbType.Int);
+                        command.Parameters.Add("@id", System.Data.SqlDbType.Int);
+                        int quantity;
+
+                        foreach (OrderDetail detail in listDetail)
+                        {
+                            if (flag)
+                            {
+                                quantity = detail.Book.BookQuantity - detail.DetailQuantity;
+
+                                if (quantity < 0)
+                                {
+                                    flag = false;
+                                    break;
+                                }
+                                command.Parameters["@quantity"].Value = quantity;
+                                command.Parameters["@id"].Value = detail.Book.BookID;
+
+                                flag = command.ExecuteNonQuery() > 0;
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                if (flag)
+                {
+                    transaction.Commit();
+                }
+                else
+                {
+                    transaction.Rollback();
+                }
+            }
+            finally
+            {
+                CloseConnection();
+            }
+            return flag;
+        }
     }
 }

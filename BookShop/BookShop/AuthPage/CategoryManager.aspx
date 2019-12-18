@@ -129,10 +129,17 @@
                         <div class="card">
                             <div class="header row">
                                 <h4 class="title  col-md-6" >List all Category</h4>
+                                
                                 <div class="form-group" ">
                                         <div class="form-group col-md-6 ">
                                            <a href="CategoryInsert.aspx" class="btn btn-success btn-fill pull-right" >Add new</a>
                                         </div>
+                                </div>
+                            </div>
+                            <div class="header row" style="padding: 0 30px;">
+                                <div class="col-12">
+                                    <p style="font-size: 13px; color: red">
+                                        <asp:Label ID="errorMsg" runat="server" Text=""></asp:Label></p>
                                 </div>
                             </div>
                             <div class="content table-responsive table-full-width">
@@ -156,14 +163,14 @@
                                         	<td><%= list[i].CategoryName %></td>
                                             <td><%= list[i].CategoryDescription %></td>
                                             <td>
-                                                <button type="submit" class="btn btn-outline-dark">
+                                                <a href="CategoryUpdate.aspx?ID=<%= list[i].CategoryID %>" class="btn btn-outline-dark">
                                                     <i class="fa fa-edit"></i>
-                                                </button> 
+                                                </a> 
                                             </td>
                                             <td>
-                                                <button type="submit" class="btn btn-outline-dark">
+                                                <a href="DeleteCategoryAction.aspx?ID=<%= list[i].CategoryID %>" class="btn btn-outline-dark">
                                                     <i class="fa fa-remove"></i>
-                                                </button>  
+                                                </a>  
                                             </td>
                                         </tr>
                                         <%

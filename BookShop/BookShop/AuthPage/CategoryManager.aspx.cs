@@ -19,6 +19,12 @@ namespace BookShop.AuthPage
             {
                 CategoryService sr = new CategoryService();
                 list = sr.GetAllCategory();
+
+                if (Session["msg"] != null)
+                {
+                    errorMsg.Text = Session["msg"].ToString();
+                    Session["msg"] = null;
+                }
             }
             catch (Exception ex)
             {

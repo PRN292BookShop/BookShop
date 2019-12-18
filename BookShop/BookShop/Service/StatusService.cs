@@ -18,7 +18,8 @@ namespace BookShop.Service
 
         public Status FindByID(int id)
         {
-            conn.Open();
+            if (conn != null || conn.State == System.Data.ConnectionState.Closed) conn.Open();
+
             Status st = null;
             SqlCommand sql = new SqlCommand(@"SELECT StatusDescription from tblStatus where StatusID =" + id + "", conn);
             SqlDataReader reader = sql.ExecuteReader();

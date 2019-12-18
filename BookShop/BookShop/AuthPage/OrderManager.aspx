@@ -181,9 +181,9 @@
                                                 %>
                                             </td>
                                             <td>
-                                                <button type="submit" class="btn btn-outline-dark">
+                                                <a href="OrderDetail.aspx?ID=<%= list[i].OrderID %>" class="btn btn-outline-dark">
                                                     <i class="fa fa-edit"></i>
-                                                </button> 
+                                                </a> 
                                             </td>
   
                                         </tr>

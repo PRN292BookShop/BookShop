@@ -127,30 +127,30 @@
                             <div class="card" style="height:400px">
                                 <div class="header">
                                     <h4 class="title"><b>Update Category</b></h4>
+                                    <p style="font-size: 13px; color: red">
+                                        <asp:Label ID="errorMsg" runat="server" Text=""></asp:Label></p>
                                 </div>
-                                <form>
                                     <div class="form-group">
                                         <div class="form-group col-md-6">
-                                          <label>ID*</label>
-                                          <input type="text" class="form-control" disabled="true"/>
+                                          <label>ID</label>
+                                            <asp:TextBox ID="txtID" CssClass="form-control" Enabled="false"  runat="server"></asp:TextBox>
                                         </div>
                                         <div class="form-group col-md-6">
-                                          <label>Name*</label>
-                                          <input type="text" class="form-control" />
+                                          <label>Name</label>
+                                            <asp:TextBox ID="txtName" CssClass="form-control" runat="server"></asp:TextBox>
                                         </div> 
                                     </div>
                                     <div class="form-group">
                                         <div class="form-group col-md-12">
                                           <label>Description</label>
-                                          <textarea class="form-control" cols="50" rows="5" ></textarea>
+                                            <asp:TextBox ID="txtDescription" CssClass="form-control" TextMode="MultiLine" Columns="50" Rows="5" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
                                    <div class="form-group">
                                         <div class="form-group col-md-6 ">
-                                           <button class="btn btn-success btn-fill pull-right" >Update</button>
+                                            <asp:Button ID="btnUpdate" OnClick="btnUpdate_Click" CssClass="btn btn-success btn-fill pull-right" runat="server" Text="Update" />
                                         </div>
                                     </div>
-                                </form>
                             </div>
                         </div>
                     </div>

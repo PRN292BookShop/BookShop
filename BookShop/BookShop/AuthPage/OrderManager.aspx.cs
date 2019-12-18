@@ -13,6 +13,7 @@ namespace BookShop.AuthPage
         public List<Order> list;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Username"] == null) Response.Redirect("/Login.aspx");
             try
             {
                 OrderService sv = new OrderService();
