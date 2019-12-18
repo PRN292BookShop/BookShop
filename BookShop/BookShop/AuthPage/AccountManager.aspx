@@ -34,6 +34,7 @@
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 </head>
 <body>
+    <form runat="server">
     <div class="wrapper">
         <div class="sidebar" data-color="green" data-image="assets/img/sidebar-5.jpg">
 
@@ -52,13 +53,13 @@
                 </div>
 
                 <ul class="nav">
-                    <li>
+                    <li >
                         <a href="Dashboard.aspx">
                             <i class="pe-7s-graph"></i>
                             <p>Dashboard</p>
                         </a>
                     </li>
-                    <li >
+                    <li class="active">
                         <a href="AccountManager.aspx">
                             <i class="pe-7s-user"></i>
                             <p>Manage Users</p>
@@ -70,7 +71,7 @@
                             <p>Manage Book</p>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="OrderManager.aspx">
                             <i class="pe-7s-news-paper"></i>
                             <p>Manage Order</p>
@@ -106,12 +107,12 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li>
                                 <a href="">
-                                    <p>Account</p>
+                                    <p style="margin-top:23px"><%= Session["Username"] %></p>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <p>Log out</p>
+                                    <asp:Button ID="btnLogout" CssClass="btn btn-info"   runat="server"  OnClick="btnLogout_Click" Text="Log out"/>
                                 </a>
                             </li>
                             <li class="separator hidden-lg"></li>
@@ -128,8 +129,6 @@
                         <div class="card">
                             <div class="header ">
                                 <h4 class="title  col-md-6" >List all Category</h4>
-                                </div>
-                            </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
                                     <thead>
@@ -182,6 +181,8 @@
                                         %>
                                     </tbody>
                                 </table>
+                                </div>
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -205,5 +206,6 @@
 
         </div>
     </div>
+        </form>
 </body>
 </html>

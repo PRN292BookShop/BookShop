@@ -52,33 +52,33 @@
                     </span>
                 </div>
 
-                <ul class="nav">
+                 <ul class="nav">
                     <li class="active">
-                        <a href="dashboard.html">
+                        <a href="Dashboard.aspx">
                             <i class="pe-7s-graph"></i>
                             <p>Dashboard</p>
                         </a>
                     </li>
-                    <li>
-                        <a href="user.html">
+                    <li >
+                        <a href="AccountManager.aspx">
                             <i class="pe-7s-user"></i>
                             <p>Manage Users</p>
                         </a>
                     </li>
-                    <li>
-                        <a href="table.html">
+                    <li >
+                        <a href="BookManager.aspx">
                             <i class="pe-7s-note2"></i>
                             <p>Manage Book</p>
                         </a>
                     </li>
                     <li>
-                        <a href="typography.html">
+                        <a href="OrderManager.aspx">
                             <i class="pe-7s-news-paper"></i>
                             <p>Manage Order</p>
                         </a>
                     </li>
                     <li>
-                        <a href="typography.html">
+                        <a href="CategoryManager.aspx">
                             <i class="pe-7s-box1"></i>
                             <p>Manage Category</p>
                         </a>
@@ -107,13 +107,12 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li>
                                 <a href="">
-                                 
-                                    <p><%= Session["Username"] %></p>
+                                    <p style="margin-top:23px"><%= Session["Username"] %></p>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <asp:Button ID="btnLogout" runat="server" Text="Log out" OnClick="btnLogout_Click" />
+                                    <asp:Button ID="btnLogout" CssClass="btn btn-info"   runat="server"  OnClick="btnLogout_Click" Text="Log out"/>
                                 </a>
                             </li>
                             <li class="separator hidden-lg"></li>

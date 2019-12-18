@@ -25,5 +25,11 @@ namespace BookShop.AuthPage
                 Server.Transfer("Error.aspx");
             }
         }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session.Remove("Username");
+            Response.Redirect("~/Login.aspx");
+        }
     }
 }

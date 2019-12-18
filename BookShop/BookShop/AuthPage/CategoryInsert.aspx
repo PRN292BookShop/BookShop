@@ -34,6 +34,7 @@
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 </head>
 <body>
+    <form runat="server">
     <div class="wrapper">
         <div class="sidebar" data-color="green" data-image="assets/img/sidebar-5.jpg">
 
@@ -50,33 +51,33 @@
                     </span>
                 </div>
 
-                <ul class="nav">
+                 <ul class="nav">
                     <li>
-                        <a href="dashboard.html">
+                        <a href="Dashboard.aspx">
                             <i class="pe-7s-graph"></i>
                             <p>Dashboard</p>
                         </a>
                     </li>
-                    <li>
-                        <a href="user.html">
+                    <li >
+                        <a href="AccountManager.aspx">
                             <i class="pe-7s-user"></i>
                             <p>Manage Users</p>
                         </a>
                     </li>
-                    <li class="active">
-                        <a href="table.html">
+                    <li >
+                        <a href="BookManager.aspx">
                             <i class="pe-7s-note2"></i>
                             <p>Manage Book</p>
                         </a>
                     </li>
                     <li>
-                        <a href="typography.html">
+                        <a href="OrderManager.aspx">
                             <i class="pe-7s-news-paper"></i>
                             <p>Manage Order</p>
                         </a>
                     </li>
-                    <li>
-                        <a href="typography.html">
+                    <li class="active">
+                        <a href="CategoryManager.aspx">
                             <i class="pe-7s-box1"></i>
                             <p>Manage Category</p>
                         </a>
@@ -99,17 +100,18 @@
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-left">
+
                         </ul>
 
                         <ul class="nav navbar-nav navbar-right">
                             <li>
                                 <a href="">
-                                    <p>Account</p>
+                                    <p style="margin-top:23px"><%= Session["Username"] %></p>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <p>Log out</p>
+                                    <asp:Button ID="btnLogout" CssClass="btn btn-info"   runat="server"  OnClick="btnLogout_Click" Text="Log out"/>
                                 </a>
                             </li>
                             <li class="separator hidden-lg"></li>
@@ -130,19 +132,19 @@
                                     
                                     <div class="form-group col-md-6">
                                         <label>Name*</label>
-                                        <asp:TextBox runat="server" ID="NameCategory" type="text" class="form-control" />
+                                        <asp:TextBox runat="server" ID="NameCategory" type="text" CssClass="form-control" />
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="form-group col-md-12">
                                         <label>Description</label>
-                                        <asp:TextBox ID="DesCategory" TextMode="multiline" Columns="50" Rows="5" runat="server" />
+                                        <asp:TextBox ID="DesCategory" CssClass="form-control" TextMode="multiline" Columns="50" Rows="5" runat="server" />
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <div class="form-group col-md-6 ">
+                                    <div class="form-group col-md-2 ">
                                        <%-- <asp:Button runat="server" ID="InsertCategory" Text="Insert" class="btn btn-success btn-fill pull-right" OnClick="InsertCategory_Click"/>--%>
-                                   <asp:Button  runat="server" Text="Insert" ID="InsertCategory" OnClick="InsertCategory_Click" class="btn btn-success btn-fill pull-right"/>
+                                   <asp:Button  runat="server" TextMode="MultiLine" Text="Insert" ID="InsertCategory" OnClick="InsertCategory_Click" CssClass="btn btn-success btn-fill pull-right"/>
                                     </div>
                                 </div>
                             </form>
@@ -170,5 +172,6 @@
 
         </div>
     </div>
+        </form>
 </body>
 </html>

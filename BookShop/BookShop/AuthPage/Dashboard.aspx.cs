@@ -24,5 +24,5 @@ namespace BookShop.AuthPage
             Session.Remove("Username");
             Response.Redirect("~/Login.aspx");
         }
-        }
+    }
 }

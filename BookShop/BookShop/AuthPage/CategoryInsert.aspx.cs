@@ -29,5 +29,10 @@ namespace BookShop.AuthPage
             bool result = service.InsertNewCategory(category);
             
         }
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session.Remove("Username");
+            Response.Redirect("~/Login.aspx");
+        }
     }
 }

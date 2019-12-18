@@ -41,15 +41,16 @@ namespace BookShop.Service
             conn.Open();
             List<Category> list;
             Category category = null;
-            SqlCommand command = new SqlCommand(@"SELECT CategoryName, CategoryID FROM tblCategory " , conn);
+            SqlCommand command = new SqlCommand(@"SELECT CategoryName, CategoryID , CategoryDescription FROM tblCategory ", conn);
 
             SqlDataReader reader = command.ExecuteReader();
             list = new List<Category>();
             while(reader.Read())
             {
                 string categoryName = reader["CategoryName"].ToString();
+                string descrip = reader["CategoryDescription"].ToString();
                 int categoryID = int.Parse(reader["CategoryID"].ToString());
-                category = new Category(categoryID,categoryName);
+                category = new Category(categoryID,categoryName,descrip);
                 list.Add(category);
             }
             CloseConnection();
