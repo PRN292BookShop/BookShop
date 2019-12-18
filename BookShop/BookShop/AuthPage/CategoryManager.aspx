@@ -131,7 +131,7 @@
                                 <h4 class="title  col-md-6" >List all Category</h4>
                                 <div class="form-group" ">
                                         <div class="form-group col-md-6 ">
-                                           <button class="btn btn-success btn-fill pull-right" >Add new</button>
+                                           <a href="CategoryInsert.aspx" class="btn btn-success btn-fill pull-right" >Add new</a>
                                         </div>
                                 </div>
                             </div>

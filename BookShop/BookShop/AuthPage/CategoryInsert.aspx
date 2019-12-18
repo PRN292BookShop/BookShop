@@ -126,8 +126,10 @@
                         <div class="card" style="height: 400px">
                             <div class="header">
                                 <h4 class="title"><b>Insert Category</b></h4>
+                                <p style="font-size: 13px; color: red">
+                                        <asp:Label ID="errorMsg" runat="server" Text=""></asp:Label></p>
                             </div>
-                            <form runat="server" id="insert">
+                            <%--<form runat="server" id="insert">--%>
                                 <div class="form-group">
                                     
                                     <div class="form-group col-md-6">
@@ -147,7 +149,7 @@
                                    <asp:Button  runat="server" TextMode="MultiLine" Text="Insert" ID="InsertCategory" OnClick="InsertCategory_Click" CssClass="btn btn-success btn-fill pull-right"/>
                                     </div>
                                 </div>
-                            </form>
+                            <%--</form>--%>
                         </div>
                     </div>
                 </div>

@@ -106,7 +106,8 @@ namespace BookShop.Service
                 string note = reader["OrderNote"].ToString();
                 string acc = reader["OrderAccountModified"].ToString();
                 DateTime date = DateTime.Parse(reader["OrderDate"].ToString());
-                DateTime dateM = DateTime.Parse(reader["OrderLastModified"].ToString());
+                DateTime dateM;
+                DateTime.TryParse(reader["OrderLastModified"].ToString(), out dateM);
                 int status = int.Parse(reader["OrderStatus"].ToString());
                 
                 AccountService accS = new AccountService();

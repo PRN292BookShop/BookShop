@@ -13,8 +13,16 @@ namespace BookShop.AuthPage {
     public partial class BookDetail {
         
         /// <summary>
-        /// errorMsg control.
         /// btnLogout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLogout;
+        
+        /// <summary>
+        /// errorMsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
@@ -192,6 +200,5 @@ namespace BookShop.AuthPage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnUpdate;
-        protected global::System.Web.UI.WebControls.Button btnLogout;
     }
 }

@@ -134,7 +134,7 @@
                                     <p style="font-size: 13px; color: red">
                                         <asp:Label ID="errorMsg" runat="server" Text=""></asp:Label></p>
                                 </div>
-                                <form runat="server">
+                                
                                     <div class="form-group">
                                         <div class="form-group col-md-5">
                                           <label>Title*</label>
@@ -202,8 +202,6 @@
                                                 runat="server" OnClick="btnInsert_click" Text="Insert" />
                                         </div>
                                     </div>
-                                    
-                                </form>
                             </div>
                         </div>
                     </div>

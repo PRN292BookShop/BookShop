@@ -133,7 +133,7 @@
                                 <p style="font-size: 13px; color: red">
                                         <asp:Label ID="errorMsg" runat="server" Text=""></asp:Label></p>
                             </div>
-                            <form runat="server">
+                            <%--<form runat="server">--%>
                                 <div class="form-group">
                                     <div class="form-group col-md-3">
                                         <label>ID*</label>
@@ -240,9 +240,7 @@
                                 <%
                                     }
                                 %>
-                                
-
-                            </form>
+                            <%--</form>--%>
                         </div>
                     </div>
                 </div>
