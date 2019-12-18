@@ -479,5 +479,25 @@ namespace BookShop.Service
             }
             return flag;
         }
+        public List<Book> GetTop10BookBestSeller()
+        {
+            List<Book> list;
+            conn.Open();
+            SqlCommand sql = new SqlCommand("select od.BookID as ID,BookImage,BookTitle,sum(DetailQuantity) as Total from  tblOrderDetail od, tblBook b where od.BookID = b.BookID group by od.bookID,BookTitle,BookImage order by Total DESC", conn);
+            Book book = null;
+            SqlDataReader reader = sql.ExecuteReader();
+            list = new List<Book>();
+            while (reader.Read())
+            {
+                int id = int.Parse(reader["ID"].ToString());
+                string img = reader["BookImage"].ToString();
+                string name = reader["BookTitle"].ToString();
+                int num = int.Parse(reader["Total"].ToString());
+                book = new Book(id, name, img, num);
+                list.Add(book);
+            }
+            CloseConnection();
+            return list;
+        }
     }
 }

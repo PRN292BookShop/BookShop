@@ -83,5 +83,24 @@ namespace BookShop.Service
             }
             return flag;
         }
+        public List<Category> GetTop3BestCategory()
+        {
+            List<Category> list = null;
+            conn.Open();
+            SqlCommand sql = new SqlCommand("select top 3  BookCategoryID , CategoryName , count(BookCategoryID) as Total from tblOrderDetail od, tblCategory c, tblBook b where od.BookID = b.BookID and b.BookCategoryID = c.CategoryID group by BookCategoryID,CategoryName order by Total desc", conn);
+            Category cate = null;
+            SqlDataReader reader = sql.ExecuteReader();
+            list = new List<Category>();
+            while (reader.Read())
+            {
+                int id = int.Parse(reader["BookCategoryID"].ToString());
+                string name = reader["CategoryName"].ToString();
+                
+                cate = new Category(id,name);
+                list.Add(cate);
+            }
+            CloseConnection();
+            return list;
+        }
     }
 }
