@@ -27,6 +27,9 @@
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="./assets/css/demo.css" rel="stylesheet" />
 
+    <link href="./jquery/jquery-ui.min.css" rel="stylesheet" />
+    <link href="./jquery/jquery-ui.structure.min.css" rel="stylesheet" />
+    <link href="./jquery/jquery-ui.theme.min.css" rel="stylesheet" />
 
     <!--     Fonts and icons     -->
     <link href="./assets/css/font-awesome.css" rel="stylesheet"/>
@@ -122,127 +125,126 @@
 
             <div class="content">
                 <div class="container-fluid">
-                        <div class="col-md-12">
-                            <div class="card" style="height:950px">
-                                <div class="header">
-                                    <h4 class="title"><b>Update Book</b></h4>
-                                </div>
-                                <form>
-                                    <div class="form-group">
-                                        <div class="form-group col-md-3">
-                                          <label>ID*</label>
-                                          <input type="text" class="form-control" disabled="true"/>
-                                        </div>
-                                        <div class="form-group col-md-3">
-                                          <label>Title*</label>
-                                          <input type="text" class="form-control" />
-                                        </div> 
-                                        <div class="form-group col-md-3">
-                                          <label>Author*</label>
-                                          <input type="text" class="form-control"/>
-                                        </div>
-                                        <div class="form-group col-md-3">
-                                          <label>Publisher*</label>
-                                          <input type="text" class="form-control" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                       <div class="form-group col-md-4">
-                                          <label>Quantity*</label>
-                                          <input type="text" class="form-control" />
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                          <label>Date Estalished*</label>
-                                          <input type="date" class="form-control" />
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                          <label>Category Name*</label>
-                                          <select class="form-control">
-                                              <% 
-                                                  for (int i = 0; i < this.listCategory.Count; i++)
-                                                  {
-                                                      
-                                              %>
-                                                          
-                                                <option value="<%= listCategory[i].CategoryID %>" > <%= listCategory[i].CategoryName %></option>
-                                              <%
-                                                  }
-                                              %>
-                                          </select>
-                                        </div>
-                                     </div>
-                                        <div class="form-group">
-                                        <div class="form-group col-md-4">
-                                          <label>Dimension*</label>
-                                          <input type="text" class="form-control" />
-                                        </div>
-                                            <div class="form-group col-md-4">
-                                          <label>Price*</label>
-                                          <input type="text" class="form-control" />
-                                        </div>
-                                        <div class="form-group col-md-2">
-                                          <label>Weight*</label>
-                                          <input type="text" class="form-control" />
-                                        </div>
-                                        <div class="form-group col-md-2">
-                                          <label>Height*</label>
-                                          <input type="text" class="form-control" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="form-group col-md-6">
-                                          <label>Create time</label>
-                                          <input type="datetime-local" class="form-control" readonly="true"/>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                          <label>Created by Account</label>
-                                          <input type="text" class="form-control" readonly="true"/>
-                                        </div>
-                                    </div>
-                                    <br />
-                                    <div class="form-group">
-                                        <div class="form-group col-md-6">
-                                          <label>Last Modified</label>
-                                          <input type="datetime-local" class="form-control" readonly="true"/>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                          <label>Last Modified by Account</label>
-                                          <input type="text" class="form-control" readonly="true"/>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="form-group col-md-4">
-                                          <label>Status</label>
-                                          <select class="form-control">
-                                            <option selected>Enable</option>
-                                            <option> Disable</option>
-                                          </select>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="form-group">
-                                    <div class="form-group col-md-12">
-                                          <label>IMG</label>
-                                          <input type="file" class="form-control" />
-                                        </div>
-
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="form-group col-md-12">
-                                          <label>Description</label>
-                                          <textarea class="form-control" cols="50" rows="5" ></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="form-group col-md-6 ">
-                                           <button class="btn btn-success btn-fill pull-right" >Update</button>
-                                        </div>
-                                    </div>
-                                   
-                                </form>
+                    <div class="col-md-12">
+                        <div class="card" style="height: 950px">
+                            <div class="header">
+                                <h4 class="title"><b>Update Book</b></h4>
+                                <p style="font-size: 13px; color: red">
+                                        <asp:Label ID="errorMsg" runat="server" Text=""></asp:Label></p>
                             </div>
+                            <form runat="server">
+                                <div class="form-group">
+                                    <div class="form-group col-md-3">
+                                        <label>ID*</label>
+                                        <asp:TextBox ID="txtID" disabled="true" CssClass="form-control" runat="server"></asp:TextBox>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label>Title*</label>
+                                        <asp:TextBox ID="txtTitle" CssClass="form-control" runat="server"></asp:TextBox>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label>Author*</label>
+                                        <asp:TextBox ID="txtAuthor" CssClass="form-control" runat="server"></asp:TextBox>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label>Publisher*</label>
+                                        <asp:TextBox ID="txtPublisher" CssClass="form-control" runat="server"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-group col-md-4">
+                                        <label>Quantity*</label>
+                                        <asp:TextBox ID="txtQuantity" CssClass="form-control txtQuantity" runat="server"></asp:TextBox>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label>Date Estalished*</label>
+                                        <asp:TextBox ID="txtDateEstablished" CssClass="form-control date-picker" runat="server"></asp:TextBox>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label>Category Name*</label>
+                                            <asp:DropDownList CssClass="form-control" ID="slCategory" runat="server">
+                                            </asp:DropDownList>
+                                        </div>
+                                    </div>
+                                <div class="form-group">
+                                    <div class="form-group col-md-4">
+                                        <label>Dimension*</label>
+                                        <asp:TextBox ID="txtDimension" CssClass="form-control" runat="server"></asp:TextBox>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label>Price*</label>
+                                        <asp:TextBox ID="txtPrice" CssClass="form-control" runat="server"></asp:TextBox>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label>Weight*</label>
+                                        <asp:TextBox ID="txtWeight" CssClass="form-control" runat="server"></asp:TextBox>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label>Length*</label>
+                                        <asp:TextBox ID="txtLength" CssClass="form-control txtLength" runat="server"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-group col-md-6">
+                                        <label>Create time</label>
+                                        <asp:TextBox ID="txtCreateTime" CssClass="form-control" ReadOnly="true" runat="server"></asp:TextBox>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Created by Account</label>
+                                        <asp:TextBox ID="txtAccCreated" CssClass="form-control" ReadOnly="true" runat="server"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="form-group">
+                                    <div class="form-group col-md-6">
+                                        <label>Last Modified</label>
+                                        <asp:TextBox ID="txtLastModified" CssClass="form-control" ReadOnly="true" runat="server"></asp:TextBox>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Last Modified by Account</label>
+                                        <asp:TextBox ID="txtAccModified" CssClass="form-control" ReadOnly="true" runat="server"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-group col-md-4">
+                                        <label>Status</label>
+                                        <asp:DropDownList CssClass="form-control" ID="lsStatus" runat="server">
+                                            <asp:ListItem Value="1" Text="Enable" />
+                                            <asp:ListItem Value="0" Text="Disable" />
+                                        </asp:DropDownList>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-group col-md-8">
+                                        <label>IMG</label>
+                                        <asp:FileUpload ID="fileImage" CssClass="form-control" runat="server" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-group col-md-12">
+                                        <label>Description</label>
+                                        <asp:TextBox ID="txtDescription" CssClass="form-control"
+                                              TextMode="MultiLine" Columns="50" Rows="5" runat="server"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <% if (Session["Role"].ToString() == "1")
+                                    {
+                                %>
+                                <div class="form-group">
+                                    <div class="form-group col-md-6 ">
+                                        <asp:Button ID="btnUpdate" CssClass="btn btn-success btn-fill pull-right"
+                                            runat="server" OnClick="btnUpdate_click" Text="Update" />
+                                    </div>
+                                </div>
+                                <%
+                                    }
+                                %>
+                                
+
+                            </form>
                         </div>
                     </div>
+                </div>
             </div>
 
                 
@@ -261,6 +263,17 @@
             </footer>
 
         </div>
-    </div>
+        <script src="./jquery/jquery-1.12.4.js"></script>
+            <script src="./jquery/jquery-ui.js"></script>
+            <script>
+                $(document).ready(function () {
+                    $('.date-picker').datepicker();
+                    $('.txtQuantity').attr('type', 'number');
+                    $('.txtQuantity').attr('min', '1');
+
+                    $('.txtLength').attr('type', 'number');
+                    $('.txtLength').attr('min', '1');
+                });
+            </script>
 </body>
 </html>

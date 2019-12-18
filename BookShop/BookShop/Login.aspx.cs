@@ -41,19 +41,17 @@ namespace BookShop
 
                 for (int it = 0; it < dt.Rows.Count; it++)
                 {
-                   
+                    Session["UserName"] = dt.Rows[it]["Username"].ToString();
                     if (dt.Rows[it]["RoleID"].ToString() == "1")
                     {
-                        Session["UserName"] = dt.Rows[it]["Username"].ToString();
-                        Response.Redirect("~/AuthPage/Dashboard.aspx");
+                        Session["Role"] = 1;                        
                     }
                     else if (dt.Rows[it]["RoleID"].ToString() == "2")
                     {
-                        Session["UserName"] = dt.Rows[it]["Username"].ToString();
-                        Response.Redirect("~/AuthPage/Home.aspx");
+                        Session["Role"] = 2;
                     }
-                }
-                
+                    Response.Redirect("~/AuthPage/Dashboard.aspx");
+                }                
             }
             else
             {

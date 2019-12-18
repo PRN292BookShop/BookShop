@@ -374,6 +374,68 @@ namespace BookShop.Service
             return id;
         }
 
+        public bool UpdateBook(Book book)
+        {
+            bool flag = false;
+            try
+            {
+                conn.Open();
+                SqlCommand command = new SqlCommand(@"UPDATE tblBook " +
+                    "SET BookTitle = @title, " +
+                    "BookDescription = @description, " +
+                    "BookDateEstablished = @dateEstablished, " +
+                    "BookOrgEstablished = @orgEstablished, " +
+                    "BookDimensions = @dimesions, " +
+                    "BookWeight = @weight, " +
+                    "BookLength = @length, " +
+                    "BookPrice = @price, " +
+                    "BookCategoryID = @categoryId, " +
+                    "BookAuthor = @author, " +
+                    "BookQuantity = @quantity, " +
+                    "LastModifiedAccount = @accountModified, " +
+                    "IsEnable = @enable " +
+                    "WHERE BookID = @id", conn);
+
+                command.Parameters.Add("@title", System.Data.SqlDbType.NVarChar);
+                command.Parameters.Add("@description", System.Data.SqlDbType.NVarChar);
+                command.Parameters.Add("@dateEstablished", System.Data.SqlDbType.Date);
+                command.Parameters.Add("@orgEstablished", System.Data.SqlDbType.VarChar);
+                command.Parameters.Add("@dimesions", System.Data.SqlDbType.VarChar);
+                command.Parameters.Add("@weight", System.Data.SqlDbType.Float);
+                command.Parameters.Add("@length", System.Data.SqlDbType.Int);
+                command.Parameters.Add("@price", System.Data.SqlDbType.BigInt);
+                command.Parameters.Add("@categoryId", System.Data.SqlDbType.Int);
+                command.Parameters.Add("@author", System.Data.SqlDbType.NVarChar);
+                command.Parameters.Add("@quantity", System.Data.SqlDbType.Int);
+                command.Parameters.Add("@accountModified", System.Data.SqlDbType.VarChar);
+                command.Parameters.Add("@id", System.Data.SqlDbType.Int);
+                command.Parameters.Add("@enable", System.Data.SqlDbType.Bit);
+
+                command.Parameters["@title"].Value = book.BookTitle;
+                command.Parameters["@description"].Value = book.BookDescription;
+                command.Parameters["@dateEstablished"].Value = book.BookEstablished;
+                command.Parameters["@orgEstablished"].Value = book.BookOrgEstablished;
+                command.Parameters["@dimesions"].Value = book.BookDimensions;
+                command.Parameters["@weight"].Value = book.BookWeight;
+                command.Parameters["@length"].Value = book.BookLength;
+                command.Parameters["@price"].Value = book.BookPrice;
+                command.Parameters["@categoryId"].Value = book.BookCategory.CategoryID;
+                command.Parameters["@author"].Value = book.BookAuthor;
+                command.Parameters["@quantity"].Value = book.BookQuantity;
+                command.Parameters["@accountModified"].Value = book.LastModifiedAccount.Username;
+                command.Parameters["@id"].Value = book.BookID;
+                command.Parameters["@enable"].Value = book.Enabled;
+                
+                flag = command.ExecuteNonQuery() > 0;
+            }
+            finally
+            {
+                CloseConnection();
+            }
+
+            return flag;
+        }
+
         public void UpdateImage(int id, string image)
         {
             try
