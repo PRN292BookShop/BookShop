@@ -104,7 +104,6 @@
     <Content Include="AuthPage\assets\js\demo.js" />
     <Content Include="AuthPage\assets\js\jquery.3.2.1.min.js" />
     <Content Include="AuthPage\assets\js\light-bootstrap-dashboard.js" />
-    <Content Include="AuthPage\BookDeleteAction.aspx" />
     <Content Include="AuthPage\BookDetail.aspx" />
     <Content Include="AuthPage\BookInsert.aspx" />
     <Content Include="AuthPage\BookManager.aspx" />
