@@ -117,6 +117,7 @@
     <Content Include="AuthPage\jquery\jquery-ui.structure.min.css" />
     <Content Include="AuthPage\jquery\jquery-ui.theme.min.css" />
     <Content Include="AuthPage\AccountManager.aspx" />
+    <Content Include="AuthPage\OrderDetail.aspx" />
     <Content Include="AuthPage\OrderManager.aspx" />
     <Content Include="CheckoutAction.aspx" />
     <Content Include="Error.aspx" />
@@ -277,6 +278,13 @@
     </Compile>
     <Compile Include="AuthPage\AccountManager.aspx.designer.cs">
       <DependentUpon>AccountManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AuthPage\OrderDetail.aspx.cs">
+      <DependentUpon>OrderDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AuthPage\OrderDetail.aspx.designer.cs">
+      <DependentUpon>OrderDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="AuthPage\OrderManager.aspx.cs">
       <DependentUpon>OrderManager.aspx</DependentUpon>
