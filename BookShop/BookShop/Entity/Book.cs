@@ -59,6 +59,14 @@ namespace BookShop.Entity
             Enabled = enabled;
         }
 
+        public Book(int bookID, string bookTitle, string bookImage, int bookQuantity)
+        {
+            BookID = bookID;
+            BookTitle = bookTitle;
+            BookImage = bookImage;
+            BookQuantity = bookQuantity;
+        }
+
         public int BookID { get; set; }
         public string BookTitle { get; set; }
         public string BookDescription { get; set; }
