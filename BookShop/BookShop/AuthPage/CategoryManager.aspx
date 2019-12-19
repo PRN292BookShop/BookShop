@@ -146,7 +146,6 @@
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
                                     <thead>
-                                        <th>No</th>
                                         <th>ID</th>
                                         <th>Name</th>
                                         <th>Description</th>
@@ -167,7 +166,6 @@
                                             {
                                         %>
                                         <tr>
-                                            <td><%= i + 1 %></td>
                                         	<td><%= list[i].CategoryID %></td>
                                         	<td><%= list[i].CategoryName %></td>
                                             <td><%= list[i].CategoryDescription %></td>

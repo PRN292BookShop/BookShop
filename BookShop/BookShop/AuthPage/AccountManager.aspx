@@ -190,7 +190,7 @@
                                             %>
                                             <td>
                                                 <a href="ActivateAccountAction.aspx?Username=<%= list[i].Username %>&Status=0" class="btn btn-outline-dark">
-                                                    <i class="fa fa-remove"></i>
+                                                    <i class="fa fa-ban"></i>
                                                 </a>
                                             </td>
                                             <%
@@ -200,7 +200,7 @@
                                             %>
                                             <td>
                                                 <a href="ActivateAccountAction.aspx?Username=<%= list[i].Username %>&Status=1" class="btn btn-outline-dark">
-                                                    <i class="fa fa-edit"></i>
+                                                    <i class="fa fa-check"></i>
                                                 </a>
                                             </td>
                                             <%

@@ -139,9 +139,8 @@
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
                                     <thead>
-                                        <th>No</th>
-                                        <th>Book Image</th>
                                         <th>ID</th>
+                                        <th>Book Image</th>
                                     	<th>Title</th>
                                         <th>Price</th>
                                         <th>Author</th>
@@ -164,9 +163,9 @@
                                             {
                                         %>
                                         <tr>
-                                            <td><%= i+1 %></td>
+                                            <td><%= list[i].BookID %></td>
                                         	<td><img src="../image/book/<%= this.list[i].BookImage %>" width="30px" height="45px" /></td>
-                                        	<td><%= list[i].BookID %></td>
+                                        	
                                         	<td><%= list[i].BookTitle %></td>
                                         	<td><%= list[i].BookPrice %></td>
                                         	<td><%= list[i].BookAuthor %></td>
