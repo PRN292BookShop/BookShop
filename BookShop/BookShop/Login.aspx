@@ -4,7 +4,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Book Shop</title>
+    <title>Pustok - Admin Page</title>
+    <link rel="shortcut icon" type="image/x-icon"
+        href="https://demo.hasthemes.com/pustok-preview/pustok/image/favicon.ico">
     <link rel="stylesheet" href="./asserts/login.css" />
     <style>
     .buttonLogin {
@@ -37,6 +39,7 @@
           
             <asp:Button ForeColor="White" BackColor="#4CAF50" ID="btnLogin" runat="server" Text="LOGIN" OnClick="btnLogin_Click" />
             <asp:Label ID="Label1" runat="server" ></asp:Label>
+            <a style="font-size: 12px" href="Home.aspx">Back to Home</a>
         </form>
       </div>
     </div>

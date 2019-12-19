@@ -24,7 +24,7 @@ namespace BookShop
 
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["conn"].ToString());
 
-            SqlCommand cmd = new SqlCommand("select Username,RoleID from tblAccount where Username=@username and Password=@word", con);
+            SqlCommand cmd = new SqlCommand("select Username,RoleID from tblAccount where Username=@username and Password=@word and IsEnable = 1", con);
             cmd.Parameters.AddWithValue("@username", txtUsername.Text);
             cmd.Parameters.AddWithValue("word", txtPassword.Text);
 
@@ -56,7 +56,7 @@ namespace BookShop
             else
             {
 
-                Label1.Text = "Your username and word is incorrect";
+                Label1.Text = "Your username and password is incorrect";
                 Label1.ForeColor = System.Drawing.Color.Red;
 
             }

@@ -14,6 +14,8 @@ namespace BookShop.AuthPage
         public int id;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Username"] == null) Response.Redirect("/Login.aspx");
+            if (Session["Role"] == null || Session["Role"].ToString() != "1") Response.Redirect("CategoryManager.aspx");
             try
             {
                 if (!Int32.TryParse(Request.Params["ID"], out id))

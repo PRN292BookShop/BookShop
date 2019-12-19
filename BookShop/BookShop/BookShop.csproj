@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="AddToCart.aspx" />
     <Content Include="asserts\login.css" />
+    <Content Include="AuthPage\ActivateAccountAction.aspx" />
     <Content Include="AuthPage\assets\css\animate.min.css" />
     <Content Include="AuthPage\assets\css\bootstrap.min.css" />
     <Content Include="AuthPage\assets\css\demo.css" />
@@ -104,6 +105,7 @@
     <Content Include="AuthPage\assets\js\demo.js" />
     <Content Include="AuthPage\assets\js\jquery.3.2.1.min.js" />
     <Content Include="AuthPage\assets\js\light-bootstrap-dashboard.js" />
+    <Content Include="AuthPage\BookDeleteAction.aspx" />
     <Content Include="AuthPage\BookDetail.aspx" />
     <Content Include="AuthPage\BookInsert.aspx" />
     <Content Include="AuthPage\BookManager.aspx" />
@@ -121,6 +123,7 @@
     <Content Include="AuthPage\OrderDetail.aspx" />
     <Content Include="AuthPage\OrderManager.aspx" />
     <Content Include="CheckoutAction.aspx" />
+    <Content Include="CheckoutResult.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="image\bg-images\home-2-slider-1.jpg" />
     <Content Include="image\bg-images\home-2-slider-2.jpg" />
@@ -217,6 +220,20 @@
     <Compile Include="AddToCart.aspx.designer.cs">
       <DependentUpon>AddToCart.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AuthPage\ActivateAccountAction.aspx.cs">
+      <DependentUpon>ActivateAccountAction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AuthPage\ActivateAccountAction.aspx.designer.cs">
+      <DependentUpon>ActivateAccountAction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AuthPage\BookDeleteAction.aspx.cs">
+      <DependentUpon>BookDeleteAction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AuthPage\BookDeleteAction.aspx.designer.cs">
+      <DependentUpon>BookDeleteAction.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AuthPage\BookDetail.aspx.cs">
       <DependentUpon>BookDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -300,6 +317,13 @@
     </Compile>
     <Compile Include="CheckoutAction.aspx.designer.cs">
       <DependentUpon>CheckoutAction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CheckoutResult.aspx.cs">
+      <DependentUpon>CheckoutResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckoutResult.aspx.designer.cs">
+      <DependentUpon>CheckoutResult.aspx</DependentUpon>
     </Compile>
     <Compile Include="Entity\Account.cs" />
     <Compile Include="Entity\Book.cs" />

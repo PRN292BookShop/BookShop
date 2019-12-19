@@ -5,10 +5,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta charset="utf-8" />
-	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
+	<link rel="shortcut icon" type="image/x-icon"
+        href="https://demo.hasthemes.com/pustok-preview/pustok/image/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>Light Bootstrap Dashboard by Creative Tim</title>
+	<title>Pustok - Admin Page</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -149,8 +150,16 @@
                                         <th>ID</th>
                                         <th>Name</th>
                                         <th>Description</th>
+                                        <%
+                                            if (Session["Role"] != null && Session["Role"].ToString() == "1")
+                                            {
+                                                %>
                                         <th>Edit</th>
                                         <th>Delete</th>
+                                        <%
+                                            }
+                                            %>
+                                        
                                     </thead>
                                     <tbody>
                                         <% 
@@ -162,16 +171,24 @@
                                         	<td><%= list[i].CategoryID %></td>
                                         	<td><%= list[i].CategoryName %></td>
                                             <td><%= list[i].CategoryDescription %></td>
+                                            <%
+                                            if (Session["Role"] != null && Session["Role"].ToString() == "1")
+                                            {
+                                                %>
                                             <td>
                                                 <a href="CategoryUpdate.aspx?ID=<%= list[i].CategoryID %>" class="btn btn-outline-dark">
                                                     <i class="fa fa-edit"></i>
-                                                </a> 
+                                                </a>
                                             </td>
                                             <td>
                                                 <a href="DeleteCategoryAction.aspx?ID=<%= list[i].CategoryID %>" class="btn btn-outline-dark">
                                                     <i class="fa fa-remove"></i>
-                                                </a>  
+                                                </a>
                                             </td>
+                                        <%
+                                            }
+                                            %>
+                                            
                                         </tr>
                                         <%
                                             }

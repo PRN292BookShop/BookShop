@@ -17,8 +17,9 @@ namespace BookShop.Service
             if (conn != null) conn.Close();
         }
 
-        public bool AddOrder(Order order, Cart cart)
+        public int AddOrder(Order order, Cart cart)
         {
+            int orderID = -1;
             bool flag = false;
             try
             {
@@ -40,7 +41,7 @@ namespace BookShop.Service
                 command.Parameters["@orderAddress"].Value = order.OrderAddress;
                 command.Parameters["@orderNote"].Value = order.OrderNote;
 
-                int orderID = (int) command.ExecuteScalar();
+                orderID = (int) command.ExecuteScalar();
 
                 command = new SqlCommand(@"INSERT INTO " +
                     "tblOrderDetail(BookID, BookPrice, DetailQuantity, OrderID) " +
@@ -84,7 +85,7 @@ namespace BookShop.Service
                 CloseConnection();
             }          
             
-            return flag;
+            return orderID;
         }
 
         public List<Order> GetAllOrders()
@@ -92,7 +93,7 @@ namespace BookShop.Service
             
             conn.Open();
             Order order;
-            SqlCommand command = new SqlCommand(@"SELECT OrderID, OrderFullname,OrderPhone,OrderAddress,OrderNote,OrderDate,OrderStatus,OrderLastModified,OrderAccountModified from tblOrder", conn);
+            SqlCommand command = new SqlCommand(@"SELECT OrderID, OrderFullname,OrderPhone,OrderAddress,OrderNote,OrderDate,OrderStatus,OrderLastModified,OrderAccountModified from tblOrder ORDER BY OrderID DESC", conn);
 
             SqlDataReader reader = command.ExecuteReader();
 

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SearchBookResultPage.aspx.cs" Inherits="BookShop.SearchBookResultPage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CheckoutResult.aspx.cs" Inherits="BookShop.CheckoutResult" %>
 
 <!DOCTYPE html>
 
@@ -173,86 +173,22 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="Home.aspx">Home</a></li>
-                        <li class="breadcrumb-item">Search</li>
+                        <li class="breadcrumb-item">Checkout</li>
                     </ol>
                 </nav>
             </div>
         </div>
     </section>
-    <main class="container-fluid">
+    <main>
         <div class="row" style="justify-content: center">
-            <h2>Search Result</h2>
+            <h2>
+                <asp:Label ID="noti" runat="server" Text="Label"></asp:Label></h2>            
         </div>
-
-        <% if (listBook.Count == 0)
-            {
-        %>
-        <div class="row" style="justify-content: center; color: red">
-            <h5>Not found any result</h5>
+        <div class="row" style="justify-content: center">
+            <h6>
+                <asp:Label ID="des" runat="server" Text="Label"></asp:Label></h6>           
         </div>
-        <%
-            }
-        %>
-
-
-        <% 
-            for (int i = 0; i < this.listBook.Count; i++)
-            {
-                if (i % 4 == 0)
-                {
-        %>
-        <div class="row mt-5" style="padding: 0 15vw; justify-content: center;">
-            <%
-                }
-            %>
-            <div class="col-3">
-                <div class="product-card">
-                    <div class="product-header">
-                        <a href="Detail.aspx?ID=<%= listBook[i].BookID %>" class="author" tabindex="-1">
-                            <%= this.listBook[i].BookAuthor %>
-                        </a>
-                        <h3 style="height: 30px">
-                            <a href="Detail.aspx?ID=<%= listBook[i].BookID %>" tabindex="-1">
-                                <%= this.listBook[i].BookTitle %>
-                            </a>
-                        </h3>
-                    </div>
-                    <div class="product-card--body">
-                        <div class="card-image">
-                            <div style="height: 300px; padding: 15px 20px; display: flex; align-items: center">
-                                <img src="./image/book/<%= this.listBook[i].BookImage %>" alt="">
-                            </div>
-
-                            <div class="hover-contents">
-                                <a href="Detail.aspx?ID=<%= listBook[i].BookID %>"
-                                    class="hover-image" tabindex="-1">
-                                    <div style="height: 300px; padding: 15px 20px; display: flex; align-items: center">
-                                        <img src="./image/book/<%= this.listBook[i].BookImage %>" alt="">
-                                    </div>
-                                </a>
-                                <div class="hover-btns">
-                                    <a href="AddToCart.aspx?BookID=<%= listBook[i].BookID %>"
-                                        class="single-btn" tabindex="-1">
-                                        <i class="fas fa-shopping-basket"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="price-block">
-                            <span class="price"><%= this.listBook[i].BookPrice %>$</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <%
-                if (i % 4 == 3 || i == this.listBook.Count - 1)
-                {
-            %>
-        </div>
-        <%
-                }
-            }
-        %>
+        
     </main>
     <section class="section-margin">
         <h2 class="sr-only">Brand Slider</h2>
@@ -425,3 +361,4 @@
     <script src="./Pustok - Book Store HTML Template_files/custom.js"></script>
 </body>
 </html>
+

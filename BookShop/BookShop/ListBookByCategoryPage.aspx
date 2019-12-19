@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>Pustok - Book Store HTML Template</title>
+    <title>Pustok - Book Store</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <!-- Use Minified Plugins Version For Fast Page Load -->
     <link rel="stylesheet" type="text/css" media="screen" href="./Pustok - Book Store HTML Template_files/plugins.css"/>
@@ -57,6 +57,10 @@
                         <div class="col-lg-4">
                             <div class="main-navigation flex-lg-right">
                                 <div class="cart-widget">
+                                    <div class="login-block">
+                                        <a href="Login.aspx"
+                                            class="font-weight-bold">Login</a>
+                                    </div>
                                     <div class="cart-block">
                                         <div class="cart-total">
                                             <span class="text-number">

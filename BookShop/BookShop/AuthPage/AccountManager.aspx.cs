@@ -13,6 +13,13 @@ namespace BookShop.AuthPage
         public List<Account> list ;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Username"] == null) Response.Redirect("/Login.aspx");
+            if (Session["msg"] != null)
+            {
+                errorMsg.Text = Session["msg"].ToString();
+                Session["msg"] = null;
+            }
+
             try
             {
                 AccountService sv = new AccountService();

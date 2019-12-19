@@ -5,10 +5,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta charset="utf-8" />
-	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
+	<link rel="shortcut icon" type="image/x-icon"
+        href="https://demo.hasthemes.com/pustok-preview/pustok/image/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>Light Bootstrap Dashboard by Creative Tim</title>
+	<title>Pustok - Admin Page</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -128,7 +129,14 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header ">
-                                <h4 class="title  col-md-6" >List all Category</h4>
+                                <h4 class="title  col-md-6" >List Account</h4>
+                            </div>
+                            <div class="header row" style="padding: 0 30px;">
+                                <div class="col-12">
+                                    <p style="font-size: 13px; color: red">
+                                        <asp:Label ID="errorMsg" runat="server" Text=""></asp:Label></p>
+                                </div>
+                            </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
                                     <thead>
@@ -136,9 +144,16 @@
                                         <th>UserName</th>
                                         <th>FullName</th>
                                         <th>Role</th>
-                                        <th>Enable</th>
-                                        <th>Edit</th>
-                                        <th>Delete</th>
+                                        <th>Status</th>
+                                        <% 
+                                            if (Session["Role"] != null && Session["Role"].ToString() == "1")
+                                            {
+                                        %>
+                                        <th>Disable</th>
+                                        <%
+                                            }
+                                        %>
+                                        
                                     </thead>
                                     <tbody>
                                         <%
@@ -165,16 +180,46 @@
                                                     }
                                                 %>
                                             </td>
+                                            <% 
+                                                if (Session["Role"] != null && Session["Role"].ToString() == "1")
+                                                {
+                                                    if (list[i].Role.RoleID != 1)
+                                                    {
+                                                        if (list[i].Enable)
+                                                        {
+                                            %>
                                             <td>
-                                                <button type="submit" class="btn btn-outline-dark">
-                                                    <i class="fa fa-edit"></i>
-                                                </button> 
-                                            </td>
-                                            <td>
-                                                <button type="submit" class="btn btn-outline-dark">
+                                                <a href="ActivateAccountAction.aspx?Username=<%= list[i].Username %>&Status=0" class="btn btn-outline-dark">
                                                     <i class="fa fa-remove"></i>
-                                                </button>  
+                                                </a>
                                             </td>
+                                            <%
+                                                }
+                                                else
+                                                {
+                                            %>
+                                            <td>
+                                                <a href="ActivateAccountAction.aspx?Username=<%= list[i].Username %>&Status=1" class="btn btn-outline-dark">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
+                                            </td>
+                                            <%
+                                                }
+                                                }
+                                                else
+                                                {
+                                            %>
+                                            <td>
+                                                <div class="btn btn-outline-dark" style="opacity: 0">
+                                                    <i class="fa fa-remove"></i>
+                                                </div>
+                                            </td>
+
+                                            <%
+                                                    }
+                                                }
+                                            %>
+                                            
                                         </tr>
                                         <%
                                             }

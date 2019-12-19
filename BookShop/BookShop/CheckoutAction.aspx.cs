@@ -14,6 +14,11 @@ namespace BookShop
         public Cart cart;
         public Order order = new Order();
 
+        public Book bookInCart;
+
+        public List<Category> listMenuCategory = new List<Category>();
+        public Category menuCategory;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -30,15 +35,19 @@ namespace BookShop
                 order.OrderAddress = Request.Params["address"];
                 order.OrderNote = Request.Params["note"];
 
-                if (service.AddOrder(order, cart))
+                int orderID = service.AddOrder(order, cart);
+                if (orderID > 0)
                 {
                     Session["Cart"] = null;
-                    Response.Redirect("Home.aspx");
+                    Session["noti"] = "Your Order has been recorded with ID: #" + orderID;
+                    Session["des"] = "Thank you for using our service!";
                 }
                 else
                 {
-                    throw new Exception("Add failed");
+                    Session["noti"] = "Error while processing your order";
+                    Session["des"] = "Sorry for the inconvenience!";
                 }
+                Response.Redirect("CheckoutResult.aspx");
             }
             catch (Exception ex)
             {
