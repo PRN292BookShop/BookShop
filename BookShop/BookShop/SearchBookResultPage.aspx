@@ -254,94 +254,6 @@
             }
         %>
     </main>
-    <section class="section-margin">
-        <h2 class="sr-only">Brand Slider</h2>
-        <div class="container">
-            <div class="brand-slider sb-slick-slider border-top border-bottom slick-initialized slick-slider"
-                data-slick-setting="{
-                                            &quot;autoplay&quot;: true,
-                                            &quot;autoplaySpeed&quot;: 8000,
-                                            &quot;slidesToShow&quot;: 6
-                                            }"
-                data-slick-responsive="[
-                {&quot;breakpoint&quot;:992, &quot;settings&quot;: {&quot;slidesToShow&quot;: 4} },
-                {&quot;breakpoint&quot;:768, &quot;settings&quot;: {&quot;slidesToShow&quot;: 3} },
-                {&quot;breakpoint&quot;:575, &quot;settings&quot;: {&quot;slidesToShow&quot;: 3} },
-                {&quot;breakpoint&quot;:480, &quot;settings&quot;: {&quot;slidesToShow&quot;: 2} },
-                {&quot;breakpoint&quot;:320, &quot;settings&quot;: {&quot;slidesToShow&quot;: 1} }
-            ]">
-                <div class="slick-list draggable">
-                    <div class="slick-track"
-                        style="opacity: 1; width: 1480px; transform: translate3d(-370px, 0px, 0px);">
-                        <div class="slick-slide" data-slick-index="0" aria-hidden="true" tabindex="-1"
-                            style="width: 185px;">
-                            <div>
-                                <div class="single-slide" style="width: 100%; display: inline-block;">
-                                    <img src="./Pustok - Detail _files/brand-1.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slick-slide" data-slick-index="1" aria-hidden="true" tabindex="-1"
-                            style="width: 185px;">
-                            <div>
-                                <div class="single-slide" style="width: 100%; display: inline-block;">
-                                    <img src="./Pustok - Detail _files/brand-2.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slick-slide slick-current slick-active" data-slick-index="2" aria-hidden="false"
-                            style="width: 185px;">
-                            <div>
-                                <div class="single-slide" style="width: 100%; display: inline-block;">
-                                    <img src="./Pustok - Detail _files/brand-3.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slick-slide slick-active" data-slick-index="3" aria-hidden="false"
-                            style="width: 185px;">
-                            <div>
-                                <div class="single-slide" style="width: 100%; display: inline-block;">
-                                    <img src="./Pustok - Detail _files/brand-4.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slick-slide slick-active" data-slick-index="4" aria-hidden="false"
-                            style="width: 185px;">
-                            <div>
-                                <div class="single-slide" style="width: 100%; display: inline-block;">
-                                    <img src="./Pustok - Detail _files/brand-5.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slick-slide slick-active" data-slick-index="5" aria-hidden="false"
-                            style="width: 185px;">
-                            <div>
-                                <div class="single-slide" style="width: 100%; display: inline-block;">
-                                    <img src="./Pustok - Detail _files/brand-6.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slick-slide slick-active" data-slick-index="6" aria-hidden="false"
-                            style="width: 185px;">
-                            <div>
-                                <div class="single-slide" style="width: 100%; display: inline-block;">
-                                    <img src="./Pustok - Detail _files/brand-1.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slick-slide slick-active" data-slick-index="7" aria-hidden="false"
-                            style="width: 185px;">
-                            <div>
-                                <div class="single-slide" style="width: 100%; display: inline-block;">
-                                    <img src="./Pustok - Detail _files/brand-2.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <!--=================================
     Footer Area
 ===================================== -->
@@ -369,7 +281,7 @@
                         <h3>Newsletter Subscribe</h3>
                     </div>
                     <div class="newsletter-form mb--30">
-                        <form action="https://demo.hasthemes.com/pustok-preview/pustok/php/mail.php">
+                        <form action="#">
                             <input type="email" class="form-control" placeholder="Enter Your Email Address Here...">
                             <button class="btn btn--primary w-100">Subscribe</button>
                         </form>

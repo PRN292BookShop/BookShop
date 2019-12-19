@@ -132,7 +132,7 @@ namespace BookShop.Service
         {
             List<Category> list = null;
             if (conn.State == System.Data.ConnectionState.Closed) conn.Open();
-            SqlCommand sql = new SqlCommand("select top 3  BookCategoryID , CategoryName , count(BookCategoryID) as Total from tblOrderDetail od, tblCategory c, tblBook b where od.BookID = b.BookID and b.BookCategoryID = c.CategoryID group by BookCategoryID,CategoryName order by Total desc", conn);
+            SqlCommand sql = new SqlCommand("select top 3  BookCategoryID , CategoryName , sum(DetailQuantity) as Total from tblOrderDetail od, tblCategory c, tblBook b where od.BookID = b.BookID and b.BookCategoryID = c.CategoryID group by BookCategoryID,CategoryName order by Total desc", conn);
             Category cate = null;
             SqlDataReader reader = sql.ExecuteReader();
             list = new List<Category>();

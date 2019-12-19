@@ -342,7 +342,7 @@ namespace BookShop.Service
                 command.Parameters.Add("@title", System.Data.SqlDbType.NVarChar);
                 command.Parameters.Add("@description", System.Data.SqlDbType.NVarChar);
                 command.Parameters.Add("@dateEstablished", System.Data.SqlDbType.Date);
-                command.Parameters.Add("@orgEstablished", System.Data.SqlDbType.VarChar);
+                command.Parameters.Add("@orgEstablished", System.Data.SqlDbType.NVarChar);
                 command.Parameters.Add("@dimesions", System.Data.SqlDbType.VarChar);
                 command.Parameters.Add("@weight", System.Data.SqlDbType.Float);
                 command.Parameters.Add("@length", System.Data.SqlDbType.Int);
@@ -400,7 +400,7 @@ namespace BookShop.Service
                 command.Parameters.Add("@title", System.Data.SqlDbType.NVarChar);
                 command.Parameters.Add("@description", System.Data.SqlDbType.NVarChar);
                 command.Parameters.Add("@dateEstablished", System.Data.SqlDbType.Date);
-                command.Parameters.Add("@orgEstablished", System.Data.SqlDbType.VarChar);
+                command.Parameters.Add("@orgEstablished", System.Data.SqlDbType.NVarChar);
                 command.Parameters.Add("@dimesions", System.Data.SqlDbType.VarChar);
                 command.Parameters.Add("@weight", System.Data.SqlDbType.Float);
                 command.Parameters.Add("@length", System.Data.SqlDbType.Int);
