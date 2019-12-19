@@ -14,13 +14,13 @@ namespace BookShop.Service
 
         private void CloseConnection()
         {
-            if (conn != null) conn.Close();
+            if (conn.State != System.Data.ConnectionState.Closed) conn.Close();
         }
 
         public Account FindByUsername(string username)
         {
             Account account = null;
-            if (conn.State == System.Data.ConnectionState.Closed) conn.Open();
+            if (conn.State != System.Data.ConnectionState.Open) conn.Open();
             SqlCommand command = new SqlCommand(@"SELECT Fullname, RoleID, IsEnable FROM tblAccount WHERE Username = '" + username + "'", conn);
 
             SqlDataReader reader = command.ExecuteReader();
@@ -40,7 +40,7 @@ namespace BookShop.Service
         public List<Account> GetAllAccount()
         {
             Account account = null;
-            conn.Open();
+            if (conn.State == System.Data.ConnectionState.Closed) conn.Open();
             SqlCommand command = new SqlCommand(@"SELECT Username,Fullname, RoleID, IsEnable FROM tblAccount ", conn);
 
             SqlDataReader reader = command.ExecuteReader();

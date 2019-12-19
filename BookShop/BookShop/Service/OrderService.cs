@@ -14,16 +14,15 @@ namespace BookShop.Service
 
         private void CloseConnection()
         {
-            if (conn != null) conn.Close();
+            if (conn.State != System.Data.ConnectionState.Closed) conn.Close();
         }
 
         public int AddOrder(Order order, Cart cart)
         {
             int orderID = -1;
-            bool flag = false;
             try
             {
-                conn.Open();
+                if (conn.State == System.Data.ConnectionState.Closed) conn.Open();
                 SqlTransaction transaction = conn.BeginTransaction();
 
                 SqlCommand command = new SqlCommand(@"INSERT INTO " +
@@ -78,7 +77,6 @@ namespace BookShop.Service
                     update.ExecuteNonQuery();
                 }
                 transaction.Commit();
-                flag = true;
             }
             finally
             {
@@ -90,8 +88,8 @@ namespace BookShop.Service
 
         public List<Order> GetAllOrders()
         {
-            
-            conn.Open();
+
+            if (conn.State == System.Data.ConnectionState.Closed) conn.Open();
             Order order;
             SqlCommand command = new SqlCommand(@"SELECT OrderID, OrderFullname,OrderPhone,OrderAddress,OrderNote,OrderDate,OrderStatus,OrderLastModified,OrderAccountModified from tblOrder ORDER BY OrderID DESC", conn);
 
@@ -126,7 +124,7 @@ namespace BookShop.Service
             Order order = null;
             try
             {
-                if (conn != null || conn.State == System.Data.ConnectionState.Closed) conn.Open();
+                if (conn.State == System.Data.ConnectionState.Closed) conn.Open();
 
                 SqlCommand command = new SqlCommand(@"SELECT OrderFullname, OrderPhone, " +
                     "OrderAddress, OrderNote, OrderDate, " +
@@ -212,7 +210,7 @@ namespace BookShop.Service
                 Order order = this.FindByID(id);
                 List<OrderDetail> listDetail = this.FindDetailByOrderID(id);
 
-                if (conn != null || conn.State == System.Data.ConnectionState.Closed) conn.Open();
+                if (conn.State == System.Data.ConnectionState.Closed) conn.Open();
                 SqlTransaction transaction = conn.BeginTransaction();
 
                 SqlCommand command = new SqlCommand("UPDATE tblOrder SET OrderStatus = @status, OrderAccountModified = @username WHERE OrderID = @id", conn);

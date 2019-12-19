@@ -14,7 +14,7 @@ namespace BookShop.Service
 
         private void CloseConnection()
         {
-            if (conn != null) conn.Close();
+            if (conn.State != System.Data.ConnectionState.Closed) conn.Close();
         }
 
         public List<Book> ListAllBook()
@@ -22,7 +22,7 @@ namespace BookShop.Service
             List<Book> listBook = null;
             try
             {
-                conn.Open();
+                if (conn.State == System.Data.ConnectionState.Closed) conn.Open();
 
                 SqlCommand sql = new SqlCommand("SELECT BookID,BookDescription, BookDateEstablished, BookOrgEstablished, " +
                 "BookDimensions, BookTitle, BookAuthor, BookImage, BookPrice, " +
@@ -90,7 +90,7 @@ namespace BookShop.Service
             List<Book> listBook = null;
             try
             {
-                conn.Open();
+                if (conn.State == System.Data.ConnectionState.Closed) conn.Open();
 
                 SqlCommand command = new SqlCommand(@"SELECT TOP 10 BookID, BookTitle, BookAuthor, BookImage, BookPrice FROM tblBook WHERE IsEnable = @isEnable ORDER BY BookID DESC", conn);
 
@@ -130,7 +130,7 @@ namespace BookShop.Service
 
         public Book SeeBookDetail(int ID)
         {
-            conn.Open();
+            if (conn.State == System.Data.ConnectionState.Closed) conn.Open();
             SqlCommand sql = new SqlCommand("SELECT BookDescription, BookDateEstablished, BookOrgEstablished, " +
                 "BookDimensions, BookTitle, BookAuthor, BookImage, BookPrice, " +
                 "BookWeight, BookLength, BookCategoryID, BookQuantity, " +
@@ -176,7 +176,8 @@ namespace BookShop.Service
 
         public Book FindBookBy(int ID)
         {
-            if (conn != null || conn.State == System.Data.ConnectionState.Closed) conn.Open();
+            if (conn.State == System.Data.ConnectionState.Closed) conn.Open();
+
             SqlCommand sql = new SqlCommand("SELECT BookDescription, BookDateEstablished, BookOrgEstablished, " +
                 "BookDimensions, BookTitle, BookAuthor, BookImage, BookPrice, " +
                 "BookWeight, BookLength, BookCategoryID, BookQuantity, " +
@@ -232,7 +233,7 @@ namespace BookShop.Service
             List<Book> listBook = null;
             try
             {
-                conn.Open();
+                if (conn.State == System.Data.ConnectionState.Closed) conn.Open();
 
                 SqlCommand command = new SqlCommand(@"SELECT BookID, BookTitle, BookAuthor, BookImage, BookPrice FROM tblBook WHERE IsEnable = @isEnable AND BookCategoryID = @categoryID ORDER BY BookID DESC", conn);
 
@@ -279,7 +280,7 @@ namespace BookShop.Service
             List<Book> listBook = null;
             try
             {
-                conn.Open();
+                if (conn.State == System.Data.ConnectionState.Closed) conn.Open();
 
                 SqlCommand command = new SqlCommand(@"SELECT BookID, BookTitle, BookAuthor, BookImage, BookPrice FROM tblBook WHERE IsEnable = @isEnable AND BookTitle LIKE @search ORDER BY BookID DESC", conn);
 
@@ -326,7 +327,7 @@ namespace BookShop.Service
             int id = -1;
             try
             {
-                conn.Open();
+                if (conn.State == System.Data.ConnectionState.Closed) conn.Open();
                 SqlCommand command = new SqlCommand(@"INSERT INTO " +
                     "tblBook(BookTitle, BookDescription, BookDateEstablished, " +
                     "BookOrgEstablished, BookDimensions, BookWeight, " +
@@ -379,7 +380,7 @@ namespace BookShop.Service
             bool flag = false;
             try
             {
-                conn.Open();
+                if (conn.State == System.Data.ConnectionState.Closed) conn.Open();
                 SqlCommand command = new SqlCommand(@"UPDATE tblBook " +
                     "SET BookTitle = @title, " +
                     "BookDescription = @description, " +
@@ -440,7 +441,7 @@ namespace BookShop.Service
         {
             try
             {
-                conn.Open();
+                if (conn.State == System.Data.ConnectionState.Closed) conn.Open();
                 SqlCommand command = new SqlCommand(@"UPDATE tblBook SET BookImage = @image WHERE BookID = @id", conn);
 
                 command.Parameters.Add("@image", System.Data.SqlDbType.VarChar);
@@ -462,7 +463,7 @@ namespace BookShop.Service
             bool flag = false;
             try
             {
-                conn.Open();
+                if (conn.State == System.Data.ConnectionState.Closed) conn.Open();
 
                 SqlCommand command = new SqlCommand(@"UPDATE tblBook SET IsEnable = @isEnable WHERE BookID = @bookID", conn);
                 command.Parameters.Add("@isEnable", System.Data.SqlDbType.Bit);
@@ -482,8 +483,15 @@ namespace BookShop.Service
         public List<Book> GetTop10BookBestSeller()
         {
             List<Book> list;
-            conn.Open();
-            SqlCommand sql = new SqlCommand("select od.BookID as ID,BookImage,BookTitle,sum(DetailQuantity) as Total from  tblOrderDetail od, tblBook b where od.BookID = b.BookID group by od.bookID,BookTitle,BookImage order by Total DESC", conn);
+            if (conn.State == System.Data.ConnectionState.Closed) conn.Open();
+            SqlCommand sql = new SqlCommand("select od.BookID as ID,BookImage," +
+                "b.BookPrice as price, BookAuthor," +
+                "BookTitle,sum(DetailQuantity) as Total " +
+                "from  tblOrderDetail od, tblBook b " +
+                "where od.BookID = b.BookID " +
+                "group by od.bookID,BookTitle," +
+                "BookImage,b.BookPrice,BookAuthor " +
+                "order by Total DESC", conn);
             Book book = null;
             SqlDataReader reader = sql.ExecuteReader();
             list = new List<Book>();
@@ -493,7 +501,11 @@ namespace BookShop.Service
                 string img = reader["BookImage"].ToString();
                 string name = reader["BookTitle"].ToString();
                 int num = int.Parse(reader["Total"].ToString());
+                string author = reader["BookAuthor"].ToString();
+                long price = long.Parse(reader["price"].ToString());
                 book = new Book(id, name, img, num);
+                book.BookPrice = price;
+                book.BookAuthor = author;
                 list.Add(book);
             }
             CloseConnection();

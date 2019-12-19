@@ -282,28 +282,25 @@
                                         </div>
                                     </div>
                                     <div class="slick-slide slick-current slick-active" data-slick-index="2" aria-hidden="true"
-                                        style="width: 370px;" tabindex="-1">
+                                        style="width: 370px; padding: 50px" tabindex="-1">
                                         <div>
                                             <div class="single-slide" style="width: 100%; display: inline-block;">
                                                 <div class="product-card card-style-list">
                                                     <div class="card-image">
-                                                        <img src="./Pustok - Book Store HTML Template_files/product-5.jpg"
+                                                        <img src="./image/book/<%= this.top2Book[0].BookImage %>"
                                                             alt="">
                                                     </div>
                                                     <div class="product-card--body">
                                                         <div class="product-header">
-                                                            <a href="https://demo.hasthemes.com/pustok-preview/pustok/index-2.html?fbclid=IwAR2V6wSh1esb586huEY7vL5dIhA42KcrP7fH-Trojvh1TjMtVWl3sl8sy6M"
+                                                            <a href="Detail.aspx?ID=<%= top2Book[0].BookID %>"
                                                                 class="author" tabindex="-1">
-                                                                Ypple
+                                                                <%= top2Book[0].BookAuthor %>
                                                             </a>
-                                                            <h3><a href="https://demo.hasthemes.com/pustok-preview/pustok/product-details.html"
-                                                                    tabindex="-1">BOOK: Do You Really Need It? This Will
-                                                                    Help You</a></h3>
+                                                            <h3><a href="Detail.aspx?ID=<%= top2Book[0].BookID %>"
+                                                                    tabindex="-1"><%= top2Book[0].BookTitle %></a></h3>
                                                         </div>
                                                         <div class="price-block">
-                                                            <span class="price">£51.20</span>
-                                                            <del class="price-old">£51.20</del>
-                                                            <span class="price-discount">20%</span>
+                                                            <span class="price"><%= top2Book[0].BookPrice %>$</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -313,24 +310,20 @@
                                             <div class="single-slide" style="width: 100%; display: inline-block;">
                                                 <div class="product-card card-style-list">
                                                     <div class="card-image">
-                                                        <img src="./Pustok - Book Store HTML Template_files/product-7.jpg"
+                                                        <img src="./image/book/<%= this.top2Book[1].BookImage %>"
                                                             alt="">
                                                     </div>
                                                     <div class="product-card--body">
                                                         <div class="product-header">
-                                                            <a href="https://demo.hasthemes.com/pustok-preview/pustok/index-2.html?fbclid=IwAR2V6wSh1esb586huEY7vL5dIhA42KcrP7fH-Trojvh1TjMtVWl3sl8sy6M"
+                                                            <a href="Detail.aspx?ID=<%= top2Book[1].BookID %>"
                                                                 class="author" tabindex="-1">
-                                                                Wpple
+                                                                <%= top2Book[1].BookAuthor %>
                                                             </a>
-                                                            <h3><a href="https://demo.hasthemes.com/pustok-preview/pustok/product-details.html"
-                                                                    tabindex="-1">Here Is A Quick Cure For BOOK This
-                                                                    Will
-                                                                    Help</a></h3>
+                                                            <h3><a href="Detail.aspx?ID=<%= top2Book[1].BookID %>"
+                                                                    tabindex="-1"><%= top2Book[1].BookTitle %></a></h3>
                                                         </div>
                                                         <div class="price-block">
-                                                            <span class="price">£51.20</span>
-                                                            <del class="price-old">£51.20</del>
-                                                            <span class="price-discount">20%</span>
+                                                            <span class="price"><%= top2Book[1].BookPrice %>$</span>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -19,6 +19,7 @@ namespace BookShop
         public Cart cart;
         public Book book;
         public Category menuCategory;
+        public List<Book> top2Book;
         
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,6 +29,7 @@ namespace BookShop
                 listBook = service.ListTop10Book();
                 listMenuCategory = (new CategoryService()).GetAllCategory();
                 cart = (Cart)Session["Cart"];
+                top2Book = service.GetTop10BookBestSeller();
             }
             catch (Exception ex)
             {

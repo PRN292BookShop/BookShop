@@ -13,12 +13,12 @@ namespace BookShop.Service
 
         private void CloseConnection()
         {
-            if (conn != null) conn.Close();
+            if (conn.State != System.Data.ConnectionState.Closed) conn.Close();
         }
 
         public Status FindByID(int id)
         {
-            if (conn != null || conn.State == System.Data.ConnectionState.Closed) conn.Open();
+            if (conn.State == System.Data.ConnectionState.Closed) conn.Open();
 
             Status st = null;
             SqlCommand sql = new SqlCommand(@"SELECT StatusDescription from tblStatus where StatusID =" + id + "", conn);

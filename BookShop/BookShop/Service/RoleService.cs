@@ -14,12 +14,12 @@ namespace BookShop.Service
 
         private void CloseConnection()
         {
-            if (conn != null) conn.Close();
+            if (conn.State != System.Data.ConnectionState.Closed) conn.Close();
         }
 
         public Role FindRoleByID(int id)
         {
-            conn.Open();
+            if (conn.State == System.Data.ConnectionState.Closed) conn.Open();
             Role role = null;
             SqlCommand command = new SqlCommand(@"SELECT RoleName FROM tblRole WHERE RoleID = " + id, conn);
 
