@@ -72,7 +72,7 @@
                                                 Shopping Cart
                                             </span>
                                             <span class="price">
-                                                <%= cart != null ? cart.TotalPrice : 0 %>
+                                                <%= cart != null ? cart.TotalPrice : 0 %>$
                                                 <i class="fas fa-chevron-down"></i>
                                             </span>
                                         </div>
@@ -93,7 +93,7 @@
                                                                 <h3 class="title">
                                                                     <a href="Detail.aspx?ID=<%= book.BookID %>"><%= book.BookTitle %></a>
                                                                 </h3>
-                                                                <p class="price"><span class="qty"> <%= cart.Carts[id] %> ×</span> <%= book.BookPrice %></p>
+                                                                <p class="price"><span class="qty"> <%= cart.Carts[id] %> ×</span> <%= book.BookPrice %>$</p>
                                                                 <a href="RemoveFromCart.aspx?BookID=<%= book.BookID %>"><button class="cross-btn"><i class="fas fa-times"></i></button></a>
                                                             </div>
                                                         </div>                                                  

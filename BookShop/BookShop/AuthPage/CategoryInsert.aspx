@@ -48,7 +48,7 @@
 
             <div class="sidebar-wrapper">
                 <div class="logo">
-                    <span class="simple-text">Book Shop
+                    <span class="simple-text">Pustok Bookstore
                     </span>
                 </div>
 

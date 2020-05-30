@@ -52,7 +52,7 @@
             <div class="sidebar-wrapper">
                 <div class="logo">
                     <span class="simple-text">
-                        Book Shop
+                        Pustok Bookstore
                     </span>
                 </div>
 
